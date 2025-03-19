@@ -6,17 +6,16 @@ const HeroSection = () => {
   return (
     <div className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-doc-blue-light/30 to-white/90">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="space-y-8 max-w-2xl">
             <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full py-1.5 px-4 shadow-sm">
-              <span className="bg-doc-blue text-white text-xs font-semibold py-0.5 px-2 rounded-full mr-2">NEW</span>
-              <span className="text-sm text-doc-black">More than patient education</span>
+              <span className="text-sm text-doc-black font-medium">For Doctors & Clinics</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
-              <span className="block">Doctor-Driven.</span>
-              <span className="block">Effortless.</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-doc-blue to-doc-blue-dark">Instant.</span>
+              <span className="block">More than</span>
+              <span className="block">patient education.</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-doc-blue to-doc-blue-dark">Doctor-Driven. Effortless. Instant.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">
@@ -50,64 +49,48 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-0 bg-gradient-to-tr from-doc-blue-light/30 to-transparent rounded-3xl transform rotate-3 opacity-70"></div>
-            <div className="relative bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden">
-              <div className="bg-doc-blue text-white p-4 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Camera className="w-5 h-5" />
-                  <span className="font-medium">Recording Studio</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          <div className="relative w-full lg:w-auto">
+            <div className="platform-visual-wrapper perspective-900 w-full max-w-[40rem] mx-auto">
+              <img 
+                src="/lovable-uploads/a5f840a4-b821-4913-b17a-34e3533fd6d5.png" 
+                alt="Doc2Me platform interface"
+                className="w-full h-auto z-10 relative transform rotate-2 shadow-2xl rounded-xl animate-float"
+              />
+              
+              {/* Floating elements */}
+              <div className="absolute -top-8 -right-4 bg-white p-4 rounded-xl shadow-glass border border-gray-100 z-20 animate-float-delayed">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="bg-doc-blue text-white p-2 rounded-lg">
+                    <Camera className="w-5 h-5" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Content session</span>
                 </div>
               </div>
-              <div className="p-6 pb-0">
-                <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center mb-4 overflow-hidden relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070" 
-                    alt="Doctor recording video"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white/30 transition-colors">
-                      <Play className="w-6 h-6 text-white" fill="white" />
-                    </div>
+              
+              <div className="absolute bottom-16 -left-6 bg-white p-4 rounded-xl shadow-glass border border-gray-100 z-20 animate-float-delay-200">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="bg-doc-blue-light text-doc-blue p-2 rounded-lg">
+                    <MessageCircle className="w-5 h-5" />
                   </div>
-                </div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex gap-2">
-                    <div className="bg-doc-blue-light text-doc-blue text-xs font-medium py-1 px-2 rounded">
-                      Diabetes Management
-                    </div>
-                    <div className="bg-gray-100 text-gray-600 text-xs font-medium py-1 px-2 rounded">
-                      2:34
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-400 text-sm">
-                    <ThumbsUp className="w-4 h-4" />
-                    <span>98%</span>
-                    <MessageCircle className="w-4 h-4 ml-2" />
-                    <span>12</span>
-                  </div>
-                </div>
-                <h3 className="font-medium mb-4">Managing blood sugar levels between appointments</h3>
-              </div>
-              <div className="bg-gradient-to-t from-white to-transparent h-24 absolute bottom-0 left-0 right-0"></div>
-            </div>
-
-            <div className="absolute bottom-12 -right-8 bg-white p-4 rounded-xl shadow-glass border border-gray-100 animate-float">
-              <div className="flex items-start gap-3">
-                <div className="bg-green-500/10 p-2 rounded-lg">
-                  <ThumbsUp className="w-5 h-5 text-green-500" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Patient engagement up 78%</p>
-                  <p className="text-xs text-gray-500">Since implementing Doc2Me</p>
+                  <span className="font-medium whitespace-nowrap">Share with patients</span>
                 </div>
               </div>
+              
+              <div className="absolute -bottom-4 right-16 bg-white p-4 rounded-xl shadow-glass border border-gray-100 z-20 animate-float-delay-300">
+                <div className="flex items-start gap-3">
+                  <div className="bg-green-500/10 p-2 rounded-lg">
+                    <ThumbsUp className="w-5 h-5 text-green-500" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Patient engagement up 78%</p>
+                    <p className="text-xs text-gray-500">Since implementing Doc2Me</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Glowing orbs */}
+              <div className="absolute -z-10 w-40 h-40 rounded-full bg-blue-400/30 blur-3xl top-1/2 -translate-y-1/2 left-1/4"></div>
+              <div className="absolute -z-10 w-60 h-60 rounded-full bg-purple-400/20 blur-3xl bottom-0 right-0"></div>
             </div>
           </div>
         </div>

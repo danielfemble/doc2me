@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    // Initialize animation observers or any other effects
+    // Initialize animation observers for feature cards
     const featureCards = document.querySelectorAll('.feature-card');
     
     const observer = new IntersectionObserver((entries) => {
@@ -30,10 +30,29 @@ const Index = () => {
       observer.observe(card);
     });
     
+    // Add 3D tilt effect to platform visual
+    const platformVisual = document.querySelector('.platform-visual-wrapper');
+    if (platformVisual) {
+      document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate rotation based on mouse position
+        const xRotation = (clientY / windowHeight - 0.5) * 5; // Max 5deg
+        const yRotation = (clientX / windowWidth - 0.5) * -5; // Max 5deg
+        
+        // Apply the rotation transform
+        platformVisual.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+      });
+    }
+    
     return () => {
       featureCards.forEach(card => {
         observer.unobserve(card);
       });
+      
+      document.removeEventListener('mousemove', () => {});
     };
   }, []);
   

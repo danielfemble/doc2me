@@ -31,7 +31,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                     {/* Grouped Doc2Me branding with Fallopian tube visualization on right bottom corner */}
                     <div className="absolute bottom-12 right-4 z-20">
                       {/* Fallopian tube visualization with overlay */}
-                      <div className="relative w-52 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                      <div className="relative w-52 h-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                         <img 
                           src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                           alt="Fallopian tube visualization"

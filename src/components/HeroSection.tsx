@@ -2,6 +2,7 @@
 import HeadlineSection from "./hero/HeadlineSection";
 import TestimonialBadge from "./hero/TestimonialBadge";
 import PlatformVisual from "./hero/PlatformVisual";
+import ExplanationSection from "./hero/ExplanationSection";
 
 const HeroSection = () => {
   return (
@@ -14,6 +15,9 @@ const HeroSection = () => {
           </div>
           <PlatformVisual />
         </div>
+        
+        {/* Added explanation section below the header */}
+        <ExplanationSection />
       </div>
     </div>
   );

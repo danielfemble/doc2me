@@ -65,7 +65,7 @@ const HeroSection = () => {
                           {/* Overlay with Doc2Me enhanced visuals */}
                           <div className="absolute top-12 right-8 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                             <img 
-                              src="https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2013/11/15/17/35/ds00716_-ds00718_-ds00972_-ds01219_im00435_r7_fallopianthu_jpg.jpg" 
+                              src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                               alt="Fallopian tube visualization"
                               className="w-full h-full object-cover"
                             />

@@ -41,7 +41,7 @@ const HeroSection = () => {
                   </div>
                 ))}
               </div>
-              <span>Trusted by <b>500+</b> fertility specialists</span>
+              <span>Trusted by <b>leading doctors</b></span>
             </div>
           </div>
 

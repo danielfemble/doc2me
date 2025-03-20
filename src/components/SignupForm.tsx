@@ -14,6 +14,7 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "sonner";
+import { sendToGoogleSheets } from "@/utils/googleSheets";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -25,6 +26,7 @@ const formSchema = z.object({
   clinic: z.string().min(1, {
     message: "Please enter your clinic or practice name.",
   }),
+  sheetsUrl: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -38,6 +40,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
       name: "",
       email: "",
       clinic: "",
+      sheetsUrl: "",
     },
   });
 
@@ -45,16 +48,42 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, this would send data to your backend
-      console.log("Form submitted:", data);
+      // Get the Google Sheets URL (either from the form or from localStorage)
+      const sheetsUrl = data.sheetsUrl || localStorage.getItem('googleSheetsUrl') || '';
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Save the URL to localStorage for future use if provided
+      if (data.sheetsUrl) {
+        localStorage.setItem('googleSheetsUrl', data.sheetsUrl);
+      }
       
-      toast.success("Sign-up successful! We'll be in touch soon.");
-      
-      if (onSuccess) {
-        onSuccess();
+      if (sheetsUrl) {
+        // Send data to Google Sheets
+        const success = await sendToGoogleSheets(
+          { name: data.name, email: data.email, clinic: data.clinic },
+          sheetsUrl
+        );
+        
+        if (success) {
+          toast.success("Sign-up successful! We'll be in touch soon.");
+          
+          if (onSuccess) {
+            onSuccess();
+          }
+        } else {
+          toast.error("Failed to save your information. Please try again.");
+        }
+      } else {
+        // Fallback to simulated success if no Google Sheets URL is provided
+        console.log("No Google Sheets URL provided. Form data:", data);
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        toast.success("Sign-up successful! We'll be in touch soon.");
+        
+        if (onSuccess) {
+          onSuccess();
+        }
       }
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
@@ -103,6 +132,24 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
               <FormLabel>Clinic or Practice Name</FormLabel>
               <FormControl>
                 <Input placeholder="City Medical Center" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="sheetsUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Google Sheets URL (Optional)</FormLabel>
+              <FormControl>
+                <Input 
+                  placeholder="Your Google Apps Script Web App URL" 
+                  {...field} 
+                  defaultValue={localStorage.getItem('googleSheetsUrl') || ''}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

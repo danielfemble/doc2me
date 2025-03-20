@@ -15,7 +15,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
         <div className="relative mx-auto">
           {/* Main content display */}
           <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
-            {/* Main interface with doctor - maximized aspect ratio */}
+            {/* Main interface with doctor */}
             <div className="relative w-full aspect-video bg-gray-100">
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
@@ -24,30 +24,6 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                   alt="Doctor recording educational content"
                   className="w-full h-full object-cover"
                 />
-                
-                {/* UI overlay elements */}
-                <div className="absolute top-0 left-0 w-full p-4 bg-gradient-to-b from-black/40 to-transparent">
-                  <div className="flex items-center">
-                    <div className="flex items-center">
-                      <span className="text-white text-sm font-medium ml-2">Understanding the Menstrual Cycle</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Recording indicator */}
-                <div className="absolute bottom-4 left-4 flex items-center">
-                  <div className="flex items-center bg-black/70 rounded-full py-1 px-3">
-                    <div className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></div>
-                    <span className="text-xs text-white">03:08</span>
-                  </div>
-                </div>
-                
-                {/* Done button */}
-                <div className="absolute bottom-4 right-4">
-                  <button className="bg-[#0271e5] text-white text-sm font-medium py-1 px-4 rounded-md">
-                    Done
-                  </button>
-                </div>
               </div>
             </div>
           </div>

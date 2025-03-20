@@ -21,7 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -74,6 +74,8 @@ export default {
 					black: '#1A1F2C',
 					gray: '#8E9196',
 					'gray-light': '#F6F7F9',
+					purple: '#8B5CF6',
+					'purple-light': '#D6BCFA',
 				}
 			},
 			borderRadius: {
@@ -134,11 +136,13 @@ export default {
 				'slide-from-left': 'slide-from-left 0.5s ease-out forwards',
 				'slide-from-right': 'slide-from-right 0.5s ease-out forwards',
 				'slide-from-bottom': 'slide-from-bottom 0.5s ease-out forwards',
+				'glow': 'glow 1.5s ease-in-out infinite alternate',
 			},
 			boxShadow: {
 				'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
 				'glass': '0 8px 32px rgba(0, 0, 0, 0.06)',
 				'feature': '0 10px 40px rgba(0, 0, 0, 0.08)',
+				'neon': '0 0 15px rgba(14, 165, 233, 0.3), 0 5px 20px rgba(0, 0, 0, 0.1)',
 			},
 			backdropBlur: {
 				'xs': '2px',

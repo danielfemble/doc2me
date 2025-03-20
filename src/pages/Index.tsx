@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
 import FeatureSection from '@/components/FeatureSection';
@@ -33,6 +33,8 @@ const Index = () => {
     // Add 3D tilt effect to platform visual
     const platformVisual = document.querySelector('.platform-visual-wrapper');
     if (platformVisual) {
+      const platformVisualElement = platformVisual as HTMLElement;
+      
       document.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
         const windowWidth = window.innerWidth;
@@ -43,7 +45,7 @@ const Index = () => {
         const yRotation = (clientX / windowWidth - 0.5) * -5; // Max 5deg
         
         // Apply the rotation transform
-        platformVisual.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+        platformVisualElement.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
       });
     }
     
@@ -57,9 +59,14 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-doc-blue-light/10 to-white/90 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full z-0 bg-grid-pattern opacity-30"></div>
+      <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-96 h-96 rounded-full bg-doc-blue/10 blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-purple-400/10 blur-3xl"></div>
+      </div>
       <NavBar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <FeatureSection />
         <HowItWorks />

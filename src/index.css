@@ -1,4 +1,6 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -100,8 +102,19 @@
   }
 }
 
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 122, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 .glass-card {
   @apply bg-white/90 backdrop-blur-lg border border-white/20 shadow-glass;
+}
+
+.neo-glass {
+  @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-neon;
 }
 
 .glass-nav {
@@ -110,11 +123,11 @@
 }
 
 .feature-card {
-  @apply bg-white rounded-2xl p-8 shadow-feature transition-all duration-300;
+  @apply bg-white/90 backdrop-blur-lg rounded-2xl p-8 shadow-feature transition-all duration-300 border border-white/50;
 }
 
 .feature-card:hover {
-  @apply shadow-lg transform -translate-y-1;
+  @apply shadow-feature-hover transform -translate-y-1 border-doc-blue/20;
 }
 
 .feature-icon {
@@ -122,7 +135,7 @@
 }
 
 .btn-primary {
-  @apply px-6 py-3 bg-doc-blue text-white rounded-lg hover:bg-doc-blue-dark transition-all duration-300 font-medium shadow-sm;
+  @apply px-6 py-3 bg-gradient-to-r from-doc-blue to-doc-blue-dark text-white rounded-lg hover:from-doc-blue-dark hover:to-doc-blue transition-all duration-300 font-medium shadow-sm;
 }
 
 .btn-secondary {
@@ -179,7 +192,7 @@
 }
 
 .testimonial-card {
-  @apply bg-white p-6 rounded-2xl shadow-soft border border-gray-100;
+  @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-soft border border-white/50;
 }
 
 .line-clamp-3 {
@@ -210,4 +223,12 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+.shadow-neon {
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.2), 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-feature-hover {
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1);
 }

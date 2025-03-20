@@ -8,6 +8,13 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 // Check if environment variables are set
 const hasSupabaseConfig = supabaseUrl && supabaseKey;
 
+// Add more detailed logging
+console.log('Supabase configuration status:', {
+  hasUrl: !!supabaseUrl,
+  hasKey: !!supabaseKey,
+  isConfigComplete: hasSupabaseConfig
+});
+
 if (!hasSupabaseConfig) {
   console.warn('Supabase environment variables not found. Fallback mode enabled.');
 }
@@ -41,6 +48,8 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
       return true;
     }
 
+    console.log('Attempting to send data to Supabase...');
+    
     // Insert the data into the signups table
     const { error } = await supabase
       .from('signups')

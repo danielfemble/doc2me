@@ -46,7 +46,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
-      // Send data to Supabase
+      // Send data to Supabase (or fallback mode if not configured)
       const success = await sendToSupabase({
         name: data.name,
         email: data.email,

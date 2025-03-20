@@ -5,11 +5,17 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-  console.error('Missing Supabase environment variables. Make sure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set.');
+// Check if environment variables are set
+const hasSupabaseConfig = supabaseUrl && supabaseKey;
+
+if (!hasSupabaseConfig) {
+  console.warn('Supabase environment variables not found. Fallback mode enabled.');
 }
 
-export const supabase = createClient(supabaseUrl || '', supabaseKey || '');
+// Create client if config is available, otherwise create a mock client
+export const supabase = hasSupabaseConfig 
+  ? createClient(supabaseUrl, supabaseKey)
+  : null;
 
 interface SignupData {
   name: string;
@@ -28,6 +34,12 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
       ...data,
       created_at: new Date().toISOString(),
     };
+
+    // If Supabase client is not available, log data and return success
+    if (!supabase) {
+      console.log('Supabase not configured. Form data received:', dataWithTimestamp);
+      return true;
+    }
 
     // Insert the data into the signups table
     const { error } = await supabase

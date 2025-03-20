@@ -1,6 +1,6 @@
 
 import { useRef, useEffect, useState } from 'react';
-import { Star, ArrowLeft, ArrowRight, Baby, Microscope, Clock, Dna } from 'lucide-react';
+import { Star, ArrowLeft, ArrowRight, Baby, Microscope, Clock, Dna, Heart, Activity } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
   {
     id: 3,
     name: 'Dr. Emily Johnson',
-    role: 'Reproductive Surgeon',
+    role: 'Reproductive Endocrinologist',
     image: 'https://randomuser.me/api/portraits/women/3.jpg',
     rating: 5,
     testimonial: "Explaining endometriosis treatment options used to take multiple appointments. Now I record personalized videos for each patient's specific case. My patients appreciate having a resource they can review with their partners at home.",
@@ -46,23 +46,23 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 4,
-    name: 'Dr. James Wilson',
-    role: 'Fertility Clinic Director',
-    image: 'https://randomuser.me/api/portraits/men/4.jpg',
+    name: 'Dr. Jennifer Torres',
+    role: 'Rehabilitation Center Director',
+    image: 'https://randomuser.me/api/portraits/women/8.jpg',
     rating: 5,
-    testimonial: "Our clinic has seen a 38% improvement in treatment compliance since implementing Doc2Me. The personalized video explanations for medication protocols have significantly reduced patient errors and improved outcomes.",
-    specialty: 'Fertility Preservation',
-    icon: <Clock className="w-5 h-5" />
+    testimonial: "Our rehabilitation center has integrated Doc2Me to help patients understand their recovery journey. The personalized videos have improved therapy adherence by 42% and patients report feeling more confident in their at-home exercises.",
+    specialty: 'Physical Rehabilitation',
+    icon: <Activity className="w-5 h-5" />
   },
   {
     id: 5,
-    name: 'Dr. Lisa Martinez',
+    name: 'Dr. David Kim',
     role: 'Reproductive Immunologist',
-    image: 'https://randomuser.me/api/portraits/women/5.jpg',
+    image: 'https://randomuser.me/api/portraits/men/9.jpg',
     rating: 5,
     testimonial: "Explaining complex immunological factors in fertility is challenging in a short appointment. Doc2Me allows me to create detailed videos about immunological testing and treatments that patients can review multiple times.",
     specialty: 'Recurrent Pregnancy Loss',
-    icon: <Dna className="w-5 h-5" />
+    icon: <Heart className="w-5 h-5" />
   },
 ];
 

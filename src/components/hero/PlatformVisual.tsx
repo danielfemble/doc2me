@@ -11,12 +11,12 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="platform-visual-wrapper perspective-900 max-w-full mx-auto">
+      <div className="platform-visual-wrapper perspective-900 max-w-5xl mx-auto">
         <div className="relative mx-auto">
           {/* Main content display */}
           <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
-            {/* Main interface with doctor */}
-            <div className="relative w-full aspect-[4/3] md:aspect-[16/9] bg-gray-100">
+            {/* Main interface with doctor - improved aspect ratio for better viewing */}
+            <div className="relative w-full aspect-video md:aspect-[16/9] bg-gray-100">
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
                 <img 
@@ -28,10 +28,10 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Moved fallopian tube visualization to bottom right corner, above the AI-powered content */}
+                    {/* Enlarged fallopian tube visualization */}
                     <div className="absolute bottom-40 right-12 z-20">
                       {/* Fallopian tube visualization with overlay */}
-                      <div className="relative w-72 h-52 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                      <div className="relative w-80 h-60 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                         <img 
                           src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                           alt="Fallopian tube visualization"
@@ -70,10 +70,10 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
           </div>
           
-          {/* Only show these floating elements on desktop - Clear positioning on sides */}
+          {/* Only show these floating elements on desktop - Adjusted positioning for new layout */}
           {!isMobile && (
             <>
-              {/* AI Content Creation - Far right top corner */}
+              {/* AI Content Creation - Right top */}
               <div className="absolute -top-16 right-24 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -83,7 +83,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - Far left */}
+              {/* Share with patients - Left */}
               <div className="absolute top-1/4 -left-12 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">

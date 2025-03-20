@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Stethoscope, BrainCircuit, Broadcast } from "lucide-react";
+import { Stethoscope, BrainCircuit, Megaphone } from "lucide-react";
 
 const ExplanationSection = () => {
   return (
@@ -32,7 +32,7 @@ const ExplanationSection = () => {
         
         <div className="flex flex-col items-center text-center space-y-3">
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue-dark to-doc-blue flex items-center justify-center text-white">
-            <Broadcast className="w-6 h-6" />
+            <Megaphone className="w-6 h-6" />
           </div>
           <h4 className="font-semibold text-doc-black">From Doctors to Patients</h4>
           <p className="text-doc-gray">

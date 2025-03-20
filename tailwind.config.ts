@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,7 +20,6 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
-				display: ['Space Grotesk', 'SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -96,6 +94,10 @@ export default {
 					'0%': { opacity: '0', transform: 'translateY(10px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
+				'fade-in-slow': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
 				'fade-out': {
 					'0%': { opacity: '1', transform: 'translateY(0)' },
 					'100%': { opacity: '0', transform: 'translateY(10px)' }
@@ -129,10 +131,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-in-slow': 'fade-in 0.8s ease-out forwards',
+				'fade-in-slow': 'fade-in-slow 0.8s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite alternate',
 				'slide-from-left': 'slide-from-left 0.5s ease-out forwards',
 				'slide-from-right': 'slide-from-right 0.5s ease-out forwards',
 				'slide-from-bottom': 'slide-from-bottom 0.5s ease-out forwards',

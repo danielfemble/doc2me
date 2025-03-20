@@ -15,7 +15,7 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
               <span className="block">More than</span>
               <span className="block">patient education.</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark animate-pulse-slow">Doctor-Driven. Effortless. Instant.</span>
+              <span className="text-doc-blue animate-pulse-slow">Doctor-Driven. Effortless. Instant.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">

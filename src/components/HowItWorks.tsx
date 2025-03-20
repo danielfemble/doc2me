@@ -93,7 +93,7 @@ const HowItWorks = () => {
             </div>
             <h3 className="text-xl font-semibold mb-3 text-doc-black">Share Instantly</h3>
             <p className="text-doc-gray mb-6">
-              Share your enhanced content with patients instantly via secure link, email, or integrate with your EMR.
+              Decide what to share so that new patients can discover you and what's exclusive to existing patients.
             </p>
             <div className="mt-auto">
               <Button variant="outline" className="rounded-full">

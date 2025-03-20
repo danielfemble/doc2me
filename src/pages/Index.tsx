@@ -30,7 +30,7 @@ const Index = () => {
       observer.observe(card);
     });
     
-    // Add 3D tilt effect to platform visual
+    // Add subtle 3D tilt effect to platform visual
     const platformVisual = document.querySelector('.platform-visual-wrapper');
     if (platformVisual) {
       const platformVisualElement = platformVisual as HTMLElement;
@@ -40,12 +40,19 @@ const Index = () => {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         
-        // Calculate rotation based on mouse position
-        const xRotation = (clientY / windowHeight - 0.5) * 8; // Increased to 8deg for more dramatic effect
-        const yRotation = (clientX / windowWidth - 0.5) * -8; // Increased to 8deg for more dramatic effect
+        // Calculate rotation based on mouse position (reduced intensity for subtlety)
+        const xRotation = (clientY / windowHeight - 0.5) * 5; // Reduced from 8 to 5 
+        const yRotation = (clientX / windowWidth - 0.5) * -5; // Reduced from 8 to 5
         
-        // Apply the rotation transform
+        // Apply the rotation transform with smooth transition
+        platformVisualElement.style.transition = 'transform 0.2s ease-out';
         platformVisualElement.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+      });
+      
+      // Reset transform when mouse leaves
+      document.addEventListener('mouseleave', () => {
+        platformVisualElement.style.transition = 'transform 0.5s ease-out';
+        platformVisualElement.style.transform = 'rotateX(0deg) rotateY(0deg)';
       });
     }
 
@@ -71,6 +78,7 @@ const Index = () => {
       });
       
       document.removeEventListener('mousemove', () => {});
+      document.removeEventListener('mouseleave', () => {});
     };
   }, []);
   

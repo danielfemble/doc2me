@@ -30,19 +30,18 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                   <>
                     {/* Grouped Doc2Me branding with Fallopian tube visualization on right bottom corner */}
                     <div className="absolute bottom-12 right-4 z-20">
-                      {/* Doc2Me branding overlay on top */}
-                      <div className="bg-white/90 rounded-md py-1 px-2 mb-1 ml-auto" style={{ width: 'fit-content' }}>
-                        <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
-                        <span className="text-xs text-gray-600 ml-1">Enhanced</span>
-                      </div>
-                      
-                      {/* Fallopian tube visualization underneath, slightly overlapped */}
-                      <div className="w-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 -mt-1">
+                      {/* Fallopian tube visualization with overlay */}
+                      <div className="relative w-52 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                         <img 
                           src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                           alt="Fallopian tube visualization"
                           className="w-full h-full object-cover"
                         />
+                        {/* Doc2Me branding overlay on top right of the fallopian tube image */}
+                        <div className="absolute top-2 right-2 bg-white/90 rounded-md py-1 px-2 z-10">
+                          <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
+                          <span className="text-xs text-gray-600 ml-1">Enhanced</span>
+                        </div>
                         <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
                           <p className="font-medium text-center">Fallopian Tube Diagram</p>
                         </div>

@@ -62,8 +62,8 @@ const HeroSection = () => {
                             className="w-full h-full object-cover opacity-95"
                           />
                           
-                          {/* Fallopian tube visualization */}
-                          <div className="absolute top-5 right-8 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                          {/* Fallopian tube visualization - Repositioned */}
+                          <div className="absolute top-5 left-5 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                             <img 
                               src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                               alt="Fallopian tube visualization"
@@ -74,8 +74,8 @@ const HeroSection = () => {
                             </div>
                           </div>
                           
-                          {/* AI-generated content agenda for IVF */}
-                          <div className="absolute top-12 right-8 w-1/3 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
+                          {/* AI-generated content agenda for IVF - Repositioned */}
+                          <div className="absolute top-5 right-5 w-1/3 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
                             <div className="w-full h-full p-3 flex flex-col">
                               <div className="text-[#0271e5] font-semibold text-sm border-b border-gray-200 pb-1 mb-2">
                                 Content Agenda: IVF Consultation

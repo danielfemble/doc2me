@@ -16,16 +16,14 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Full-width image with gradient fadeout - positioned higher with left margin and right overflow */}
+      {/* Full-width image with gradient fadeout */}
       <div className="relative w-full overflow-hidden mt-2">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white"></div>
-        <div className="pl-6 md:pl-12 lg:pl-20">
-          <img 
-            src="/lovable-uploads/1359422e-e862-4a96-b9f6-d58cc301a3cc.png" 
-            alt="Doc2Me Platform Interface" 
-            className="w-[110%] object-cover h-[600px] md:h-[700px] lg:h-[800px]"
-          />
-        </div>
+        <img 
+          src="/lovable-uploads/1359422e-e862-4a96-b9f6-d58cc301a3cc.png" 
+          alt="Doc2Me Platform Interface" 
+          className="w-full object-cover h-[600px] md:h-[700px] lg:h-[800px]"
+        />
       </div>
       
       {/* Explanation section positioned to overlap with the fading image */}

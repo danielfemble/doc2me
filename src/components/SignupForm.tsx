@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -42,7 +43,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
         setShowFallbackWarning(!tableExists);
         
         if (!tableExists) {
-          console.warn("Supabase is connected, but the 'signups' table was not found or is not accessible");
+          console.warn("Supabase connection issue: the 'signups' table was not found or is not accessible");
         } else {
           console.log("Supabase is fully configured and working correctly");
         }
@@ -54,15 +55,6 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     
     checkConnection();
   }, []);
-
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      clinic: "",
-    },
-  });
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -92,6 +84,15 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
       setIsSubmitting(false);
     }
   };
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      clinic: "",
+    },
+  });
 
   return (
     <Form {...form}>

@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div>
             <a href="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold text-doc-black tracking-tight">
@@ -39,9 +39,6 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">About Us</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Careers</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Blog</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Press</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</a></li>
             </ul>
@@ -52,20 +49,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Features</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Security</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">For Clinics</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">For Individual Doctors</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-doc-black">Resources</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Guides</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">API Reference</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Support</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Community</a></li>
             </ul>
           </div>
         </div>

@@ -57,10 +57,22 @@ const HeroSection = () => {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative w-full h-full bg-gray-900">
                           <img 
-                            src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
+                            src="/lovable-uploads/a5f840a4-b821-4913-b17a-34e3533fd6d5.png" 
                             alt="Doctor in video call"
                             className="w-full h-full object-cover opacity-95"
                           />
+                          
+                          {/* Fallopian tube visualization */}
+                          <div className="absolute top-5 right-8 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                            <img 
+                              src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
+                              alt="Fallopian tube visualization"
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
+                              <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                            </div>
+                          </div>
                           
                           {/* AI-generated content agenda for IVF */}
                           <div className="absolute top-12 right-8 w-1/3 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">

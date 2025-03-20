@@ -13,100 +13,28 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
     <div className={`relative w-full lg:w-auto lg:flex-1 lg:flex-grow pt-8 md:pt-0 md:ml-8 ${className}`}>
       <div className="platform-visual-wrapper perspective-900 max-w-[52rem] mx-auto">
         <div className="relative mx-auto">
-          {/* Main content display */}
-          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
-            {/* Main interface with doctor */}
-            <div className="relative w-full aspect-video bg-gray-100">
-              {/* Doctor in video call */}
-              <div className="relative w-full h-full bg-gray-900">
-                <img 
-                  src="/lovable-uploads/ed5ef07e-38b3-4cb2-a66b-d486545ffa2f.png" 
-                  alt="Doctor in video call"
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* On mobile, we'll hide or simplify some of the overlay elements */}
-                {!isMobile && (
-                  <>
-                    {/* Moved fallopian tube visualization to bottom right corner, above the AI-powered content */}
-                    <div className="absolute bottom-32 right-4 z-20">
-                      {/* Fallopian tube visualization with overlay */}
-                      <div className="relative w-52 h-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
-                        <img 
-                          src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
-                          alt="Fallopian tube visualization"
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Doc2Me branding overlay on top right of the fallopian tube image */}
-                        <div className="absolute top-2 right-2 bg-white/90 rounded-md py-1 px-2 z-10">
-                          <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
-                          <span className="text-xs text-gray-600 ml-1">Enhanced</span>
-                        </div>
-                        <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
-                          <p className="font-medium text-center">Fallopian Tube Diagram</p>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
-                
-                {/* For mobile, just show the branding */}
-                {isMobile && (
-                  <div className="absolute top-4 right-4 bg-white/90 rounded-md py-1 px-2">
-                    <span className="text-xs font-bold text-[#0271e5]">Doc2Me</span>
-                  </div>
-                )}
-                
-                {/* Recording indicator */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                  <div className="bg-black/70 rounded-full py-1 px-4 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                    <span className="text-xs text-white">00:08</span>
-                  </div>
+          {/* We're hiding the main content display since we're now using the full-width background image */}
+          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-300">
+            {/* AI-related floating elements */}
+            <div className="absolute -top-12 -left-8 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+              <div className="flex items-center gap-3 text-sm">
+                <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                  <BrainCircuit className="w-5 h-5" />
                 </div>
+                <span className="font-medium whitespace-nowrap">AI-Powered Visuals</span>
               </div>
             </div>
             
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
+            {/* Share with patients - Bottom right */}
+            <div className="absolute bottom-4 right-4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              <div className="flex items-center gap-3 text-sm">
+                <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <span className="font-medium whitespace-nowrap">Share with patients</span>
+              </div>
+            </div>
           </div>
-          
-          {/* Only show these floating elements on desktop - Clear positioning on sides */}
-          {!isMobile && (
-            <>
-              {/* AI Content Creation - Far right top corner */}
-              <div className="absolute -top-12 right-28 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
-                    <Scan className="w-5 h-5" />
-                  </div>
-                  <span className="font-medium whitespace-nowrap">AI Content Creation</span>
-                </div>
-              </div>
-              
-              {/* Share with patients - Far left */}
-              <div className="absolute top-1/4 -left-24 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
-                <div className="flex items-center gap-3 text-sm">
-                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <span className="font-medium whitespace-nowrap">Share with patients</span>
-                </div>
-              </div>
-              
-              {/* AI-Powered Content - Far left bottom corner */}
-              <div className="absolute -bottom-8 -left-16 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
-                <div className="flex items-start gap-3">
-                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
-                    <BrainCircuit className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">AI-Powered Content</p>
-                    <p className="text-xs text-gray-500">Personalized for patients</p>
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
         </div>
         
         <div className="absolute -z-10 w-40 h-40 rounded-full bg-[#0271e5]/30 blur-3xl top-1/2 -translate-y-1/2 left-1/4"></div>

@@ -28,8 +28,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right bottom corner */}
-                    <div className="absolute bottom-12 right-4 z-20">
+                    {/* Moved fallopian tube visualization to bottom right corner, above the AI-powered content */}
+                    <div className="absolute bottom-32 right-4 z-20">
                       {/* Fallopian tube visualization with overlay */}
                       <div className="relative w-52 h-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                         <img 

@@ -16,12 +16,12 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Dr. Sarah Chen',
-    role: 'Reproductive Endocrinologist',
-    image: 'https://randomuser.me/api/portraits/women/1.jpg',
+    name: 'Emma Thompson',
+    role: 'IVF Patient',
+    image: 'https://randomuser.me/api/portraits/women/33.jpg',
     rating: 5,
-    testimonial: "Doc2Me transformed our fertility clinic's patient education process. Our IVF patients receive personalized videos explaining their protocols, leading to a 45% decrease in anxious calls and improved cycle adherence.",
-    specialty: 'IVF Treatments',
+    testimonial: "Even though I only saw my doctor twice during my IVF journey, I felt incredibly supported thanks to Doc2Me. The personalized videos explaining each step of my protocol gave me so much confidence and trust. I could review complex information at my own pace and felt connected to my care team throughout the entire process.",
+    specialty: 'IVF Patient',
     icon: <Baby className="w-5 h-5" />
   },
   {

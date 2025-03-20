@@ -6,7 +6,7 @@ const ExplanationSection = () => {
   return (
     <div className="mt-16 md:mt-24 bg-gradient-to-r from-white/80 to-doc-blue-light/20 rounded-2xl p-6 md:p-8 neo-glass backdrop-blur-sm">
       <h3 className="text-xl md:text-2xl font-semibold text-center mb-8 text-doc-black">
-        Physicians Creating Impactful Patient Education
+        Educational Videos as Your Strongest Referral &amp; Marketing Channel
       </h3>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

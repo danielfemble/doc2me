@@ -10,13 +10,13 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   const isMobile = useIsMobile();
 
   return (
-    <div className={`relative w-full lg:w-auto lg:flex-1 lg:flex-grow pt-8 md:pt-0 md:ml-8 ${className}`}>
-      <div className="platform-visual-wrapper perspective-900 max-w-[52rem] mx-auto">
+    <div className={`relative w-full ${className}`}>
+      <div className="platform-visual-wrapper perspective-900 max-w-full mx-auto">
         <div className="relative mx-auto">
           {/* Main content display */}
-          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
+          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
             {/* Main interface with doctor */}
-            <div className="relative w-full aspect-video bg-gray-100">
+            <div className="relative w-full aspect-[4/3] md:aspect-video bg-gray-100">
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
                 <img 
@@ -29,9 +29,9 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {!isMobile && (
                   <>
                     {/* Moved fallopian tube visualization to bottom right corner, above the AI-powered content */}
-                    <div className="absolute bottom-32 right-4 z-20">
+                    <div className="absolute bottom-36 right-6 z-20">
                       {/* Fallopian tube visualization with overlay */}
-                      <div className="relative w-52 h-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                      <div className="relative w-64 h-48 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                         <img 
                           src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                           alt="Fallopian tube visualization"
@@ -74,7 +74,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {!isMobile && (
             <>
               {/* AI Content Creation - Far right top corner */}
-              <div className="absolute -top-12 right-28 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+              <div className="absolute -top-12 right-20 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Scan className="w-5 h-5" />
@@ -84,7 +84,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               </div>
               
               {/* Share with patients - Far left */}
-              <div className="absolute top-1/4 -left-24 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              <div className="absolute top-1/4 -left-8 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                     <MessageCircle className="w-5 h-5" />
@@ -93,8 +93,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* AI-Powered Content - Far left bottom corner */}
-              <div className="absolute -bottom-8 -left-16 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+              {/* AI-Powered Content - bottom */}
+              <div className="absolute -bottom-8 left-1/4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                     <BrainCircuit className="w-5 h-5 text-white" />

@@ -15,7 +15,7 @@ const FeatureSection = () => {
   return (
     <section id="features" className="section-container">
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <div className="inline-flex items-center gap-2 bg-doc-blue-light/40 px-4 py-1.5 rounded-full text-doc-blue-dark text-sm font-medium mb-4">
+        <div className="inline-flex items-center gap-2 bg-[#0271e5]/10 px-4 py-1.5 rounded-full text-[#0271e5] text-sm font-medium mb-4">
           <span>Why Choose Doc2Me</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-doc-black">

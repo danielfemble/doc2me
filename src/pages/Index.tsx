@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
@@ -83,10 +82,10 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-doc-blue-light/10 to-white/90 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#0271e5]/10 to-white/90 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-grid-pattern opacity-30"></div>
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-96 h-96 rounded-full bg-doc-blue/10 blur-3xl transition-transform duration-1000 ease-out"></div>
+        <div className="absolute -top-10 -right-10 w-96 h-96 rounded-full bg-[#0271e5]/10 blur-3xl transition-transform duration-1000 ease-out"></div>
         <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-doc-purple/10 blur-3xl transition-transform duration-1000 ease-out"></div>
         <div className="absolute top-1/3 left-10 w-64 h-64 rounded-full bg-doc-purple-light/10 blur-3xl transition-transform duration-1000 ease-out"></div>
       </div>

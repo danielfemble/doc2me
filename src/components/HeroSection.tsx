@@ -15,7 +15,7 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
               <span className="block">More than</span>
               <span className="block">patient education.</span>
-              <span className="text-doc-blue animate-pulse-slow">Doctor-Driven. Effortless. Instant.</span>
+              <span className="text-[#0271e5] animate-pulse-slow">Doctor-Driven. Effortless. Instant.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">
@@ -28,7 +28,7 @@ const HeroSection = () => {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button variant="outline" className="btn-secondary gap-2 text-base h-12 neo-glass backdrop-blur-sm" size="lg">
-                <Play className="w-4 h-4 text-doc-blue" />
+                <Play className="w-4 h-4 text-[#0271e5]" />
                 Watch Demo
               </Button>
             </div>
@@ -75,7 +75,7 @@ const HeroSection = () => {
                 {/* Floating UI elements */}
                 <div className="absolute -top-8 -right-4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                   <div className="flex items-center gap-3 text-sm">
-                    <div className="bg-gradient-to-br from-doc-blue to-doc-blue-dark text-white p-2 rounded-lg">
+                    <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                       <Scan className="w-5 h-5" />
                     </div>
                     <span className="font-medium whitespace-nowrap">AI Content Creation</span>
@@ -105,7 +105,7 @@ const HeroSection = () => {
               </div>
               
               {/* Background decorative elements */}
-              <div className="absolute -z-10 w-40 h-40 rounded-full bg-doc-blue/30 blur-3xl top-1/2 -translate-y-1/2 left-1/4"></div>
+              <div className="absolute -z-10 w-40 h-40 rounded-full bg-[#0271e5]/30 blur-3xl top-1/2 -translate-y-1/2 left-1/4"></div>
               <div className="absolute -z-10 w-60 h-60 rounded-full bg-doc-purple/20 blur-3xl bottom-0 right-0"></div>
             </div>
           </div>

@@ -31,7 +31,6 @@ const NavBar = () => {
             <a href="#features" className="text-doc-black/80 hover:text-doc-blue transition-colors">Features</a>
             <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue transition-colors">How it works</a>
             <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue transition-colors">Testimonials</a>
-            <a href="#faq" className="text-doc-black/80 hover:text-doc-blue transition-colors">FAQ</a>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -58,7 +57,6 @@ const NavBar = () => {
             <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
             <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</a>
             <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
-            <a href="#faq" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>FAQ</a>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
               <Button variant="outline" className="w-full justify-center rounded-lg">
                 Log in

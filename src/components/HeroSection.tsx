@@ -18,7 +18,6 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Added explanation section below the header */}
         <ExplanationSection />
       </div>
     </div>

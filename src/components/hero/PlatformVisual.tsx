@@ -28,8 +28,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right corner */}
-                    <div className="absolute top-4 right-4 z-20">
+                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right bottom corner */}
+                    <div className="absolute bottom-12 right-4 z-20">
                       {/* Doc2Me branding overlay on top */}
                       <div className="bg-white/90 rounded-md py-1 px-2 mb-1 ml-auto" style={{ width: 'fit-content' }}>
                         <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>

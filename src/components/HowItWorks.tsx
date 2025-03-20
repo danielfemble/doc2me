@@ -81,7 +81,7 @@ const HowItWorks = () => {
                 3
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-doc-black">Share Instantly</h3>
+            <h3 className="text-xl font-semibold mb-3 text-doc-black">Share</h3>
             <p className="text-doc-gray mb-6">
               Decide what to share so that new patients can discover you and what's exclusive to existing patients.
             </p>

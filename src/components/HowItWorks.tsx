@@ -59,11 +59,6 @@ const HowItWorks = () => {
             <p className="text-doc-gray mb-6">
               Simply record your video explaining the concept using our easy-to-use platform—no special equipment needed.
             </p>
-            <div className="mt-auto">
-              <Button variant="outline" className="rounded-full">
-                Learn More
-              </Button>
-            </div>
           </div>
 
           <div className="step-card opacity-0 flex flex-col items-center text-center animate-delay-200">
@@ -77,11 +72,6 @@ const HowItWorks = () => {
             <p className="text-doc-gray mb-6">
               Our AI automatically enhances quality, adds captions, removes filler words, and optimizes for engagement.
             </p>
-            <div className="mt-auto">
-              <Button variant="outline" className="rounded-full">
-                Learn More
-              </Button>
-            </div>
           </div>
 
           <div className="step-card opacity-0 flex flex-col items-center text-center animate-delay-400">
@@ -95,11 +85,6 @@ const HowItWorks = () => {
             <p className="text-doc-gray mb-6">
               Decide what to share so that new patients can discover you and what's exclusive to existing patients.
             </p>
-            <div className="mt-auto">
-              <Button variant="outline" className="rounded-full">
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
 

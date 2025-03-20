@@ -36,7 +36,7 @@ const ExplanationSection = () => {
           </div>
           <h4 className="font-semibold text-doc-black">Share Publicly or Exclusively</h4>
           <p className="text-doc-gray">
-            Physicians control who sees their content—make educational materials available to everyone or exclusively to their own patients.
+            Physicians control who sees their content—make educational materials available to everyone or exclusively to patients.
           </p>
         </div>
       </div>

@@ -16,10 +16,19 @@ const HeroSection = () => {
               <span className="text-sm text-doc-black font-medium">For Clinics & Doctors</span>
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
-              <span className="block">Patient education</span>
-              <span className="block">meets marketing</span>
-              <span className="text-[#0271e5] animate-pulse-slow">platform.</span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight md:leading-tight">
+              <span className="block bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent">
+                Patient education
+              </span>
+              <span className="block bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent">
+                transformed into a
+              </span>
+              <span className="relative">
+                <span className="bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark animate-pulse-slow bg-clip-text text-transparent">
+                  growth engine.
+                </span>
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-full"></span>
+              </span>
             </h1>
             
             <p className="text-base md:text-xl text-doc-gray leading-relaxed">

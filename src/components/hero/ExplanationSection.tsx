@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Stethoscope, BrainCircuit, Megaphone } from "lucide-react";
+import { Stethoscope, BrainCircuit, Megaphone, ShieldCheck } from "lucide-react";
 
 const ExplanationSection = () => {
   return (
@@ -9,7 +9,7 @@ const ExplanationSection = () => {
         Physicians Creating Impactful Patient Education
       </h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="flex flex-col items-center text-center space-y-3">
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue to-doc-purple flex items-center justify-center text-white">
             <Stethoscope className="w-6 h-6" />
@@ -32,6 +32,16 @@ const ExplanationSection = () => {
         
         <div className="flex flex-col items-center text-center space-y-3">
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue-dark to-doc-blue flex items-center justify-center text-white">
+            <ShieldCheck className="w-6 h-6" />
+          </div>
+          <h4 className="font-semibold text-doc-black">Combat Misinformation</h4>
+          <p className="text-doc-gray">
+            Counter health misinformation from social media with engaging, accurate content from trusted medical sources—your doctors.
+          </p>
+        </div>
+        
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue to-doc-purple flex items-center justify-center text-white">
             <Megaphone className="w-6 h-6" />
           </div>
           <h4 className="font-semibold text-doc-black">Share Publicly or Exclusively</h4>

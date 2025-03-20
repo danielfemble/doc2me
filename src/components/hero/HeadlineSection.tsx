@@ -16,18 +16,18 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
       <div className="space-y-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
           <div className="bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent">
-            Patient education meets
+            Trusted health information
           </div>
           <div className="relative mt-2">
             <span className="animated-gradient-text font-extrabold">
-              healthcare marketing.
+              from your doctors.
             </span>
           </div>
         </h1>
       </div>
       
       <p className="text-lg md:text-xl text-doc-gray leading-relaxed max-w-2xl">
-        We're on a mission to extend the power of doctors beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
+        We're combating medical misinformation by extending the power of doctors beyond the clinic. Create, personalize, and share accurate health information with your patients in minutes.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-2">

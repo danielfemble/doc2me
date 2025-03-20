@@ -7,7 +7,7 @@ interface TestimonialBadgeProps {
 
 const TestimonialBadge = ({ className = "" }: TestimonialBadgeProps) => {
   return (
-    <div className={`flex items-center gap-4 text-sm text-doc-gray pt-4 ${className}`}>
+    <div className={`flex items-center justify-center gap-4 text-sm text-doc-gray pt-4 ${className}`}>
       <div className="flex -space-x-2">
         {/* Female doctors avatars */}
         {[1, 2].map((i) => (

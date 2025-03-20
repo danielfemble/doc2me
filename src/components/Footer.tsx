@@ -1,5 +1,4 @@
-
-import { Facebook, Linkedin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,8 +17,8 @@ const Footer = () => {
               Extending the power of doctors beyond the clinic with content that lasts.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
-                <Facebook className="w-5 h-5" />
+              <a href="mailto:info@doc2me.com" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
+                <Mail className="w-5 h-5" />
               </a>
               <a href="https://www.linkedin.com/company/69742285/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
                 <Linkedin className="w-5 h-5" />

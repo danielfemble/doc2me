@@ -28,8 +28,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Fallopian tube visualization - Moved to top-left */}
-                    <div className="absolute top-4 left-4 w-1/4 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                    {/* Fallopian tube visualization - Moved far left */}
+                    <div className="absolute top-4 left-2 w-1/5 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                       <img 
                         src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                         alt="Fallopian tube visualization"
@@ -40,35 +40,35 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                       </div>
                     </div>
                     
-                    {/* AI-generated content agenda for IVF - Moved to top-right */}
-                    <div className="absolute top-4 right-4 w-1/4 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
+                    {/* AI-generated content agenda for IVF - Moved far right */}
+                    <div className="absolute top-4 right-2 w-1/5 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
                       <div className="w-full h-full p-3 flex flex-col">
-                        <div className="text-[#0271e5] font-semibold text-xs border-b border-gray-200 pb-1 mb-2">
+                        <div className="text-[#0271e5] font-semibold text-[9px] border-b border-gray-200 pb-1 mb-2">
                           Content Agenda: IVF Consultation
                         </div>
-                        <ul className="text-[10px] space-y-2 text-gray-800">
+                        <ul className="text-[8px] space-y-2 text-gray-800">
                           <li className="flex items-start gap-1.5">
-                            <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">1</div>
+                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">1</div>
                             <span>IVF process overview (2 min)</span>
                           </li>
                           <li className="flex items-start gap-1.5">
-                            <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">2</div>
+                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">2</div>
                             <span>Medication protocol explanation (2 min)</span>
                           </li>
                           <li className="flex items-start gap-1.5">
-                            <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">3</div>
+                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">3</div>
                             <span>Egg retrieval procedure details (1 min)</span>
                           </li>
                           <li className="flex items-start gap-1.5">
-                            <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">4</div>
+                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">4</div>
                             <span>Embryo transfer process (1.5 min)</span>
                           </li>
                           <li className="flex items-start gap-1.5">
-                            <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">5</div>
+                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">5</div>
                             <span>Success rates and expectations (2 min)</span>
                           </li>
                         </ul>
-                        <div className="mt-auto pt-2 text-[10px] text-gray-500 border-t border-gray-100">
+                        <div className="mt-auto pt-2 text-[8px] text-gray-500 border-t border-gray-100">
                           <div className="flex items-center justify-between">
                             <span>AI-optimized talking points</span>
                             <span className="text-[#0271e5]">Personalize →</span>
@@ -98,11 +98,11 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
           </div>
           
-          {/* Only show these floating elements on desktop - Repositioned to sides */}
+          {/* Only show these floating elements on desktop - Clear positioning on sides */}
           {!isMobile && (
             <>
-              {/* AI Content Creation - Moved to top-right */}
-              <div className="absolute -top-8 right-0 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+              {/* AI Content Creation - Moved far right top corner */}
+              <div className="absolute -top-12 right-20 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Scan className="w-5 h-5" />
@@ -111,8 +111,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - Moved to left side */}
-              <div className="absolute top-1/3 -left-6 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              {/* Share with patients - Moved far left */}
+              <div className="absolute top-1/4 -left-20 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                     <MessageCircle className="w-5 h-5" />
@@ -121,8 +121,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* AI-Powered Content - Moved to bottom-right */}
-              <div className="absolute -bottom-4 right-0 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+              {/* AI-Powered Content - Moved far right bottom corner */}
+              <div className="absolute -bottom-8 right-28 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                     <BrainCircuit className="w-5 h-5 text-white" />

@@ -28,7 +28,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right side */}
+                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right corner */}
                     <div className="absolute top-4 right-4 z-20">
                       {/* Doc2Me branding overlay on top */}
                       <div className="bg-white/90 rounded-md py-1 px-2 mb-1 ml-auto" style={{ width: 'fit-content' }}>
@@ -37,7 +37,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                       </div>
                       
                       {/* Fallopian tube visualization underneath, slightly overlapped */}
-                      <div className="w-32 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 -mt-1">
+                      <div className="w-40 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 -mt-1">
                         <img 
                           src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                           alt="Fallopian tube visualization"

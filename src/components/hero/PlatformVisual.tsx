@@ -64,7 +64,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div>
-                <p className="text-xs sm:text-sm font-medium">AI-Powered Content</p>
+                <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
                 <p className="text-xs text-gray-500 hidden sm:block">Personalized for patients</p>
               </div>
             </div>

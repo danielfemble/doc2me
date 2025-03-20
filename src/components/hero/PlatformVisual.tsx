@@ -40,42 +40,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                       </div>
                     </div>
                     
-                    {/* AI-generated content agenda for IVF - Moved far right */}
-                    <div className="absolute top-4 right-2 w-1/5 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
-                      <div className="w-full h-full p-3 flex flex-col">
-                        <div className="text-[#0271e5] font-semibold text-[9px] border-b border-gray-200 pb-1 mb-2">
-                          Content Agenda: IVF Consultation
-                        </div>
-                        <ul className="text-[8px] space-y-2 text-gray-800">
-                          <li className="flex items-start gap-1.5">
-                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">1</div>
-                            <span>IVF process overview (2 min)</span>
-                          </li>
-                          <li className="flex items-start gap-1.5">
-                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">2</div>
-                            <span>Medication protocol explanation (2 min)</span>
-                          </li>
-                          <li className="flex items-start gap-1.5">
-                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">3</div>
-                            <span>Egg retrieval procedure details (1 min)</span>
-                          </li>
-                          <li className="flex items-start gap-1.5">
-                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">4</div>
-                            <span>Embryo transfer process (1.5 min)</span>
-                          </li>
-                          <li className="flex items-start gap-1.5">
-                            <div className="min-w-3 h-3 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[8px] font-bold mt-0.5">5</div>
-                            <span>Success rates and expectations (2 min)</span>
-                          </li>
-                        </ul>
-                        <div className="mt-auto pt-2 text-[8px] text-gray-500 border-t border-gray-100">
-                          <div className="flex items-center justify-between">
-                            <span>AI-optimized talking points</span>
-                            <span className="text-[#0271e5]">Personalize →</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Content agenda element has been removed */}
                   </>
                 )}
                 
@@ -87,8 +52,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                   </div>
                 </div>
                 
-                {/* Doc2Me branding overlay - Simplified on mobile */}
-                <div className="absolute top-4 left-4 bg-white/90 rounded-md py-1 px-2">
+                {/* Doc2Me branding overlay - Moved to right side */}
+                <div className="absolute top-4 right-4 bg-white/90 rounded-md py-1 px-2">
                   <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-bold text-[#0271e5]`}>Doc2Me</span>
                   {!isMobile && <span className="text-xs text-gray-600 ml-1">Enhanced</span>}
                 </div>
@@ -101,8 +66,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Only show these floating elements on desktop - Clear positioning on sides */}
           {!isMobile && (
             <>
-              {/* AI Content Creation - Moved far right top corner */}
-              <div className="absolute -top-12 right-20 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+              {/* AI Content Creation - Far right top corner */}
+              <div className="absolute -top-12 right-28 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Scan className="w-5 h-5" />
@@ -111,8 +76,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - Moved far left */}
-              <div className="absolute top-1/4 -left-20 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              {/* Share with patients - Far left */}
+              <div className="absolute top-1/4 -left-24 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                     <MessageCircle className="w-5 h-5" />
@@ -121,8 +86,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* AI-Powered Content - Moved far right bottom corner */}
-              <div className="absolute -bottom-8 right-28 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+              {/* AI-Powered Content - Far left bottom corner */}
+              <div className="absolute -bottom-8 -left-16 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                     <BrainCircuit className="w-5 h-5 text-white" />

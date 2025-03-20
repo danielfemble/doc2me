@@ -48,13 +48,45 @@ const HeroSection = () => {
           <div className="relative w-full lg:w-auto lg:flex-1">
             <div className="platform-visual-wrapper perspective-900 max-w-[42rem] mx-auto">
               <div className="relative mx-auto">
+                {/* Doctor video call mockup */}
                 <div className="relative z-10 mx-auto bg-gray-800 rounded-t-xl overflow-hidden shadow-2xl transform -rotate-1 border-8 border-gray-800">
                   <div className="relative bg-white overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
-                      alt="Fertility clinic platform interface"
-                      className="w-full h-auto object-cover"
-                    />
+                    {/* Main interface with doctor */}
+                    <div className="relative w-full aspect-video bg-gray-100">
+                      {/* Doctor in video call */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative w-full h-full bg-gray-900">
+                          <img 
+                            src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
+                            alt="Doctor in video call"
+                            className="w-full h-full object-cover opacity-95"
+                          />
+                          
+                          {/* Overlay with Doc2Me enhanced visuals */}
+                          <div className="absolute top-12 right-8 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                            <img 
+                              src="https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2013/11/15/17/35/ds00716_-ds00718_-ds00972_-ds01219_im00435_r7_fallopianthu_jpg.jpg" 
+                              alt="Fallopian tube visualization"
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
+                              <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                            </div>
+                          </div>
+                          
+                          {/* Doc2Me branding overlay */}
+                          <div className="absolute top-4 left-4 bg-white/90 rounded-md py-1 px-2">
+                            <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
+                            <span className="text-xs text-gray-600 ml-1">Enhanced</span>
+                          </div>
+                          
+                          {/* Visual annotation arrows */}
+                          <svg className="absolute top-1/3 right-[38%] w-16 h-8 animate-pulse-slow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0271e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
                     
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
                   </div>

@@ -22,7 +22,6 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
             <span className="bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark animate-pulse-slow bg-clip-text text-transparent">
               health care marketing.
             </span>
-            <span className="absolute -bottom-1 left-0 w-full h-1.5 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-full"></span>
           </div>
         </h1>
       </div>

@@ -38,7 +38,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Creation - changed icon to BrainCircuit */}
+          {/* AI Content Creation - using BrainCircuit icon */}
           <div className="absolute -top-4 right-0 sm:-right-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -48,11 +48,11 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* Share with patients - moved further up */}
-          <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+          {/* Share with patients - repositioned to middle of the picture, using ThumbsUp icon */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <span className="font-medium whitespace-nowrap">Share with patients</span>
             </div>

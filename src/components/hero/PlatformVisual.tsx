@@ -1,4 +1,3 @@
-
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -6,6 +5,7 @@ interface PlatformVisualProps {
   className?: string;
 }
 
+// We're keeping this component for future use, but it's currently not being used in the hero section
 const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   const isMobile = useIsMobile();
 
@@ -13,14 +13,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
     <div className={`relative w-full lg:w-auto lg:flex-1 lg:flex-grow pt-8 md:pt-0 md:ml-8 ${className}`}>
       <div className="platform-visual-wrapper perspective-900 max-w-[52rem] mx-auto">
         <div className="relative mx-auto">
-          {/* Main content display */}
-          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
-            <img 
-              src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
-              alt="Doc2Me Platform Interface" 
-              className="w-full"
-            />
-            
+          {/* We're hiding the main content display since we're now using the full-width background image */}
+          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-300">
             {/* AI-related floating elements */}
             <div className="absolute -top-12 -left-8 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
               <div className="flex items-center gap-3 text-sm">
@@ -38,26 +32,6 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <span className="font-medium whitespace-nowrap">Share with patients</span>
-              </div>
-            </div>
-            
-            {/* Quick action - Top right */}
-            <div className="absolute -top-2 right-16 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
-              <div className="flex items-center gap-3 text-sm">
-                <div className="bg-gradient-to-br from-emerald-500 to-emerald-700 text-white p-2 rounded-lg">
-                  <ThumbsUp className="w-5 h-5" />
-                </div>
-                <span className="font-medium whitespace-nowrap">One-click approval</span>
-              </div>
-            </div>
-            
-            {/* Scan feature - Bottom left */}
-            <div className="absolute bottom-12 -left-4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-400">
-              <div className="flex items-center gap-3 text-sm">
-                <div className="bg-gradient-to-br from-amber-500 to-amber-700 text-white p-2 rounded-lg">
-                  <Scan className="w-5 h-5" />
-                </div>
-                <span className="font-medium whitespace-nowrap">Scan and analyze</span>
               </div>
             </div>
           </div>

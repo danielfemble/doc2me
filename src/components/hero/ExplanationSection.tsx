@@ -1,43 +1,43 @@
+
+import React from "react";
+import { Stethoscope, BrainCircuit, ShieldCheck } from "lucide-react";
+
 const ExplanationSection = () => {
   return (
-    <div className="mt-16 md:mt-20 relative">
-      {/* No need for an additional gradient overlay anymore */}
+    <div className="mt-16 md:mt-24 bg-gradient-to-r from-white/80 to-doc-blue-light/20 rounded-2xl p-6 md:p-8 neo-glass backdrop-blur-sm">
+      <h3 className="text-xl md:text-2xl font-semibold text-center mb-8 text-doc-black">
+        Physicians Creating Impactful Patient Education
+      </h3>
       
-      <div className="relative z-10 bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-          Physicians Creating Impactful Patient Education
-        </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue to-doc-purple flex items-center justify-center text-white">
+            <Stethoscope className="w-6 h-6" />
+          </div>
+          <h4 className="font-semibold text-doc-black">Physician-Led Content</h4>
+          <p className="text-doc-gray">
+            Medical professionals create short, informative videos explaining conditions and treatments in their own words and style.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#0271e5] to-[#0258B6] rounded-full flex items-center justify-center mb-4 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Create High-Quality Content</h3>
-            <p className="text-gray-600">Use AI to help craft engaging educational content that patients will actually watch.</p>
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-purple to-doc-blue-dark flex items-center justify-center text-white">
+            <BrainCircuit className="w-6 h-6" />
           </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-doc-purple-light to-doc-purple rounded-full flex items-center justify-center mb-4 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Personalize for Each Patient</h3>
-            <p className="text-gray-600">Tailor your explanations to each patient's specific condition and needs.</p>
+          <h4 className="font-semibold text-doc-black">AI Enhances Doctors' Videos</h4>
+          <p className="text-doc-gray">
+            Our AI technology polishes doctor-created content, ensuring quality without replacing the authentic medical expertise.
+          </p>
+        </div>
+        
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue-dark to-doc-blue flex items-center justify-center text-white">
+            <ShieldCheck className="w-6 h-6" />
           </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#0271e5] to-doc-purple rounded-full flex items-center justify-center mb-4 shadow-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2">Share & Measure Impact</h3>
-            <p className="text-gray-600">Instantly share videos with patients and track engagement to improve outcomes.</p>
-          </div>
+          <h4 className="font-semibold text-doc-black">Combat Misinformation</h4>
+          <p className="text-doc-gray">
+            Give your patients a trusted source of health information, reducing their reliance on potentially misleading social media content.
+          </p>
         </div>
       </div>
     </div>

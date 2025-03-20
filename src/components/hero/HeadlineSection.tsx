@@ -19,7 +19,7 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
             Patient education meets
           </div>
           <div className="relative mt-2">
-            <span className="animated-gradient bg-clip-text text-transparent">
+            <span className="animated-gradient-text bg-clip-text text-transparent font-extrabold">
               healthcare marketing.
             </span>
           </div>

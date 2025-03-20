@@ -7,7 +7,7 @@ const HeroSection = () => {
     <div className="pt-32 pb-16 md:pt-40 md:pb-24 relative z-10">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="space-y-8 max-w-2xl">
+          <div className="space-y-8 max-w-2xl lg:max-w-xl">
             <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon">
               <span className="text-sm text-doc-black font-medium">For Clinics & Doctors</span>
             </div>
@@ -45,8 +45,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative w-full lg:w-auto lg:flex-1">
-            <div className="platform-visual-wrapper perspective-900 max-w-[42rem] mx-auto">
+          <div className="relative w-full lg:w-auto lg:flex-1 lg:flex-grow lg:ml-8">
+            <div className="platform-visual-wrapper perspective-900 max-w-[52rem] mx-auto">
               <div className="relative mx-auto">
                 {/* Doctor video call mockup */}
                 <div className="relative z-10 mx-auto bg-gray-800 rounded-t-xl overflow-hidden shadow-2xl transform -rotate-1 border-8 border-gray-800">
@@ -57,7 +57,7 @@ const HeroSection = () => {
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative w-full h-full bg-gray-900">
                           <img 
-                            src="/lovable-uploads/a5f840a4-b821-4913-b17a-34e3533fd6d5.png" 
+                            src="/lovable-uploads/ed5ef07e-38b3-4cb2-a66b-d486545ffa2f.png" 
                             alt="Doctor in video call"
                             className="w-full h-full object-cover opacity-95"
                           />
@@ -111,16 +111,26 @@ const HeroSection = () => {
                             </div>
                           </div>
                           
+                          {/* Content title & recording */}
+                          <div className="absolute top-4 left-0 right-0 flex justify-center">
+                            <div className="bg-white/90 rounded-md py-1 px-3 shadow-sm">
+                              <span className="text-sm font-bold">Understanding the Menstrual Cycle</span>
+                            </div>
+                          </div>
+                          
+                          {/* Recording indicator */}
+                          <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                            <div className="bg-black/70 rounded-full py-1 px-4 flex items-center gap-2">
+                              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                              <span className="text-xs text-white">00:08</span>
+                            </div>
+                          </div>
+                          
                           {/* Doc2Me branding overlay */}
                           <div className="absolute top-4 left-4 bg-white/90 rounded-md py-1 px-2">
                             <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
                             <span className="text-xs text-gray-600 ml-1">Enhanced</span>
                           </div>
-                          
-                          {/* Visual annotation arrows */}
-                          <svg className="absolute top-1/3 right-[38%] w-16 h-8 animate-pulse-slow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0271e5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
                         </div>
                       </div>
                     </div>

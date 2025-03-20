@@ -14,7 +14,7 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "sonner";
-import { sendToSupabase, checkSignupsTable, supabase } from "@/utils/supabase";
+import { sendToSupabase, checkSignupsTable, supabase, isSupabaseConfigured } from "@/utils/supabase";
 import { AlertCircle } from "lucide-react";
 
 const formSchema = z.object({
@@ -33,21 +33,29 @@ type FormValues = z.infer<typeof formSchema>;
 
 const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSupabaseConnected, setIsSupabaseConnected] = useState<boolean | null>(null);
+  const [showFallbackWarning, setShowFallbackWarning] = useState(false);
 
   useEffect(() => {
-    // Check if Supabase is properly connected
+    // Only show the fallback warning if Supabase is connected but not working
     const checkConnection = async () => {
-      if (supabase) {
+      // If Supabase is not configured at all (no env vars), don't show warning
+      if (!isSupabaseConfigured()) {
+        console.log("Supabase is not configured, not showing fallback warning");
+        setShowFallbackWarning(false);
+        return;
+      }
+      
+      // If Supabase is configured but table doesn't exist, show warning
+      try {
         const tableExists = await checkSignupsTable();
-        setIsSupabaseConnected(tableExists);
+        setShowFallbackWarning(!tableExists);
         
         if (!tableExists) {
           console.warn("Supabase is connected, but the 'signups' table was not found");
         }
-      } else {
-        setIsSupabaseConnected(false);
-        console.warn("Supabase client is not initialized");
+      } catch (error) {
+        console.error("Error checking Supabase connection:", error);
+        setShowFallbackWarning(true);
       }
     };
     
@@ -94,7 +102,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 
   return (
     <Form {...form}>
-      {isSupabaseConnected === false && (
+      {showFallbackWarning && (
         <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded mb-4 flex items-center">
           <AlertCircle className="h-5 w-5 mr-2" />
           <span className="text-sm">

@@ -8,11 +8,12 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 // Check if environment variables are set
 const hasSupabaseConfig = supabaseUrl && supabaseKey;
 
-// Add more detailed logging
-console.log('Supabase configuration status:', {
+// Add more detailed logging to diagnose the issue
+console.log('Supabase configuration check:', {
   hasUrl: !!supabaseUrl,
   hasKey: !!supabaseKey,
-  isConfigComplete: hasSupabaseConfig
+  urlValue: supabaseUrl ? 'present' : 'missing',
+  keyValue: supabaseKey ? 'present' : 'missing'
 });
 
 // Create client if config is available
@@ -31,6 +32,11 @@ try {
 
 // Export the client
 export const supabase = supabaseClient;
+
+// Export a function to check if Supabase is properly configured
+export const isSupabaseConfigured = () => {
+  return !!supabaseClient;
+};
 
 interface SignupData {
   name: string;

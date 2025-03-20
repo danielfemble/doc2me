@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -14,12 +13,7 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "sonner";
-import { 
-  sendToSupabase, 
-  checkSignupsTable, 
-  isSupabaseConfigured, 
-  isClientInitialized 
-} from "@/utils/supabase";
+import { sendToSupabase, checkSignupsTable } from "@/utils/supabase";
 import { AlertCircle } from "lucide-react";
 
 const formSchema = z.object({
@@ -41,30 +35,14 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
   const [showFallbackWarning, setShowFallbackWarning] = useState(false);
 
   useEffect(() => {
-    // Only show the fallback warning if Supabase environment variables exist 
-    // but the table doesn't exist or there's another connection issue
+    // Check if the signups table exists and is accessible
     const checkConnection = async () => {
-      // First check if Supabase environment variables are configured
-      if (!isSupabaseConfigured()) {
-        console.log("Supabase is not configured (missing env vars), not showing fallback warning");
-        setShowFallbackWarning(false);
-        return;
-      }
-      
-      // If Supabase client failed to initialize, show warning
-      if (!isClientInitialized()) {
-        console.log("Supabase client failed to initialize, showing fallback warning");
-        setShowFallbackWarning(true);
-        return;
-      }
-      
-      // If Supabase is configured and client initialized but table doesn't exist, show warning
       try {
         const tableExists = await checkSignupsTable();
         setShowFallbackWarning(!tableExists);
         
         if (!tableExists) {
-          console.warn("Supabase is connected, but the 'signups' table was not found");
+          console.warn("Supabase is connected, but the 'signups' table was not found or is not accessible");
         } else {
           console.log("Supabase is fully configured and working correctly");
         }
@@ -90,7 +68,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
-      // Send data to Supabase (or fallback mode if not configured)
+      // Send data to Supabase
       const success = await sendToSupabase({
         name: data.name,
         email: data.email,

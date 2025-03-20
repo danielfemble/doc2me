@@ -1,4 +1,3 @@
-
 import { ArrowRight, Camera, Play, MessageCircle, ThumbsUp, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -24,12 +23,8 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="btn-primary group gap-2 text-base h-12" size="lg">
-                Get Started
+                Try Doc2Me
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" className="btn-secondary gap-2 text-base h-12 neo-glass backdrop-blur-sm" size="lg">
-                <Play className="w-4 h-4 text-[#0271e5]" />
-                Watch Demo
               </Button>
             </div>
 
@@ -50,29 +45,22 @@ const HeroSection = () => {
           </div>
 
           <div className="relative w-full lg:w-auto lg:flex-1">
-            {/* Device mockup container */}
             <div className="platform-visual-wrapper perspective-900 max-w-[42rem] mx-auto">
-              {/* Laptop/Device Frame */}
               <div className="relative mx-auto">
                 <div className="relative z-10 mx-auto bg-gray-800 rounded-t-xl overflow-hidden shadow-2xl transform -rotate-1 border-8 border-gray-800">
-                  {/* Screen content */}
                   <div className="relative bg-white overflow-hidden">
-                    {/* App screenshot */}
                     <img 
                       src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
                       alt="Fertility clinic platform interface"
                       className="w-full h-auto object-cover"
                     />
                     
-                    {/* Screen reflection overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
                   </div>
                   
-                  {/* Laptop bottom base (optional) */}
                   <div className="h-4 bg-gray-800 rounded-b-lg"></div>
                 </div>
                 
-                {/* Floating UI elements */}
                 <div className="absolute -top-8 -right-4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                   <div className="flex items-center gap-3 text-sm">
                     <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -104,7 +92,6 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Background decorative elements */}
               <div className="absolute -z-10 w-40 h-40 rounded-full bg-[#0271e5]/30 blur-3xl top-1/2 -translate-y-1/2 left-1/4"></div>
               <div className="absolute -z-10 w-60 h-60 rounded-full bg-doc-purple/20 blur-3xl bottom-0 right-0"></div>
             </div>

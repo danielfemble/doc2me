@@ -38,7 +38,7 @@ const NavBar = () => {
               Log in
             </Button>
             <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-              Get Started
+              Try Doc2Me
             </Button>
           </div>
 
@@ -62,7 +62,7 @@ const NavBar = () => {
                 Log in
               </Button>
               <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                Get Started
+                Try Doc2Me
               </Button>
             </div>
           </div>

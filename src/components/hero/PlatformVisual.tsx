@@ -16,7 +16,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Main content display */}
           <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.03] transition-transform duration-300">
             {/* Main interface with doctor - maximized aspect ratio */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-video bg-gray-100">
+            <div className="relative w-full aspect-video bg-gray-100">
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
                 <img 
@@ -25,10 +25,10 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                   className="w-full h-full object-cover"
                 />
                 
-                {/* AI-enhanced overlay - shows on all screen sizes now */}
-                <div className="absolute bottom-24 right-4 sm:bottom-32 sm:right-12 z-20">
+                {/* AI-enhanced overlay */}
+                <div className="absolute bottom-16 right-6 sm:bottom-24 sm:right-10 md:bottom-32 md:right-20 lg:bottom-40 lg:right-28 z-20">
                   {/* Fallopian tube visualization with overlay */}
-                  <div className="relative w-64 sm:w-80 h-48 sm:h-60 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
+                  <div className="relative w-64 sm:w-80 md:w-96 h-48 sm:h-60 md:h-72 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
                     <img 
                       src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
                       alt="Fallopian tube visualization"
@@ -58,8 +58,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
           </div>
           
-          {/* Floating UI elements - now positioned around the main image */}
-          <div className="absolute -top-12 -right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+          {/* Floating UI elements - repositioned for better visibility */}
+          <div className="absolute -top-16 -right-4 sm:-top-20 sm:right-10 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -68,7 +68,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          <div className="absolute -bottom-8 left-12 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+          <div className="absolute -bottom-12 left-10 sm:-bottom-16 sm:left-20 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                 <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -77,7 +77,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          <div className="absolute top-1/3 -left-6 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+          <div className="absolute top-1/3 -left-10 sm:-left-16 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
             <div className="flex items-start gap-3">
               <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                 <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -90,9 +90,10 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           </div>
         </div>
         
-        {/* Background glowing effects */}
-        <div className="absolute -z-10 w-40 h-40 rounded-full bg-[#0271e5]/30 blur-3xl top-1/3 -translate-y-1/2 left-0"></div>
-        <div className="absolute -z-10 w-60 h-60 rounded-full bg-doc-purple/20 blur-3xl bottom-0 right-1/4"></div>
+        {/* Background glowing effects - enhanced for larger visual */}
+        <div className="absolute -z-10 w-60 h-60 rounded-full bg-[#0271e5]/30 blur-3xl top-1/3 -translate-y-1/2 left-0"></div>
+        <div className="absolute -z-10 w-80 h-80 rounded-full bg-doc-purple/20 blur-3xl bottom-0 right-1/4"></div>
+        <div className="absolute -z-10 w-40 h-40 rounded-full bg-doc-blue-light/30 blur-3xl top-1/4 right-1/5"></div>
       </div>
     </div>
   );

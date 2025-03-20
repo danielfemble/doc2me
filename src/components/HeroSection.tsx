@@ -1,3 +1,4 @@
+
 import { ArrowRight, Camera, Play, MessageCircle, ThumbsUp, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -18,7 +19,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">
-              We're on a mission to extend the power of fertility specialists beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
+              We're on a mission to extend the power of doctors beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

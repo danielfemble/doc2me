@@ -12,8 +12,8 @@ const hasSupabaseConfig = supabaseUrl && supabaseKey;
 console.log('Supabase configuration check:', {
   hasUrl: !!supabaseUrl,
   hasKey: !!supabaseKey,
-  urlValue: supabaseUrl ? 'present' : 'missing',
-  keyValue: supabaseKey ? 'present' : 'missing'
+  urlValue: supabaseUrl ? 'present (length: ' + supabaseUrl.length + ')' : 'missing',
+  keyValue: supabaseKey ? 'present (length: ' + supabaseKey.length + ')' : 'missing'
 });
 
 // Create client if config is available
@@ -35,6 +35,11 @@ export const supabase = supabaseClient;
 
 // Export a function to check if Supabase is properly configured
 export const isSupabaseConfigured = () => {
+  return hasSupabaseConfig;
+};
+
+// Export a function to check if Supabase client is initialized
+export const isClientInitialized = () => {
   return !!supabaseClient;
 };
 

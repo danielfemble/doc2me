@@ -14,7 +14,12 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "sonner";
-import { sendToSupabase, checkSignupsTable, supabase, isSupabaseConfigured } from "@/utils/supabase";
+import { 
+  sendToSupabase, 
+  checkSignupsTable, 
+  isSupabaseConfigured, 
+  isClientInitialized 
+} from "@/utils/supabase";
 import { AlertCircle } from "lucide-react";
 
 const formSchema = z.object({
@@ -36,22 +41,32 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
   const [showFallbackWarning, setShowFallbackWarning] = useState(false);
 
   useEffect(() => {
-    // Only show the fallback warning if Supabase is connected but not working
+    // Only show the fallback warning if Supabase environment variables exist 
+    // but the table doesn't exist or there's another connection issue
     const checkConnection = async () => {
-      // If Supabase is not configured at all (no env vars), don't show warning
+      // First check if Supabase environment variables are configured
       if (!isSupabaseConfigured()) {
-        console.log("Supabase is not configured, not showing fallback warning");
+        console.log("Supabase is not configured (missing env vars), not showing fallback warning");
         setShowFallbackWarning(false);
         return;
       }
       
-      // If Supabase is configured but table doesn't exist, show warning
+      // If Supabase client failed to initialize, show warning
+      if (!isClientInitialized()) {
+        console.log("Supabase client failed to initialize, showing fallback warning");
+        setShowFallbackWarning(true);
+        return;
+      }
+      
+      // If Supabase is configured and client initialized but table doesn't exist, show warning
       try {
         const tableExists = await checkSignupsTable();
         setShowFallbackWarning(!tableExists);
         
         if (!tableExists) {
           console.warn("Supabase is connected, but the 'signups' table was not found");
+        } else {
+          console.log("Supabase is fully configured and working correctly");
         }
       } catch (error) {
         console.error("Error checking Supabase connection:", error);

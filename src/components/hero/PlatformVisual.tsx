@@ -1,5 +1,5 @@
 
-import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Robot } from "lucide-react";
+import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface PlatformVisualProps {
@@ -38,11 +38,11 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Creation - changed icon to Robot */}
+          {/* AI Content Creation - changed icon to Bot */}
           <div className="absolute -top-4 right-0 sm:-right-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
-                <Robot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <span className="font-medium whitespace-nowrap">AI Content Creation</span>
             </div>

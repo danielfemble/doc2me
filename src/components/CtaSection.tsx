@@ -1,6 +1,7 @@
 
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SignupDialog from "@/components/SignupDialog";
 
 const CtaSection = () => {
   return (
@@ -44,10 +45,14 @@ const CtaSection = () => {
               </div>
             </div>
             
-            <Button className="bg-white text-doc-blue hover:bg-white/90 group gap-2 h-12 px-6" size="lg">
-              Try Doc2Me
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <SignupDialog 
+              trigger={
+                <Button className="bg-white text-doc-blue hover:bg-white/90 group gap-2 h-12 px-6" size="lg">
+                  Try Doc2Me
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              }
+            />
           </div>
           
           <div className="relative rounded-2xl border-8 border-white/10 overflow-hidden shadow-2xl">

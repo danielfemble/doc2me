@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import SignupDialog from "@/components/SignupDialog";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,11 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const openSignup = () => {
+    setSignupOpen(true);
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
@@ -37,9 +44,14 @@ const NavBar = () => {
             <Button variant="outline" className="rounded-lg">
               Log in
             </Button>
-            <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-              Try Doc2Me
-            </Button>
+            <SignupDialog 
+              trigger={
+                <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
+                  Try Doc2Me
+                </Button>
+              }
+              defaultOpen={signupOpen}
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -61,9 +73,13 @@ const NavBar = () => {
               <Button variant="outline" className="w-full justify-center rounded-lg">
                 Log in
               </Button>
-              <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                Try Doc2Me
-              </Button>
+              <SignupDialog 
+                trigger={
+                  <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
+                    Try Doc2Me
+                  </Button>
+                }
+              />
             </div>
           </div>
         )}

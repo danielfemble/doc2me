@@ -77,7 +77,7 @@ const CtaSection = () => {
                   </div>
                 </div>
                 <p className="text-white/90 text-sm">
-                  "Thank you for the video explaining my medication schedule! It's so much clearer now. My blood pressure is already improving!"
+                  "I only saw my doctor a few times during my IVF journey, but thanks to these personalized videos, I felt connected throughout the entire process. I never felt alone or confused about what was happening. This has completely changed my experience of patient care!"
                 </p>
               </div>
             </div>

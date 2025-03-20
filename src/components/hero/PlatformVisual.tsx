@@ -28,20 +28,34 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 {/* On mobile, we'll hide or simplify some of the overlay elements */}
                 {!isMobile && (
                   <>
-                    {/* Fallopian tube visualization - Moved far left */}
-                    <div className="absolute top-4 left-2 w-1/5 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
-                      <img 
-                        src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
-                        alt="Fallopian tube visualization"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
-                        <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                    {/* Grouped Doc2Me branding with Fallopian tube visualization on right side */}
+                    <div className="absolute top-4 right-4 z-20">
+                      {/* Doc2Me branding overlay on top */}
+                      <div className="bg-white/90 rounded-md py-1 px-2 mb-1 ml-auto" style={{ width: 'fit-content' }}>
+                        <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
+                        <span className="text-xs text-gray-600 ml-1">Enhanced</span>
+                      </div>
+                      
+                      {/* Fallopian tube visualization underneath, slightly overlapped */}
+                      <div className="w-32 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 -mt-1">
+                        <img 
+                          src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
+                          alt="Fallopian tube visualization"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
+                          <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                        </div>
                       </div>
                     </div>
-                    
-                    {/* Content agenda element has been removed */}
                   </>
+                )}
+                
+                {/* For mobile, just show the branding */}
+                {isMobile && (
+                  <div className="absolute top-4 right-4 bg-white/90 rounded-md py-1 px-2">
+                    <span className="text-xs font-bold text-[#0271e5]">Doc2Me</span>
+                  </div>
                 )}
                 
                 {/* Recording indicator */}
@@ -50,12 +64,6 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                     <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
                     <span className="text-xs text-white">00:08</span>
                   </div>
-                </div>
-                
-                {/* Doc2Me branding overlay - Moved to right side */}
-                <div className="absolute top-4 right-4 bg-white/90 rounded-md py-1 px-2">
-                  <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-bold text-[#0271e5]`}>Doc2Me</span>
-                  {!isMobile && <span className="text-xs text-gray-600 ml-1">Enhanced</span>}
                 </div>
               </div>
             </div>

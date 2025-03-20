@@ -41,13 +41,29 @@ const Index = () => {
         const windowHeight = window.innerHeight;
         
         // Calculate rotation based on mouse position
-        const xRotation = (clientY / windowHeight - 0.5) * 5; // Max 5deg
-        const yRotation = (clientX / windowWidth - 0.5) * -5; // Max 5deg
+        const xRotation = (clientY / windowHeight - 0.5) * 8; // Increased to 8deg for more dramatic effect
+        const yRotation = (clientX / windowWidth - 0.5) * -8; // Increased to 8deg for more dramatic effect
         
         // Apply the rotation transform
         platformVisualElement.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
       });
     }
+
+    // Add parallax effect to background elements
+    document.addEventListener('mousemove', (e) => {
+      const { clientX, clientY } = e;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      
+      const moveX = (clientX / windowWidth - 0.5) * 20;
+      const moveY = (clientY / windowHeight - 0.5) * 20;
+      
+      const blurs = document.querySelectorAll('.blur-3xl');
+      blurs.forEach((blur) => {
+        const blurElement = blur as HTMLElement;
+        blurElement.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
     
     return () => {
       featureCards.forEach(card => {
@@ -62,8 +78,9 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-doc-blue-light/10 to-white/90 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-grid-pattern opacity-30"></div>
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-96 h-96 rounded-full bg-doc-blue/10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-purple-400/10 blur-3xl"></div>
+        <div className="absolute -top-10 -right-10 w-96 h-96 rounded-full bg-doc-blue/10 blur-3xl transition-transform duration-1000 ease-out"></div>
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-doc-purple/10 blur-3xl transition-transform duration-1000 ease-out"></div>
+        <div className="absolute top-1/3 left-10 w-64 h-64 rounded-full bg-doc-purple-light/10 blur-3xl transition-transform duration-1000 ease-out"></div>
       </div>
       <NavBar />
       <main className="relative z-10">

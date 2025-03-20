@@ -1,5 +1,5 @@
 
-import { ArrowRight, Camera, Play, MessageCircle, ThumbsUp, MicroscreenScan } from "lucide-react";
+import { ArrowRight, Camera, Play, MessageCircle, ThumbsUp, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -15,7 +15,7 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
               <span className="block">More than</span>
               <span className="block">patient education.</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark">Doctor-Driven. Effortless. Instant.</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark animate-pulse-slow">Doctor-Driven. Effortless. Instant.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">
@@ -69,7 +69,7 @@ const HeroSection = () => {
               <div className="absolute -top-8 -right-4 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-sm">
                   <div className="bg-gradient-to-br from-doc-blue to-doc-blue-dark text-white p-2 rounded-lg">
-                    <MicroscreenScan className="w-5 h-5" />
+                    <Scan className="w-5 h-5" />
                   </div>
                   <span className="font-medium whitespace-nowrap">AI Content Creation</span>
                 </div>

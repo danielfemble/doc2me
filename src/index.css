@@ -135,11 +135,11 @@
 }
 
 .btn-primary {
-  @apply px-6 py-3 bg-gradient-to-r from-doc-blue to-doc-blue-dark text-white rounded-lg hover:from-doc-blue-dark hover:to-doc-blue transition-all duration-300 font-medium shadow-sm;
+  @apply px-6 py-3 bg-gradient-to-r from-doc-blue to-doc-blue-dark text-white rounded-lg hover:shadow-neon transition-all duration-300 font-medium transform hover:-translate-y-0.5;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 bg-white text-doc-black rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium border border-gray-200;
+  @apply px-6 py-3 bg-white text-doc-black rounded-lg hover:bg-gray-50 transition-all duration-300 font-medium border border-gray-200 transform hover:-translate-y-0.5;
 }
 
 .animate-delay-100 {
@@ -192,7 +192,7 @@
 }
 
 .testimonial-card {
-  @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-soft border border-white/50;
+  @apply bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-soft border border-white/50 hover:shadow-neon transition-all duration-300;
 }
 
 .line-clamp-3 {
@@ -231,4 +231,55 @@
 
 .shadow-feature-hover {
   box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1);
+}
+
+/* Glow effect for highlighting important elements */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: -1;
+  background: linear-gradient(45deg, #0EA5E9, #8B5CF6, #0EA5E9);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: inherit;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.4;
+}
+
+/* Futuristic text highlighting */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark;
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 150%;
+  }
 }

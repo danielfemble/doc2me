@@ -85,6 +85,19 @@ const TestimonialSection = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
+  // Add auto-rotation for testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        setIsAnimating(true);
+        setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+        setTimeout(() => setIsAnimating(false), 500);
+      }
+    }, 8000);
+    
+    return () => clearInterval(interval);
+  }, [isAnimating]);
+
   return (
     <section id="testimonials" className="section-container relative">
       <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
@@ -118,10 +131,10 @@ const TestimonialSection = () => {
                 key={testimonial.id} 
                 className="w-full flex-shrink-0 px-4"
               >
-                <div className="testimonial-card">
+                <div className="testimonial-card neo-glass backdrop-blur-md">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full overflow-hidden">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-doc-blue/20">
                         <img 
                           src={testimonial.image} 
                           alt={testimonial.name}
@@ -157,14 +170,14 @@ const TestimonialSection = () => {
         <div className="flex justify-center mt-8 gap-4">
           <button 
             onClick={handlePrev}
-            className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
+            className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-neon hover:bg-gray-50 transition-colors"
             disabled={isAnimating}
           >
             <ArrowLeft className="w-5 h-5 text-doc-black" />
           </button>
           <button 
             onClick={handleNext}
-            className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
+            className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-neon hover:bg-gray-50 transition-colors"
             disabled={isAnimating}
           >
             <ArrowRight className="w-5 h-5 text-doc-black" />

@@ -55,7 +55,7 @@ const FeatureSection = () => {
         <FeatureCard 
           icon={<Zap className="w-6 h-6" />}
           title="Instant Delivery"
-          description="Share content immediately with patients via secure links, email, or integrate directly with your EMR."
+          description="Share content immediately with patients via secure links, with automated notifications for new videos and viewing reminders."
         />
       </div>
     </section>

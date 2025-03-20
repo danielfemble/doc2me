@@ -1,4 +1,3 @@
-
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -28,13 +27,13 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* "Create content in seconds" banner - positioned to the left */}
+          {/* "Create short-videos in seconds" banner - positioned to the left */}
           <div className="absolute -top-8 left-8 sm:left-0 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <span className="font-medium whitespace-nowrap">Create content in seconds</span>
+              <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
             </div>
           </div>
           

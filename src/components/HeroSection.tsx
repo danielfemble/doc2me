@@ -21,11 +21,11 @@ const HeroSection = () => {
                 Patient education
               </span>
               <span className="block bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent">
-                transformed into a
+                meets
               </span>
               <span className="relative">
                 <span className="bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark animate-pulse-slow bg-clip-text text-transparent">
-                  growth engine.
+                  marketing.
                 </span>
                 <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-full"></span>
               </span>

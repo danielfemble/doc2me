@@ -14,51 +14,45 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
       <div className="platform-visual-wrapper perspective-900 mx-auto">
         <div className="relative mx-auto">
           {/* Main content display */}
-          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl transform hover:scale-[1.03] transition-transform duration-300">
+          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
             {/* Main interface with doctor - maximized aspect ratio */}
             <div className="relative w-full aspect-video bg-gray-100">
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
                 <img 
-                  src="/lovable-uploads/ed5ef07e-38b3-4cb2-a66b-d486545ffa2f.png" 
-                  alt="Doctor in video call"
+                  src="/lovable-uploads/7af29130-d540-4888-bf83-52220d658c44.png" 
+                  alt="Doctor recording educational content"
                   className="w-full h-full object-cover"
                 />
                 
-                {/* AI-enhanced overlay */}
-                <div className="absolute bottom-16 right-6 sm:bottom-24 sm:right-10 md:bottom-32 md:right-20 lg:bottom-40 lg:right-28 z-20">
-                  {/* Fallopian tube visualization with overlay */}
-                  <div className="relative w-64 sm:w-80 md:w-96 h-48 sm:h-60 md:h-72 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
-                    <img 
-                      src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
-                      alt="Fallopian tube visualization"
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Doc2Me branding overlay on top right of the fallopian tube image */}
-                    <div className="absolute top-2 right-2 bg-white/90 rounded-md py-1 px-2 z-10">
-                      <span className="text-sm font-bold text-[#0271e5]">Doc2Me</span>
-                      <span className="text-xs text-gray-600 ml-1">Enhanced</span>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
-                      <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                {/* UI overlay elements */}
+                <div className="absolute top-0 left-0 w-full p-4 bg-gradient-to-b from-black/40 to-transparent">
+                  <div className="flex items-center">
+                    <div className="flex items-center">
+                      <span className="text-white text-sm font-medium ml-2">Understanding the Menstrual Cycle</span>
                     </div>
                   </div>
                 </div>
                 
                 {/* Recording indicator */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                  <div className="bg-black/70 rounded-full py-1 px-4 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                    <span className="text-xs text-white">00:08</span>
+                <div className="absolute bottom-4 left-4 flex items-center">
+                  <div className="flex items-center bg-black/70 rounded-full py-1 px-3">
+                    <div className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></div>
+                    <span className="text-xs text-white">03:08</span>
                   </div>
+                </div>
+                
+                {/* Done button */}
+                <div className="absolute bottom-4 right-4">
+                  <button className="bg-[#0271e5] text-white text-sm font-medium py-1 px-4 rounded-md">
+                    Done
+                  </button>
                 </div>
               </div>
             </div>
-            
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 pointer-events-none"></div>
           </div>
           
-          {/* Floating UI elements - repositioned for better visibility */}
+          {/* Floating UI elements */}
           <div className="absolute -top-16 -right-4 sm:-top-20 sm:right-10 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -90,7 +84,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           </div>
         </div>
         
-        {/* Background glowing effects - enhanced for larger visual */}
+        {/* Background glowing effects */}
         <div className="absolute -z-10 w-60 h-60 rounded-full bg-[#0271e5]/30 blur-3xl top-1/3 -translate-y-1/2 left-0"></div>
         <div className="absolute -z-10 w-80 h-80 rounded-full bg-doc-purple/20 blur-3xl bottom-0 right-1/4"></div>
         <div className="absolute -z-10 w-40 h-40 rounded-full bg-doc-blue-light/30 blur-3xl top-1/4 right-1/5"></div>

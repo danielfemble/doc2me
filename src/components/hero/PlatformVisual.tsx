@@ -65,7 +65,6 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               </div>
               <div>
                 <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
-                <p className="text-xs text-gray-500 hidden sm:block">Personalized for patients</p>
               </div>
             </div>
           </div>

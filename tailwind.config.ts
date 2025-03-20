@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -126,6 +125,9 @@ export default {
 				'slide-from-bottom': {
 					'0%': { transform: 'translateY(20px)', opacity: '0' },
 					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'shine': {
+					to: { backgroundPosition: '200% center' }
 				}
 			},
 			animation: {
@@ -139,7 +141,7 @@ export default {
 				'slide-from-left': 'slide-from-left 0.5s ease-out forwards',
 				'slide-from-right': 'slide-from-right 0.5s ease-out forwards',
 				'slide-from-bottom': 'slide-from-bottom 0.5s ease-out forwards',
-				'glow': 'glow 1.5s ease-in-out infinite alternate',
+				'shine': 'shine 3s linear infinite',
 			},
 			boxShadow: {
 				'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',

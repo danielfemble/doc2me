@@ -282,3 +282,22 @@
     left: 150%;
   }
 }
+
+.animated-gradient {
+  background: linear-gradient(
+    to right,
+    #0271e5,
+    #8B5CF6,
+    #D6BCFA,
+    #0258B6,
+    #0271e5
+  );
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}

@@ -34,9 +34,9 @@ const ExplanationSection = () => {
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue-dark to-doc-blue flex items-center justify-center text-white">
             <Megaphone className="w-6 h-6" />
           </div>
-          <h4 className="font-semibold text-doc-black">From Doctors to Patients</h4>
+          <h4 className="font-semibold text-doc-black">Share Publicly or Exclusively</h4>
           <p className="text-doc-gray">
-            Doctors expand their reach by sharing personalized medical knowledge directly with patients when and where they need it most.
+            Physicians control who sees their content—make educational materials available to everyone or exclusively to their own patients.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Stethoscope, BrainCircuit, Megaphone } from "lucide-react";
+import { Stethoscope, BrainCircuit, ShieldCheck } from "lucide-react";
 
 const ExplanationSection = () => {
   return (
@@ -32,11 +32,11 @@ const ExplanationSection = () => {
         
         <div className="flex flex-col items-center text-center space-y-3">
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue-dark to-doc-blue flex items-center justify-center text-white">
-            <Megaphone className="w-6 h-6" />
+            <ShieldCheck className="w-6 h-6" />
           </div>
-          <h4 className="font-semibold text-doc-black">Share Publicly or Exclusively</h4>
+          <h4 className="font-semibold text-doc-black">Combat Misinformation</h4>
           <p className="text-doc-gray">
-            Physicians control who sees their content—make educational materials available to everyone or exclusively to patients.
+            Give your patients a trusted source of health information, reducing their reliance on potentially misleading social media content.
           </p>
         </div>
       </div>

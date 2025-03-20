@@ -1,5 +1,5 @@
 
-import { Clock, Zap, Medal, HeartPulse, BrainCircuit, Layers } from "lucide-react";
+import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide-react";
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
   <div className="feature-card opacity-0 animate-fade-in">
@@ -48,9 +48,9 @@ const FeatureSection = () => {
           description="Extend your expertise beyond clinic walls, creating lasting connections with patients who feel supported."
         />
         <FeatureCard 
-          icon={<Layers className="w-6 h-6" />}
-          title="Personalized Content"
-          description="Tailor educational content to specific patient needs, conditions, and questions for more relevant care."
+          icon={<ShieldCheck className="w-6 h-6" />}
+          title="Counter Misinformation"
+          description="Help patients avoid unreliable health information from social media by providing trustworthy content directly from their doctor."
         />
         <FeatureCard 
           icon={<Zap className="w-6 h-6" />}

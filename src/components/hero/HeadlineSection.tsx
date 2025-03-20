@@ -27,7 +27,7 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
       </div>
       
       <p className="text-lg md:text-xl text-doc-gray leading-relaxed max-w-2xl">
-        We're on a mission to extend the power of doctors beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
+        We're on a mission to extend the power of doctors beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes, while helping them avoid medical misinformation from unreliable sources.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-2">

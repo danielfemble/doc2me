@@ -8,17 +8,17 @@ const HeroSection = () => {
   return (
     <div className="pt-28 md:pt-36 pb-12 md:pb-16 relative z-10">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
-        {/* Changed from flex-row to flex-col layout to stack elements vertically */}
-        <div className="flex flex-col gap-8 items-center">
-          {/* Centered text content with increased width */}
-          <div className="w-full max-w-3xl mx-auto space-y-8">
-            <HeadlineSection />
-            <TestimonialBadge />
+        {/* Split screen design with visual on left, text on right */}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+          {/* PlatformVisual on left side for desktop */}
+          <div className="w-full md:w-3/5 order-2 md:order-1">
+            <PlatformVisual />
           </div>
           
-          {/* PlatformVisual now appears below the text with full width */}
-          <div className="w-full mt-8">
-            <PlatformVisual />
+          {/* Text content on right side */}
+          <div className="w-full md:w-2/5 space-y-8 order-1 md:order-2">
+            <HeadlineSection />
+            <TestimonialBadge />
           </div>
         </div>
         

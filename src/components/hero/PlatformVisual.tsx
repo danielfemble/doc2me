@@ -52,8 +52,18 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* Floating UI elements */}
-          <div className="absolute -top-16 -right-4 sm:-top-20 sm:right-10 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+          {/* "Create content in seconds" banner */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 sm:-top-10 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <span className="font-medium whitespace-nowrap">Create content in seconds</span>
+            </div>
+          </div>
+          
+          {/* Repositioned floating UI elements */}
+          <div className="absolute -top-4 right-0 sm:-right-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -62,7 +72,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          <div className="absolute -bottom-12 left-10 sm:-bottom-16 sm:left-20 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+          <div className="absolute -bottom-8 sm:-bottom-12 -left-4 sm:-left-8 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                 <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -71,7 +81,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          <div className="absolute top-1/3 -left-10 sm:-left-16 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+          <div className="absolute top-1/2 -translate-y-1/2 -right-6 sm:-right-14 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
             <div className="flex items-start gap-3">
               <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                 <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

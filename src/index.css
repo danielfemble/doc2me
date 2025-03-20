@@ -310,6 +310,10 @@
   );
   background-size: 200% auto;
   animation: shine 4s linear infinite;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 

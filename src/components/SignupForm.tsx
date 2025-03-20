@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +14,8 @@ import {
   FormMessage 
 } from "@/components/ui/form";
 import { toast } from "sonner";
-import { sendToSupabase } from "@/utils/supabase";
+import { sendToSupabase, checkSignupsTable, supabase } from "@/utils/supabase";
+import { AlertCircle } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -32,6 +33,26 @@ type FormValues = z.infer<typeof formSchema>;
 
 const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSupabaseConnected, setIsSupabaseConnected] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Check if Supabase is properly connected
+    const checkConnection = async () => {
+      if (supabase) {
+        const tableExists = await checkSignupsTable();
+        setIsSupabaseConnected(tableExists);
+        
+        if (!tableExists) {
+          console.warn("Supabase is connected, but the 'signups' table was not found");
+        }
+      } else {
+        setIsSupabaseConnected(false);
+        console.warn("Supabase client is not initialized");
+      }
+    };
+    
+    checkConnection();
+  }, []);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -55,6 +76,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
       
       if (success) {
         toast.success("Sign-up successful! We'll be in touch soon.");
+        form.reset();
         
         if (onSuccess) {
           onSuccess();
@@ -72,6 +94,15 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 
   return (
     <Form {...form}>
+      {isSupabaseConnected === false && (
+        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded mb-4 flex items-center">
+          <AlertCircle className="h-5 w-5 mr-2" />
+          <span className="text-sm">
+            Running in data collection mode. Your information will be saved when our database is online.
+          </span>
+        </div>
+      )}
+      
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}

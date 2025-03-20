@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="space-y-8 max-w-2xl">
             <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon">
-              <span className="text-sm text-doc-black font-medium">For Fertility Clinics & REIs</span>
+              <span className="text-sm text-doc-black font-medium">For Clinics & Doctors</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">

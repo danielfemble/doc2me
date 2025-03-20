@@ -62,15 +62,40 @@ const HeroSection = () => {
                             className="w-full h-full object-cover opacity-95"
                           />
                           
-                          {/* Overlay with Doc2Me enhanced visuals */}
-                          <div className="absolute top-12 right-8 w-1/3 h-2/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200">
-                            <img 
-                              src="/lovable-uploads/900eb547-122c-4281-8854-c515037a44e0.png" 
-                              alt="Fallopian tube visualization"
-                              className="w-full h-full object-cover"
-                            />
-                            <div className="absolute bottom-0 left-0 right-0 bg-[#0271e5]/80 text-white text-xs py-1 px-2">
-                              <p className="font-medium text-center">Fallopian Tube Diagram</p>
+                          {/* AI-generated content agenda for IVF */}
+                          <div className="absolute top-12 right-8 w-1/3 h-3/5 rounded-lg overflow-hidden border-2 border-[#0271e5] shadow-neon animate-float-delay-200 bg-white">
+                            <div className="w-full h-full p-3 flex flex-col">
+                              <div className="text-[#0271e5] font-semibold text-sm border-b border-gray-200 pb-1 mb-2">
+                                Content Agenda: IVF Consultation
+                              </div>
+                              <ul className="text-xs space-y-2 text-gray-800">
+                                <li className="flex items-start gap-1.5">
+                                  <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">1</div>
+                                  <span>IVF process overview (2 min)</span>
+                                </li>
+                                <li className="flex items-start gap-1.5">
+                                  <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">2</div>
+                                  <span>Medication protocol explanation (2 min)</span>
+                                </li>
+                                <li className="flex items-start gap-1.5">
+                                  <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">3</div>
+                                  <span>Egg retrieval procedure details (1 min)</span>
+                                </li>
+                                <li className="flex items-start gap-1.5">
+                                  <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">4</div>
+                                  <span>Embryo transfer process (1.5 min)</span>
+                                </li>
+                                <li className="flex items-start gap-1.5">
+                                  <div className="min-w-4 h-4 rounded-full bg-[#0271e5]/10 text-[#0271e5] flex items-center justify-center text-[10px] font-bold mt-0.5">5</div>
+                                  <span>Success rates and expectations (2 min)</span>
+                                </li>
+                              </ul>
+                              <div className="mt-auto pt-2 text-[10px] text-gray-500 border-t border-gray-100">
+                                <div className="flex items-center justify-between">
+                                  <span>AI-optimized talking points</span>
+                                  <span className="text-[#0271e5]">Personalize →</span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           

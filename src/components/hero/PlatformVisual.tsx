@@ -1,5 +1,5 @@
 
-import { MessageCircle, ThumbsUp, Scan } from "lucide-react";
+import { MessageCircle, ThumbsUp, Scan, BrainCircuit } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface PlatformVisualProps {
@@ -119,14 +119,15 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
+              {/* Replaced "Patient engagement up 78%" with more prominent AI Content Creation element */}
               <div className="absolute -bottom-4 right-16 neo-glass p-4 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
-                  <div className="bg-green-500/10 p-2 rounded-lg">
-                    <ThumbsUp className="w-5 h-5 text-green-500" />
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+                    <BrainCircuit className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">Patient engagement up 78%</p>
-                    <p className="text-xs text-gray-500">Since implementing Doc2Me</p>
+                    <p className="text-sm font-medium">AI-Powered Content</p>
+                    <p className="text-xs text-gray-500">Personalized for patients</p>
                   </div>
                 </div>
               </div>

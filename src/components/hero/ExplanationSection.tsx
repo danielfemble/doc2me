@@ -1,11 +1,9 @@
-
 const ExplanationSection = () => {
   return (
-    <div className="mt-16 md:mt-24 relative">
-      {/* Gradient overlay to blend with the background image */}
-      <div className="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent z-0"></div>
+    <div className="mt-16 md:mt-20 relative">
+      {/* No need for an additional gradient overlay anymore */}
       
-      <div className="relative z-10 bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
+      <div className="relative z-10 bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
           Physicians Creating Impactful Patient Education
         </h2>

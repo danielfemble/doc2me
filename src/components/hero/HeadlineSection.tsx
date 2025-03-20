@@ -9,7 +9,7 @@ interface HeadlineSectionProps {
 
 const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
   return (
-    <div className={`space-y-6 ${className}`}>
+    <div className={`space-y-6 max-w-3xl mx-auto text-center ${className}`}>
       <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon">
         <span className="text-sm text-doc-black font-medium">For Clinics & Doctors</span>
       </div>
@@ -27,11 +27,11 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
         </h1>
       </div>
       
-      <p className="text-lg md:text-xl text-doc-gray leading-relaxed max-w-2xl">
+      <p className="text-lg md:text-xl text-doc-gray leading-relaxed mx-auto">
         We're combating medical misinformation by extending the power of doctors beyond the clinic. Create, personalize, and share accurate health information with your patients in minutes.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 pt-2">
+      <div className="flex justify-center pt-2">
         <SignupDialog 
           trigger={
             <Button className="btn-primary group gap-2 text-base h-12 px-6" size="lg">

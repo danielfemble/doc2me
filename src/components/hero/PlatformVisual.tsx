@@ -1,4 +1,3 @@
-
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -6,6 +5,7 @@ interface PlatformVisualProps {
   className?: string;
 }
 
+// We're keeping this component for future use, but it's currently not being used in the hero section
 const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   const isMobile = useIsMobile();
 

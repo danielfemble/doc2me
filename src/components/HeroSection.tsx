@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="space-y-8 max-w-2xl">
             <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon">
-              <span className="text-sm text-doc-black font-medium">For Doctors & Clinics</span>
+              <span className="text-sm text-doc-black font-medium">For Fertility Clinics & REIs</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-doc-black leading-tight md:leading-tight">
@@ -19,7 +19,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-doc-gray leading-relaxed">
-              We're on a mission to extend the power of doctors beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
+              We're on a mission to extend the power of fertility specialists beyond the clinic—with content that lasts. Create, personalize, and share short-form videos with your patients in minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -38,14 +38,14 @@ const HeroSection = () => {
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center overflow-hidden shadow-sm">
                     <img
-                      src={`https://randomuser.me/api/portraits/men/${i + 20}.jpg`}
+                      src={`https://randomuser.me/api/portraits/women/${i + 20}.jpg`}
                       alt="User avatar"
                       className="w-full h-full object-cover"
                     />
                   </div>
                 ))}
               </div>
-              <span>Trusted by <b>2,000+</b> healthcare professionals</span>
+              <span>Trusted by <b>500+</b> fertility specialists</span>
             </div>
           </div>
 
@@ -53,8 +53,8 @@ const HeroSection = () => {
             <div className="platform-visual-wrapper perspective-900 w-full max-w-[40rem] mx-auto">
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/a5f840a4-b821-4913-b17a-34e3533fd6d5.png" 
-                  alt="Doc2Me platform interface"
+                  src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
+                  alt="Fertility clinic platform interface"
                   className="w-full h-auto z-10 relative transform rotate-2 shadow-2xl rounded-xl animate-float neo-glass"
                 />
                 

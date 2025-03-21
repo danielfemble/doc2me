@@ -7,8 +7,9 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+          {/* Logo and Social - spans 6 cols on md screens */}
+          <div className="md:col-span-6">
             <a href="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold text-doc-black tracking-tight">
                 Doc<span className="text-doc-blue">2</span>Me
@@ -27,14 +28,15 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
+          {/* Company and Product lists are now next to each other - each spans 3 cols on md screens */}
+          <div className="md:col-span-3">
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">
               <li><a href="/contact" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</a></li>
             </ul>
           </div>
           
-          <div>
+          <div className="md:col-span-3">
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Product</h3>
             <ul className="space-y-3">
               <li><a href="#features" className="text-doc-gray hover:text-doc-blue transition-colors">Features</a></li>

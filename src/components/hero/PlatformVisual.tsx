@@ -1,5 +1,5 @@
 
-import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
+import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot, Sparkles, ArrowUpRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface PlatformVisualProps {
@@ -45,6 +45,26 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
+          {/* NEW: Sparkles overlay - left side above image */}
+          <div className={`absolute ${isMobile ? '-top-12 left-8' : '-top-12 left-[30%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-100`}>
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <div className="bg-gradient-to-br from-doc-purple to-purple-600 text-white p-2 rounded-lg">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </div>
+              <span className="font-medium whitespace-nowrap">Engagement Boosters</span>
+            </div>
+          </div>
+          
+          {/* NEW: ArrowUpRight overlay - right side above image */}
+          <div className={`absolute ${isMobile ? '-top-12 right-8' : '-top-12 right-[30%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <div className="bg-gradient-to-br from-orange-400 to-orange-600 text-white p-2 rounded-lg">
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </div>
+              <span className="font-medium whitespace-nowrap">Growth Analytics</span>
+            </div>
+          </div>
+          
           {/* Share with patients - better spaced on mobile */}
           <div className={`absolute ${isMobile ? 'bottom-32 left-4' : 'top-1/2 -translate-y-1/2 left-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
@@ -64,6 +84,26 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               <div>
                 <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
               </div>
+            </div>
+          </div>
+          
+          {/* NEW: MessageCircle overlay - left below image */}
+          <div className={`absolute ${isMobile ? 'bottom-52 left-8' : 'bottom-0 left-[30%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-400`}>
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <div className="bg-gradient-to-br from-green-400 to-green-600 text-white p-2 rounded-lg">
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </div>
+              <span className="font-medium whitespace-nowrap">Patient Messaging</span>
+            </div>
+          </div>
+          
+          {/* NEW: Analytics overlay - right below image */}
+          <div className={`absolute ${isMobile ? 'bottom-52 right-8' : 'bottom-0 right-[30%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300`}>
+            <div className="flex items-center gap-3 text-xs sm:text-sm">
+              <div className="bg-gradient-to-br from-pink-400 to-pink-600 text-white p-2 rounded-lg">
+                <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              </div>
+              <span className="font-medium whitespace-nowrap">Automated Follow-ups</span>
             </div>
           </div>
         </div>

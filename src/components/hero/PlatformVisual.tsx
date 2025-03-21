@@ -16,23 +16,23 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Mobile: Four overlays positioned around the image */}
           {isMobile && (
             <>
-              {/* "Create short-videos in seconds" - moved higher up above the image */}
-              <div className="absolute -top-16 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
-                <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
-                    <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
-                </div>
-              </div>
-              
-              {/* "AI Content Support" - moved higher up above the image */}
+              {/* "AI Content Support" - positioned above the image */}
               <div className="absolute -top-16 right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-medium whitespace-nowrap">AI Content Support</span>
+                </div>
+              </div>
+              
+              {/* "Create short-videos in seconds" - positioned 10px below the AI Content Support */}
+              <div className="absolute -top-6 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                    <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
                 </div>
               </div>
               

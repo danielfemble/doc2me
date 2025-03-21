@@ -1,4 +1,3 @@
-
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -48,8 +47,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Bottom left overlay - moved 20px lower */}
-              <div className="absolute bottom-[32px] left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              {/* Bottom left overlay */}
+              <div className="absolute bottom-12 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                     <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

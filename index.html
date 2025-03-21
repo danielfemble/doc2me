@@ -59,6 +59,14 @@
     
     <!-- Script to fetch and set favicon from Supabase -->
     <script>
+      // Set the default favicon immediately to avoid "missing favicon" errors
+      const setDefaultFavicon = () => {
+        const defaultFavicon = document.querySelector("link[rel='icon']");
+        if (defaultFavicon) {
+          defaultFavicon.href = '/favicon.ico';
+        }
+      };
+      
       // Function to set favicon from Supabase storage
       async function setFaviconFromSupabase() {
         try {
@@ -75,7 +83,7 @@
               'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
               'apikey': SUPABASE_ANON_KEY
             },
-            cache: 'no-cache' // Add no-cache to prevent browser caching
+            cache: 'no-store' // Use no-store for absolute freshness
           });
           
           if (!response.ok) {
@@ -90,7 +98,7 @@
             // Create and set new favicon links
             const oldFavicon = document.getElementById('dynamic-favicon');
             if (oldFavicon) {
-              oldFavicon.remove(); // Remove existing favicon link
+              document.head.removeChild(oldFavicon); // Remove existing favicon link
             }
             
             // Create new favicon element
@@ -105,24 +113,31 @@
             
             console.log('Favicon set from Supabase storage:', data.url);
             
-            // Force refresh of the icon
-            const faviconLink = document.querySelector("link[rel='icon']");
-            if (faviconLink) {
-              faviconLink.href = data.url;
+            // Also update the default favicon
+            const defaultFavicon = document.querySelector("link[rel='icon']");
+            if (defaultFavicon && defaultFavicon.id !== 'dynamic-favicon') {
+              defaultFavicon.href = data.url;
             }
           } else {
             console.error('Edge function did not return a success response:', data);
+            setDefaultFavicon();
           }
         } catch (error) {
           console.error('Error setting favicon from Supabase:', error);
+          setDefaultFavicon();
         }
       }
       
-      // Call the function when the page loads
+      // Set default favicon first
+      setDefaultFavicon();
+      
+      // Try to fetch and set the custom favicon
       window.addEventListener('load', setFaviconFromSupabase);
       
-      // Also call it after a short delay to ensure it loads even if initial attempt fails
-      setTimeout(setFaviconFromSupabase, 2000);
+      // Retry multiple times with increasing delays
+      setTimeout(setFaviconFromSupabase, 1000);
+      setTimeout(setFaviconFromSupabase, 3000);
+      setTimeout(setFaviconFromSupabase, 6000);
     </script>
   </body>
 </html>

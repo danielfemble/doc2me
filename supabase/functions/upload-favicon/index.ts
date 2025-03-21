@@ -55,6 +55,13 @@ serve(async (req) => {
         
       if (removeError) {
         console.error('Error removing existing favicon:', removeError);
+        return new Response(
+          JSON.stringify({ success: false, error: removeError.message }),
+          {
+            status: 500,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
       }
     }
     
@@ -79,7 +86,7 @@ serve(async (req) => {
       .upload('favicon.png', new Uint8Array(imageData), {
         contentType: 'image/png',
         upsert: true,
-        cacheControl: '0' // No caching
+        cacheControl: '3600'
       });
 
     if (error) {

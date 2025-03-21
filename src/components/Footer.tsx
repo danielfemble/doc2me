@@ -51,6 +51,7 @@ const Footer = () => {
           <div className="flex flex-wrap gap-6 text-sm">
             <a href="https://www.iubenda.com/terms-and-conditions/92382842" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
             <a href="https://doc2me.co/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
+            <a href="/delete-account-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Delete Account</a>
           </div>
         </div>
       </div>

@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import SignupDialog from "@/components/SignupDialog";
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,22 +26,30 @@ const NavBar = () => {
     setIsMenuOpen(false); // Close mobile menu if open
   };
 
+  const getNavLink = (section: string, label: string) => {
+    if (isHomePage) {
+      return <a href={`#${section}`} className="text-doc-black/80 hover:text-doc-blue transition-colors">{label}</a>;
+    } else {
+      return <Link to={`/#${section}`} className="text-doc-black/80 hover:text-doc-blue transition-colors">{label}</Link>;
+    }
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <nav className="flex items-center justify-between">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold text-doc-black tracking-tight">
               Doc<span className="text-doc-blue">2</span>Me
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-doc-black/80 hover:text-doc-blue transition-colors">Features</a>
-            <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue transition-colors">How it works</a>
-            <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue transition-colors">Testimonials</a>
-            <a href="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</a>
+            {getNavLink("features", "Features")}
+            {getNavLink("how-it-works", "How it works")}
+            {getNavLink("testimonials", "Testimonials")}
+            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
@@ -67,10 +78,20 @@ const NavBar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-lg py-4 px-4 flex flex-col gap-4 border-t border-gray-100 animate-fade-in">
-            <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
-            <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</a>
-            <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
-            <a href="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            {isHomePage ? (
+              <>
+                <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
+                <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</a>
+                <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
+              </>
+            ) : (
+              <>
+                <Link to="/#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</Link>
+                <Link to="/#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</Link>
+                <Link to="/#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</Link>
+              </>
+            )}
+            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
               <Button variant="outline" className="w-full justify-center rounded-lg">
                 Log in

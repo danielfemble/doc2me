@@ -19,7 +19,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             <div className="relative w-full aspect-video">
               {/* Doctor in video call - made full size with no background constraints */}
               <img 
-                src="/lovable-uploads/2c84d845-238b-4160-8d25-bab308e78d84.png" 
+                src="/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png" 
                 alt="Doctor explaining egg freezing success rates"
                 className="w-full h-full object-cover"
               />

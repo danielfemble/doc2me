@@ -55,9 +55,9 @@ const HowItWorks = () => {
                 1
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-doc-black">Start a Content Session</h3>
+            <h3 className="text-xl font-semibold mb-3 text-doc-black">AI Powered Content Session</h3>
             <p className="text-doc-gray mb-6">
-              Simply record your video explaining the concept using our easy-to-use platform—no special equipment needed.
+              Doc2me AI asks you questions patients want to learn the most about, you simply answer them via quick video on any device.
             </p>
           </div>
 

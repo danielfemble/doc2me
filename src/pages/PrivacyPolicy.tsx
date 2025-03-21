@@ -4,6 +4,7 @@ import { Footer } from "@/components";
 
 const PrivacyPolicy = () => {
   const [language, setLanguage] = useState<'en' | 'de'>('en');
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
     // Detect browser language
@@ -11,12 +12,16 @@ const PrivacyPolicy = () => {
     if (userLang.startsWith('de')) {
       setLanguage('de');
     }
-
-    // Redirect to the dedicated privacy policy domain
-    window.location.href = 'https://privacy-policy.doc2me.co';
+    
+    // Set a slight delay before redirecting to ensure the page renders first
+    const redirectTimer = setTimeout(() => {
+      setIsRedirecting(true);
+      window.location.href = 'https://privacy-policy.doc2me.co';
+    }, 1500);
+    
+    return () => clearTimeout(redirectTimer);
   }, []);
 
-  // This will only be shown briefly before the redirect happens
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f4ed]">
       <main className="flex-grow container mx-auto px-4 py-8">
@@ -35,6 +40,7 @@ const PrivacyPolicy = () => {
                   ? 'bg-doc-blue text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
+              disabled={isRedirecting}
             >
               English
             </button>
@@ -45,14 +51,27 @@ const PrivacyPolicy = () => {
                   ? 'bg-doc-blue text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
+              disabled={isRedirecting}
             >
               Deutsch
             </button>
           </div>
         </div>
 
-        <div className="flex items-center justify-center h-64">
-          <p className="text-lg">Redirecting to privacy policy...</p>
+        <div className="flex flex-col items-center justify-center h-64 space-y-4">
+          <p className="text-lg font-medium">Redirecting to our privacy policy...</p>
+          <p className="text-sm text-gray-600">
+            If you are not redirected automatically, please {' '}
+            <a 
+              href="https://privacy-policy.doc2me.co" 
+              className="text-doc-blue hover:underline"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              click here
+            </a>
+          </p>
+          <div className="mt-4 w-12 h-12 border-t-2 border-doc-blue rounded-full animate-spin"></div>
         </div>
       </main>
       <Footer />

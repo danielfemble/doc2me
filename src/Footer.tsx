@@ -16,7 +16,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-doc-gray mb-6">
-              Extending the power of doctors beyond the clinic with content that lasts.
+              A better doctor-patient relationship
             </p>
             <div className="flex items-center gap-4">
               <a href="mailto:info@doc2me.com" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">

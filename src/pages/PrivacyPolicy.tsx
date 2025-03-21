@@ -11,8 +11,12 @@ const PrivacyPolicy = () => {
     if (userLang.startsWith('de')) {
       setLanguage('de');
     }
+
+    // Redirect to the dedicated privacy policy domain
+    window.location.href = 'https://privacy-policy.doc2me.co';
   }, []);
 
+  // This will only be shown briefly before the redirect happens
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f4ed]">
       <main className="flex-grow container mx-auto px-4 py-8">
@@ -47,14 +51,8 @@ const PrivacyPolicy = () => {
           </div>
         </div>
 
-        <div className="iframe-container bg-white w-full h-[900px] border-4 border-[#f7f4ed] rounded-lg overflow-hidden">
-          <iframe 
-            src={language === 'de' 
-              ? "https://drive.google.com/file/d/1DA9hjwkVn4Ui70QZr_gjY0W6mBdT0ZmI/preview" 
-              : "https://drive.google.com/file/d/1DKjEvDc0_Pyjp5TlkpIj-DvVqvjxeqVD/preview"} 
-            className="w-full h-full"
-            allow="autoplay"
-          ></iframe>
+        <div className="flex items-center justify-center h-64">
+          <p className="text-lg">Redirecting to privacy policy...</p>
         </div>
       </main>
       <Footer />

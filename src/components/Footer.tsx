@@ -50,7 +50,7 @@ const Footer = () => {
           <p className="text-doc-gray text-sm">&copy; {currentYear} Doc2Me. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 text-sm">
             <a href="https://www.iubenda.com/terms-and-conditions/92382842" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
-            <a href="/privacy-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
+            <a href="https://privacy-policy.doc2me.co" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

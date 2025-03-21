@@ -33,8 +33,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* AI Content Support - RIGHT TOP CORNER */}
-              <div className="absolute right-0 top-0 transform translate-x-1/3 -translate-y-1/3 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+              {/* AI Content Support - RIGHT TOP CORNER - moved 10px higher */}
+              <div className="absolute right-0 top-0 transform translate-x-1/3 -translate-y-1/3 -mt-10 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

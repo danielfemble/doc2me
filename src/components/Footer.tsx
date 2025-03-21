@@ -30,7 +30,6 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Press</a></li>
               <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -38,10 +37,9 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Product</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Features</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">For Clinics</a></li>
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">For Individual Doctors</a></li>
+              <li><a href="#features" className="text-doc-gray hover:text-doc-blue transition-colors">Features</a></li>
+              <li><a href="#how-it-works" className="text-doc-gray hover:text-doc-blue transition-colors">How it works</a></li>
+              <li><a href="#testimonials" className="text-doc-gray hover:text-doc-blue transition-colors">Testimonials</a></li>
             </ul>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import { Mail, Linkedin } from "lucide-react";
 
 const Footer = () => {
@@ -48,9 +49,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-doc-gray text-sm">&copy; {currentYear} Doc2Me. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 text-sm">
-            <a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
-            <a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
-            <a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Cookie Policy</a>
+            <a href="https://www.iubenda.com/terms-and-conditions/92382842" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

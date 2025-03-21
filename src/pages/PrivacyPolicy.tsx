@@ -1,9 +1,27 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Footer } from "@/components";
 
 const PrivacyPolicy = () => {
   const [language, setLanguage] = useState<'en' | 'de'>('en');
+  const [isRedirecting, setIsRedirecting] = useState(false);
+
+  useEffect(() => {
+    // Detect browser language
+    const userLang = navigator.language || navigator.languages?.[0] || 'en';
+    if (userLang.startsWith('de')) {
+      setLanguage('de');
+    }
+    
+    // Set a slight delay before redirecting to ensure the page renders first
+    const redirectTimer = setTimeout(() => {
+      setIsRedirecting(true);
+      // Using /privacy-policy path instead of subdomain
+      window.location.href = 'https://doc2me.co/privacy-policy';
+    }, 1500);
+    
+    return () => clearTimeout(redirectTimer);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f7f4ed]">
@@ -23,6 +41,7 @@ const PrivacyPolicy = () => {
                   ? 'bg-doc-blue text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
+              disabled={isRedirecting}
             >
               English
             </button>
@@ -33,38 +52,27 @@ const PrivacyPolicy = () => {
                   ? 'bg-doc-blue text-white' 
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
+              disabled={isRedirecting}
             >
               Deutsch
             </button>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-          <h1 className="text-3xl font-bold mb-8 text-doc-black">Privacy Policy</h1>
-          
-          <p className="mb-6">
-            Our privacy policy is available on our main website. Please use the link below to access it:
-          </p>
-          
-          <div className="mb-8">
+        <div className="flex flex-col items-center justify-center h-64 space-y-4">
+          <p className="text-lg font-medium">Redirecting to our privacy policy...</p>
+          <p className="text-sm text-gray-600">
+            If you are not redirected automatically, please {' '}
             <a 
               href="https://doc2me.co/privacy-policy" 
-              className="inline-block bg-doc-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
+              className="text-doc-blue hover:underline"
               target="_blank" 
               rel="noopener noreferrer"
             >
-              View Privacy Policy
+              click here
             </a>
-          </div>
-          
-          <div className="border-t border-gray-200 pt-6 text-gray-600">
-            <p>
-              If you have any questions about our privacy policy, please contact us at{' '}
-              <a href="mailto:support@doc2me.com" className="text-doc-blue hover:underline">
-                support@doc2me.com
-              </a>
-            </p>
-          </div>
+          </p>
+          <div className="mt-4 w-12 h-12 border-t-2 border-doc-blue rounded-full animate-spin"></div>
         </div>
       </main>
       <Footer />

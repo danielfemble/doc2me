@@ -67,11 +67,11 @@ serve(async (req) => {
     
     console.log("Uploading favicon");
     
-    // Get the favicon image from the public directory
-    const imageUrl = 'https://lovable.ai/static/uploads/41884ffd-0b4a-44d5-942c-b729bf807c09.png';
+    // Use your custom SVG favicon from the public directory
+    const imageUrl = '/favicon.svg';
     
     // Fetch the image
-    const imageResponse = await fetch(imageUrl);
+    const imageResponse = await fetch(new URL(imageUrl, req.url).href);
     if (!imageResponse.ok) {
       throw new Error(`Failed to fetch image: ${imageResponse.statusText}`);
     }
@@ -84,7 +84,7 @@ serve(async (req) => {
       .storage
       .from('public_assets')
       .upload('favicon.png', new Uint8Array(imageData), {
-        contentType: 'image/png',
+        contentType: 'image/svg+xml',
         upsert: true,
         cacheControl: '3600'
       });

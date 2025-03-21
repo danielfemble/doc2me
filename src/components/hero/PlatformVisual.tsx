@@ -26,8 +26,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* "Create short-videos in seconds" - positioned 10px below the AI Content Support */}
-              <div className="absolute -top-6 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+              {/* "Create short-videos in seconds" - positioned lower by additional 20px */}
+              <div className="absolute top-4 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Scan className="w-4 h-4 sm:w-5 sm:h-5" />

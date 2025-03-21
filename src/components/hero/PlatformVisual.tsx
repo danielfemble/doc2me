@@ -25,47 +25,99 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* "Create short-videos in seconds" banner - positioned differently on mobile */}
-          <div className={`absolute ${isMobile ? '-top-4 left-4' : '-top-8 left-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float`}>
-            <div className="flex items-center gap-3 text-xs sm:text-sm">
-              <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
-                <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
+          {/* Mobile: Four overlays positioned around the image */}
+          {isMobile && (
+            <>
+              {/* Top left overlay */}
+              <div className="absolute -top-4 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                    <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
+                </div>
               </div>
-              <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
-            </div>
-          </div>
+              
+              {/* Top right overlay */}
+              <div className="absolute -top-4 right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                    <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">AI Content Support</span>
+                </div>
+              </div>
+              
+              {/* Bottom left overlay */}
+              <div className="absolute bottom-12 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
+                    <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Share with patients</span>
+                </div>
+              </div>
+              
+              {/* Bottom right overlay */}
+              <div className="absolute bottom-12 right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+                <div className="flex items-start gap-3">
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+                    <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
           
-          {/* AI Content Support - repositioned for mobile */}
-          <div className={`absolute ${isMobile ? '-top-4 right-4' : '-top-4 right-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed`}>
-            <div className="flex items-center gap-3 text-xs sm:text-sm">
-              <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
-                <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          {/* Desktop overlays - hidden on mobile */}
+          {!isMobile && (
+            <>
+              {/* "Create short-videos in seconds" banner - positioned for desktop */}
+              <div className="absolute -top-8 left-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                    <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
+                </div>
               </div>
-              <span className="font-medium whitespace-nowrap">AI Content Support</span>
-            </div>
-          </div>
-          
-          {/* Share with patients - better spaced on mobile */}
-          <div className={`absolute ${isMobile ? 'bottom-32 left-4' : 'top-1/2 -translate-y-1/2 left-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
-            <div className="flex items-center gap-3 text-xs sm:text-sm">
-              <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
-                <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              
+              {/* AI Content Support - positioned for desktop */}
+              <div className="absolute -top-4 right-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                    <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">AI Content Support</span>
+                </div>
               </div>
-              <span className="font-medium whitespace-nowrap">Share with patients</span>
-            </div>
-          </div>
-          
-          {/* AI Content Enhancements - better positioned on mobile */}
-          <div className={`absolute ${isMobile ? 'bottom-12 left-4' : 'top-1/2 -translate-y-1/2 right-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300`}>
-            <div className="flex items-start gap-3">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
-                <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              
+              {/* Share with patients - positioned for desktop */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+                <div className="flex items-center gap-3 text-xs sm:text-sm">
+                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
+                    <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <span className="font-medium whitespace-nowrap">Share with patients</span>
+                </div>
               </div>
-              <div>
-                <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
+              
+              {/* AI Content Enhancements - positioned for desktop */}
+              <div className="absolute top-1/2 -translate-y-1/2 right-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+                <div className="flex items-start gap-3">
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+                    <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm font-medium">AI Content Enhancements</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
         
         {/* Background glowing effects */}

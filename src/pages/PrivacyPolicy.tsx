@@ -42,22 +42,25 @@ const PrivacyPolicy = () => {
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
           <h1 className="text-3xl font-bold mb-8 text-doc-black">Privacy Policy</h1>
           
-          <p className="mb-6">
-            Our privacy policy is available on our main website. Please use the link below to access it:
-          </p>
+          {language === 'en' ? (
+            <div className="responsive-iframe-container" style={{ position: 'relative', overflow: 'hidden', paddingTop: '150%' }}>
+              <iframe 
+                src="https://doc2me.co/privacy-policy" 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                title="Privacy Policy"
+              ></iframe>
+            </div>
+          ) : (
+            <div className="responsive-iframe-container" style={{ position: 'relative', overflow: 'hidden', paddingTop: '150%' }}>
+              <iframe 
+                src="https://doc2me.co/de/privacy-policy" 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                title="Datenschutzerklärung"
+              ></iframe>
+            </div>
+          )}
           
-          <div className="mb-8">
-            <a 
-              href="https://doc2me.co/privacy-policy" 
-              className="inline-block bg-doc-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              View Privacy Policy
-            </a>
-          </div>
-          
-          <div className="border-t border-gray-200 pt-6 text-gray-600">
+          <div className="mt-8 border-t border-gray-200 pt-6 text-gray-600">
             <p>
               If you have any questions about our privacy policy, please contact us at{' '}
               <a href="mailto:support@doc2me.com" className="text-doc-blue hover:underline">

@@ -1,5 +1,7 @@
 
 import { Mail, Linkedin } from "lucide-react";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import ContactForm from "@/components/ContactForm";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,7 +32,22 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</a></li>
+              <li>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="text-doc-gray hover:text-doc-blue transition-colors">Contact</button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[550px]">
+                    <div className="py-6">
+                      <h2 className="text-2xl font-bold mb-4 text-doc-black">Contact Us</h2>
+                      <p className="text-doc-gray mb-6">
+                        We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                      </p>
+                      <ContactForm />
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </li>
             </ul>
           </div>
           
@@ -49,7 +66,6 @@ const Footer = () => {
           <div className="flex flex-wrap gap-6 text-sm">
             <a href="https://www.iubenda.com/terms-and-conditions/92382842" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
             <a href="https://doc2me.co/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
-            {/* Delete Account link removed from footer navigation */}
           </div>
         </div>
       </div>

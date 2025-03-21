@@ -49,7 +49,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               </div>
               
               {/* AI Content Enhancements - moved higher up from bottom */}
-              <div className="absolute bottom-[50px] right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+              <div className="absolute bottom-[80px] right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                     <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -60,7 +60,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - moved 20px lower (from bottom-4 to bottom-[24px]) */}
+              {/* Share with patients - moved lower for more spacing */}
               <div className="absolute bottom-[24px] left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">

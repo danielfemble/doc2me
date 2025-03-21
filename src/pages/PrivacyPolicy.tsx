@@ -16,7 +16,8 @@ const PrivacyPolicy = () => {
     // Set a slight delay before redirecting to ensure the page renders first
     const redirectTimer = setTimeout(() => {
       setIsRedirecting(true);
-      window.location.href = 'https://privacy-policy.doc2me.co';
+      // Using /privacy-policy path instead of subdomain
+      window.location.href = 'https://doc2me.co/privacy-policy';
     }, 1500);
     
     return () => clearTimeout(redirectTimer);
@@ -63,7 +64,7 @@ const PrivacyPolicy = () => {
           <p className="text-sm text-gray-600">
             If you are not redirected automatically, please {' '}
             <a 
-              href="https://privacy-policy.doc2me.co" 
+              href="https://doc2me.co/privacy-policy" 
               className="text-doc-blue hover:underline"
               target="_blank" 
               rel="noopener noreferrer"

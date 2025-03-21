@@ -18,8 +18,8 @@ const HeroSection = () => {
         </div>
         
         {/* Larger full-width visual with increased vertical space */}
-        <div className={`mt-6 md:mt-12 px-0 sm:px-0 pt-8 md:pt-10 ${isMobile ? 'pb-80' : 'pb-32'}`}> 
-          {/* Increased bottom padding (pb-80) on mobile to accommodate overlays below the image */}
+        <div className={`mt-6 md:mt-12 px-0 sm:px-0 pt-20 md:pt-10 ${isMobile ? 'pb-80' : 'pb-32'}`}> 
+          {/* Increased top padding (pt-20) on mobile to accommodate overlays above the image */}
           <PlatformVisual className="max-w-[100%] mx-auto" />
         </div>
         

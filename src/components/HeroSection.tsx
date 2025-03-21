@@ -15,8 +15,8 @@ const HeroSection = () => {
         </div>
         
         {/* Larger full-width visual with reduced padding to maximize size */}
-        <div className="mt-8 md:mt-12 px-0 sm:px-0 pt-10 pb-12">
-          <PlatformVisual className="max-w-6xl mx-auto" />
+        <div className="mt-8 md:mt-12 px-0 sm:px-0 pt-10 pb-16"> {/* Increased bottom padding */}
+          <PlatformVisual className="max-w-[95%] mx-auto" /> {/* Increased max-width percentage */}
         </div>
         
         <ExplanationSection />

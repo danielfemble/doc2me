@@ -48,7 +48,6 @@ const NavBar = () => {
           <div className="hidden md:flex items-center gap-8">
             {getNavLink("features", "Features")}
             {getNavLink("how-it-works", "How it works")}
-            {getNavLink("testimonials", "Testimonials")}
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</Link>
           </div>
 
@@ -82,13 +81,11 @@ const NavBar = () => {
               <>
                 <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
                 <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</a>
-                <a href="#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
               </>
             ) : (
               <>
                 <Link to="/#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</Link>
                 <Link to="/#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</Link>
-                <Link to="/#testimonials" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</Link>
               </>
             )}
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>

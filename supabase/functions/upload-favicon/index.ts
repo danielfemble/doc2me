@@ -14,6 +14,9 @@ const supabaseClient = createClient(
   Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
 );
 
+// D2M favicon as base64 encoded SVG - no need to fetch external resources
+const faviconBase64 = `PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMyNTYzRUIiIHJ4PSI2Ii8+CiAgPHRleHQgeD0iNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IndoaXRlIj5EMjwvdGV4dD4KPC9zdmc+Cg==`;
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -67,23 +70,18 @@ serve(async (req) => {
     
     console.log("Uploading favicon");
     
-    // Use your custom SVG favicon from the public directory
-    const imageUrl = '/favicon.svg';
-    
-    // Fetch the image
-    const imageResponse = await fetch(new URL(imageUrl, req.url).href);
-    if (!imageResponse.ok) {
-      throw new Error(`Failed to fetch image: ${imageResponse.statusText}`);
+    // Decode the base64 SVG
+    const binaryString = atob(faviconBase64);
+    const bytes = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
     }
-    
-    // Get the image data as ArrayBuffer
-    const imageData = await imageResponse.arrayBuffer();
     
     // Upload the favicon to Supabase storage
     const { data, error } = await supabaseClient
       .storage
       .from('public_assets')
-      .upload('favicon.png', new Uint8Array(imageData), {
+      .upload('favicon.png', bytes, {
         contentType: 'image/svg+xml',
         upsert: true,
         cacheControl: '3600'

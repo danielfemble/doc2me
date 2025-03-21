@@ -12,21 +12,20 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   return (
     <div className={`relative w-full ${className}`}>
       <div className="platform-visual-wrapper perspective-900 mx-auto">
-        <div className="relative mx-auto max-w-6xl"> {/* Further increased max-width from 5xl to 6xl */}
+        <div className="relative mx-auto max-w-6xl">
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
-            {/* Main interface with doctor - larger size with rounded corners */}
-            <div className="relative w-full aspect-video">
-              {/* Doctor in video call - made even larger */}
+            {/* Doctor image - increased height with 3:2 aspect ratio instead of 16:9 */}
+            <div className="relative w-full" style={{ aspectRatio: "3/2" }}>
               <img 
                 src="/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png" 
                 alt="Doctor explaining egg freezing success rates"
-                className="w-full h-full object-cover rounded-xl shadow-lg"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
           </div>
           
-          {/* "Create short-videos in seconds" banner - further moved towards center */}
+          {/* "Create short-videos in seconds" banner */}
           <div className="absolute -top-8 left-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -36,7 +35,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Support - further moved towards center */}
+          {/* AI Content Support */}
           <div className="absolute -top-4 right-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
@@ -46,7 +45,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* Share with patients - moved further in from left edge */}
+          {/* Share with patients */}
           <div className="absolute top-1/2 -translate-y-1/2 left-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
@@ -56,7 +55,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Enhancements - moved further in from right edge */}
+          {/* AI Content Enhancements */}
           <div className="absolute top-1/2 -translate-y-1/2 right-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
             <div className="flex items-start gap-3">
               <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">

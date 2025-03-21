@@ -14,17 +14,15 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
       <div className="platform-visual-wrapper perspective-900 mx-auto">
         <div className="relative mx-auto">
           {/* Main content display */}
-          <div className="relative z-10 mx-auto overflow-hidden rounded-xl shadow-2xl">
-            {/* Main interface with doctor */}
-            <div className="relative w-full aspect-video bg-gray-100">
-              {/* Doctor in video call */}
-              <div className="relative w-full h-full bg-gray-900">
-                <img 
-                  src="/lovable-uploads/2c84d845-238b-4160-8d25-bab308e78d84.png" 
-                  alt="Doctor explaining egg freezing success rates"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="relative z-10 mx-auto">
+            {/* Main interface with doctor - removed frame and rounded corners */}
+            <div className="relative w-full aspect-video">
+              {/* Doctor in video call - made full size with no background constraints */}
+              <img 
+                src="/lovable-uploads/2c84d845-238b-4160-8d25-bab308e78d84.png" 
+                alt="Doctor explaining egg freezing success rates"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           

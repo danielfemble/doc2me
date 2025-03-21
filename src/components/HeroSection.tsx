@@ -14,9 +14,9 @@ const HeroSection = () => {
           <TestimonialBadge className="justify-center mt-8" />
         </div>
         
-        {/* Large full-width visual with additional padding to allow for overlays */}
-        <div className="mt-8 md:mt-12 px-6 sm:px-14 pt-10 pb-12">
-          <PlatformVisual className="max-w-5xl mx-auto" />
+        {/* Larger full-width visual with reduced padding to maximize size */}
+        <div className="mt-8 md:mt-12 px-0 sm:px-0 pt-10 pb-12">
+          <PlatformVisual className="max-w-6xl mx-auto" />
         </div>
         
         <ExplanationSection />

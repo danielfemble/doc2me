@@ -20,8 +20,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               {/* Doctor in video call */}
               <div className="relative w-full h-full bg-gray-900">
                 <img 
-                  src="/lovable-uploads/7af29130-d540-4888-bf83-52220d658c44.png" 
-                  alt="Doctor recording educational content"
+                  src="/lovable-uploads/2c84d845-238b-4160-8d25-bab308e78d84.png" 
+                  alt="Doctor explaining egg freezing success rates"
                   className="w-full h-full object-cover"
                 />
               </div>

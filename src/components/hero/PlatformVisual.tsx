@@ -15,8 +15,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
         <div className="relative mx-auto max-w-6xl">
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
-            {/* Doctor image - increased height with 3:2 aspect ratio instead of 16:9 */}
-            <div className="relative w-full" style={{ aspectRatio: "3/2" }}>
+            {/* Doctor image - even taller aspect ratio on mobile */}
+            <div className="relative w-full" style={{ aspectRatio: isMobile ? "1/1.2" : "3/2" }}>
               <img 
                 src="/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png" 
                 alt="Doctor explaining egg freezing success rates"
@@ -25,8 +25,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* "Create short-videos in seconds" banner */}
-          <div className="absolute -top-8 left-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+          {/* "Create short-videos in seconds" banner - positioned differently on mobile */}
+          <div className={`absolute ${isMobile ? '-top-4 left-2' : '-top-8 left-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -35,8 +35,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Support */}
-          <div className="absolute -top-4 right-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
+          {/* AI Content Support - repositioned for mobile */}
+          <div className={`absolute ${isMobile ? '-top-4 right-2' : '-top-4 right-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -45,8 +45,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* Share with patients */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+          {/* Share with patients - stacked vertically on mobile */}
+          <div className={`absolute ${isMobile ? 'bottom-20 left-2' : 'top-1/2 -translate-y-1/2 left-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                 <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -55,8 +55,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Enhancements */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
+          {/* AI Content Enhancements - stacked vertically on mobile */}
+          <div className={`absolute ${isMobile ? 'bottom-2 left-2' : 'top-1/2 -translate-y-1/2 right-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300`}>
             <div className="flex items-start gap-3">
               <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                 <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

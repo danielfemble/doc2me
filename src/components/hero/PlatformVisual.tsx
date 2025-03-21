@@ -28,8 +28,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Mobile: Four overlays positioned around the image */}
           {isMobile && (
             <>
-              {/* Top left overlay - moved further down (additional 10px) */}
-              <div className="absolute -top-4 left-4 mt-[30px] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
+              {/* Top left overlay - moved further down (40px top margin) */}
+              <div className="absolute -top-4 left-4 mt-[40px] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                     <Scan className="w-4 h-4 sm:w-5 sm:h-5" />

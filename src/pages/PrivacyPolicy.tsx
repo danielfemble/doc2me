@@ -5,14 +5,14 @@ import { Footer } from "@/components";
 const PrivacyPolicy = () => {
   const [language, setLanguage] = useState<'en' | 'de'>('en');
   
-  // PDF links from Google Drive
+  // Updated PDF links with correct embed format
   const pdfLinks = {
     en: "https://drive.google.com/file/d/1DKjEvDc0_Pyjp5TlkpIj-DvVqvjxeqVD/preview",
     de: "https://drive.google.com/file/d/1DA9hjwkVn4Ui70QZr_gjY0W6mBdT0ZmI/preview"
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f7f4ed]">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0271e5]/10 to-white/90">
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mb-6 flex justify-between items-center">
           <a href="/" className="flex items-center">

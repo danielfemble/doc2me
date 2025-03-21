@@ -3,7 +3,7 @@ import { Footer } from "@/components";
 
 const DeleteAccountPolicy = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f7f4ed]">
+    <div className="bg-gradient-to-b from-[#0271e5]/10 to-white/90 min-h-screen flex flex-col">
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mb-6">
           <a href="/" className="flex items-center">
@@ -16,38 +16,26 @@ const DeleteAccountPolicy = () => {
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
           <h1 className="text-3xl font-bold mb-8 text-doc-black">Delete Account Policy</h1>
           
-          <p className="mb-6">
-            Follow these steps to delete your Doc2Me account:
-          </p>
-          
           <div className="mb-8 space-y-8">
             <div>
-              <h2 className="text-xl font-semibold mb-4">Step 1: Access your account settings</h2>
-              <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm mb-4">
-                <img 
-                  src="/lovable-uploads/a636f175-e9ce-4bb9-ba7d-69ae981a6842.png" 
-                  alt="Step 1: Access account settings" 
-                  className="w-full object-contain"
-                />
-              </div>
-              <p className="text-gray-700">
-                Navigate to your account settings by clicking on your profile picture in the top right corner.
-              </p>
+              <h2 className="text-xl font-semibold mb-4">Option 1: Delete yourself</h2>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Go to profile settings in the right top corner</li>
+                <li>Go to the very bottom and find the button "delete account"</li>
+              </ul>
             </div>
             
             <div>
-              <h2 className="text-xl font-semibold mb-4">Step 2: Delete your account</h2>
-              <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm mb-4">
-                <img 
-                  src="/lovable-uploads/aeff4df8-b14d-4ad8-bd87-69d32ece5428.png" 
-                  alt="Step 2: Delete your account" 
-                  className="w-full object-contain"
-                />
-              </div>
-              <p className="text-gray-700">
-                Scroll to the bottom of the account settings page and click on "Delete Account". 
-                Confirm your choice in the popup dialog.
-              </p>
+              <h2 className="text-xl font-semibold mb-4">Option 2: Write us an E-Mail</h2>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>
+                  You can write us an email via{' '}
+                  <a href="mailto:support@doc2me.co" className="text-doc-blue hover:underline">
+                    support@doc2me.co
+                  </a>{' '}
+                  and we are happy to help you.
+                </li>
+              </ul>
             </div>
           </div>
           
@@ -61,8 +49,8 @@ const DeleteAccountPolicy = () => {
           <div className="border-t border-gray-200 pt-6 text-gray-600">
             <p>
               If you have any questions about deleting your account, please contact us at{' '}
-              <a href="mailto:support@doc2me.com" className="text-doc-blue hover:underline">
-                support@doc2me.com
+              <a href="mailto:support@doc2me.co" className="text-doc-blue hover:underline">
+                support@doc2me.co
               </a>
             </p>
           </div>

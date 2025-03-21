@@ -60,8 +60,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - moved lower than AI Content Enhancements */}
-              <div className="absolute bottom-4 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
+              {/* Share with patients - moved 20px lower (from bottom-4 to bottom-[24px]) */}
+              <div className="absolute bottom-[24px] left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
                   <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                     <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

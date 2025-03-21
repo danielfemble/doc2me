@@ -26,7 +26,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           </div>
           
           {/* "Create short-videos in seconds" banner - positioned differently on mobile */}
-          <div className={`absolute ${isMobile ? '-top-4 left-2' : '-top-8 left-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float`}>
+          <div className={`absolute ${isMobile ? '-top-4 left-4' : '-top-8 left-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -36,7 +36,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           </div>
           
           {/* AI Content Support - repositioned for mobile */}
-          <div className={`absolute ${isMobile ? '-top-4 right-2' : '-top-4 right-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed`}>
+          <div className={`absolute ${isMobile ? '-top-4 right-4' : '-top-4 right-[20%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
                 <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -45,8 +45,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* Share with patients - stacked vertically on mobile */}
-          <div className={`absolute ${isMobile ? 'bottom-20 left-2' : 'top-1/2 -translate-y-1/2 left-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
+          {/* Share with patients - better spaced on mobile */}
+          <div className={`absolute ${isMobile ? 'bottom-32 left-4' : 'top-1/2 -translate-y-1/2 left-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200`}>
             <div className="flex items-center gap-3 text-xs sm:text-sm">
               <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
                 <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -55,8 +55,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </div>
           </div>
           
-          {/* AI Content Enhancements - stacked vertically on mobile */}
-          <div className={`absolute ${isMobile ? 'bottom-2 left-2' : 'top-1/2 -translate-y-1/2 right-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300`}>
+          {/* AI Content Enhancements - better positioned on mobile */}
+          <div className={`absolute ${isMobile ? 'bottom-12 left-4' : 'top-1/2 -translate-y-1/2 right-[12%]'} neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300`}>
             <div className="flex items-start gap-3">
               <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
                 <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />

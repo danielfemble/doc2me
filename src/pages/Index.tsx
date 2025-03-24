@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
@@ -6,7 +5,6 @@ import FeatureSection from '@/components/FeatureSection';
 import HowItWorks from '@/components/HowItWorks';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
-import RebrandingBanner from '@/components/RebrandingBanner';
 
 const Index = () => {
   useEffect(() => {
@@ -90,7 +88,6 @@ const Index = () => {
         <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-doc-purple/10 blur-3xl transition-transform duration-1000 ease-out"></div>
         <div className="absolute top-1/3 left-10 w-64 h-64 rounded-full bg-doc-purple-light/10 blur-3xl transition-transform duration-1000 ease-out"></div>
       </div>
-      <RebrandingBanner />
       <NavBar />
       <main className="relative z-10">
         <HeroSection />

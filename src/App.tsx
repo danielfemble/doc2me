@@ -6,12 +6,14 @@ import Index from "@/pages/Index";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
+import RebrandingBanner from "@/components/RebrandingBanner";
 
 function App() {
   return (
     <>
       <Toaster position="top-right" richColors />
       <Router>
+        <RebrandingBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

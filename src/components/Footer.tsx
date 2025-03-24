@@ -1,5 +1,6 @@
 
 import { Mail, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,11 +11,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
           {/* Logo and Social - spans 6 cols on md screens */}
           <div className="md:col-span-6">
-            <a href="/" className="flex items-center mb-6">
+            <Link to="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold text-doc-black tracking-tight">
                 Doc<span className="text-doc-blue">2</span>Me
               </span>
-            </a>
+            </Link>
             <p className="text-doc-gray mb-6">
               A better doctor-patient relationship
             </p>
@@ -32,7 +33,8 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">
-              <li><a href="/contact" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</a></li>
+              <li><Link to="/contact" className="text-doc-gray hover:text-doc-blue transition-colors">Contact</Link></li>
+              <li><Link to="/imprint" className="text-doc-gray hover:text-doc-blue transition-colors">Imprint</Link></li>
             </ul>
           </div>
           
@@ -48,8 +50,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-doc-gray text-sm">&copy; {currentYear} Doc2Me. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 text-sm">
-            <a href="https://www.iubenda.com/terms-and-conditions/92382842" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Terms of Service</a>
-            <a href="https://doc2me.co/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</Link>
+            <Link to="/delete-account-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Delete Account Policy</Link>
           </div>
         </div>
       </div>

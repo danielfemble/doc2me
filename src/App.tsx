@@ -6,6 +6,7 @@ import Index from "@/pages/Index";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
+import Imprint from "@/pages/Imprint";
 import RebrandingBanner from "@/components/RebrandingBanner";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/delete-account-policy" element={<DeleteAccountPolicy />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/imprint" element={<Imprint />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

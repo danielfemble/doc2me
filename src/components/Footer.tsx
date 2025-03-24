@@ -52,6 +52,7 @@ const Footer = () => {
           <div className="flex flex-wrap gap-6 text-sm">
             <Link to="/privacy-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</Link>
             <Link to="/delete-account-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Delete Account Policy</Link>
+            <Link to="/imprint" className="text-doc-gray hover:text-doc-blue transition-colors">Imprint</Link>
           </div>
         </div>
       </div>

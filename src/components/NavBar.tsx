@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -57,7 +58,7 @@ const NavBar = () => {
             <SignupDialog 
               trigger={
                 <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                  Try Doc2Me
+                  Join Waitlist
                 </Button>
               }
               defaultOpen={signupOpen}
@@ -95,7 +96,7 @@ const NavBar = () => {
               <SignupDialog 
                 trigger={
                   <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                    Try Doc2Me
+                    Join Waitlist
                   </Button>
                 }
               />

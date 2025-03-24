@@ -10,7 +10,7 @@ const RebrandingBanner = () => {
 
   return (
     <Alert 
-      className="rounded-none border-b border-doc-blue/20 bg-doc-blue-light text-doc-blue py-2 px-4"
+      className="rounded-none border-b border-doc-blue/20 bg-doc-blue-light text-doc-blue py-2 px-4 fixed top-0 left-0 right-0 z-50"
     >
       <AlertDescription className="flex items-center justify-between">
         <div className="text-center w-full font-medium">

@@ -12,8 +12,8 @@ function App() {
   return (
     <>
       <Toaster position="top-right" richColors />
+      <RebrandingBanner />
       <Router>
-        <RebrandingBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

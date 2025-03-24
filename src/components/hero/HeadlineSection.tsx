@@ -35,7 +35,7 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
         <SignupDialog 
           trigger={
             <Button className="btn-primary group gap-2 text-base h-12 px-6" size="lg">
-              Try Doc2Me
+              Join Waitlist
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
           }

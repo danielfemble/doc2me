@@ -17,7 +17,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/utility-pages/privacy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Keep old route for backward compatibility */}
           <Route path="/delete-account-policy" element={<DeleteAccountPolicy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/imprint" element={<Imprint />} />

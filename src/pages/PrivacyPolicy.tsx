@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Footer } from "@/components";
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   const [language, setLanguage] = useState<'en' | 'de'>('en');
@@ -15,11 +16,11 @@ const PrivacyPolicy = () => {
     <div className="bg-gradient-to-b from-[#0271e5]/10 to-white/90 min-h-screen flex flex-col">
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="mb-6 flex justify-between items-center">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold text-doc-black tracking-tight">
               Doc<span className="text-doc-blue">2</span>Me
             </span>
-          </a>
+          </Link>
           
           <div className="flex gap-4">
             <button 

@@ -1,7 +1,8 @@
 
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { Camera, Sparkles, Share2 } from "lucide-react";
+import { Camera, Sparkles, Share2, ArrowRight } from "lucide-react";
+import SignupDialog from "@/components/SignupDialog";
 
 const HowItWorks = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -89,9 +90,14 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <Button className="btn-primary gap-2 text-base h-12" size="lg">
-            Start Creating Content
-          </Button>
+          <SignupDialog 
+            trigger={
+              <Button className="btn-primary gap-2 text-base h-12" size="lg">
+                Join Waitlist
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            }
+          />
         </div>
       </div>
     </section>

@@ -51,10 +51,7 @@ const NavBar = () => {
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" className="rounded-lg">
-              Log in
-            </Button>
+          <div className="hidden md:flex items-center">
             <SignupDialog 
               trigger={
                 <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
@@ -90,9 +87,6 @@ const NavBar = () => {
             )}
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
-              <Button variant="outline" className="w-full justify-center rounded-lg">
-                Log in
-              </Button>
               <SignupDialog 
                 trigger={
                   <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">

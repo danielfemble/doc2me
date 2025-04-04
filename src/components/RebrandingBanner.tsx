@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const RebrandingBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false); // Set to false to hide the banner completely
   const [bannerHeight, setBannerHeight] = useState(0);
   const isMobile = useIsMobile();
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +41,7 @@ const RebrandingBanner = () => {
     >
       <AlertDescription className="flex items-center justify-between">
         <div className="text-center w-full font-medium">
-          Femble is now Doc<span className="text-doc-blue">2</span>Me
+          Welcome to Doc<span className="text-doc-blue">2</span>Me
         </div>
         <button 
           onClick={() => setIsVisible(false)}

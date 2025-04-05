@@ -20,7 +20,7 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
             New generation of
           </div>
           <div className="relative mt-2">
-            <span className="animated-gradient-text font-extrabold">
+            <span className="animated-gradient-text font-extrabold whitespace-nowrap">
               patient education.
             </span>
           </div>

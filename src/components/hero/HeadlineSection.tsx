@@ -11,17 +11,17 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
   return (
     <div className={`space-y-6 ${className}`}>
       <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon mx-auto">
-        <span className="text-sm text-doc-black font-medium">For Clinics & Doctors</span>
+        <span className="text-sm text-doc-black font-medium">A Co-Pilot for Patient Education</span>
       </div>
       
       <div className="space-y-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
           <div className="bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent">
-            Patient education meets
+            A new generation of
           </div>
           <div className="relative mt-2">
             <span className="animated-gradient-text font-extrabold">
-              healthcare marketing.
+              patient education.
             </span>
           </div>
         </h1>

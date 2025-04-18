@@ -3,12 +3,10 @@ import { useState } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import SignupForm from "./SignupForm";
 
 interface SignupDialogProps {
   trigger?: React.ReactNode;
@@ -18,22 +16,25 @@ interface SignupDialogProps {
 const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
   const [open, setOpen] = useState(defaultOpen);
 
-  const handleSuccess = () => {
-    // Close the dialog after successful submission
-    setTimeout(() => setOpen(false), 1500);
-  };
-
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">Join Doc2Me</DialogTitle>
-          <DialogDescription>
-            Get early access to our patient education platform and start combating medical misinformation today.
-          </DialogDescription>
         </DialogHeader>
-        <SignupForm onSuccess={handleSuccess} />
+        <div className="mt-4 w-full flex justify-center">
+          <iframe 
+            src="https://sibforms.com/serve/MUIFAFZgBi2la9ia67FmxJ4AvU8ykmNTIIoKGqZfS4J4gDnWxKzQCxuEWmh7Xp2PlJd2MgPXdyAVPgm0p4FRzsHXxC8oUSrt-AUbfPjXEHiqy372lzjX4MgxdPl22J3bpBrtqV8PLAXipWzvbY9j24I13qK3pt4mHpZBZZXagOEHLzRpGFnLlCkaqNqHFuHcotB3qm-JBe1vt72u"
+            width="100%"
+            height="450px"
+            frameBorder="0"
+            scrolling="auto"
+            allowFullScreen
+            style={{ maxWidth: '100%' }}
+            className="rounded-md"
+          />
+        </div>
       </DialogContent>
     </Dialog>
   );

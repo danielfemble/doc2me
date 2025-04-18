@@ -34,7 +34,7 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
 
     console.log('Attempting to send data to Supabase...', dataWithTimestamp);
     
-    // Insert the data into the signups table
+    // Insert the data into the signups table with the correct structure
     const { error } = await supabase
       .from('signups')
       .insert([{
@@ -45,7 +45,35 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
     
     if (error) {
       console.error('Error sending data to Supabase:', error);
-      return false;
+      
+      // If insertion fails, let's try to call our edge function as a fallback
+      try {
+        const response = await fetch('https://eaqecvrbzwhdkxnndfkw.supabase.co/functions/v1/handle-notifications', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabase.auth.getSession().then(res => res.data.session?.access_token || '')}`
+          },
+          body: JSON.stringify({
+            type: 'signup',
+            record: {
+              'Your Name': data.name,
+              'Email': data.email,
+              'Clinic or Practice Name': data.clinic
+            }
+          })
+        });
+        
+        if (response.ok) {
+          console.log('Signup sent via edge function as fallback');
+          return true;
+        } else {
+          throw new Error('Edge function fallback failed');
+        }
+      } catch (fallbackError) {
+        console.error('Fallback notification also failed:', fallbackError);
+        return false;
+      }
     }
     
     console.log('Data sent to Supabase successfully');

@@ -19,6 +19,33 @@ serve(async (req) => {
     const payload = await req.json();
     console.log('Received notification:', payload);
 
+    // Insert the signup data directly into the database
+    if (payload.type === 'signup') {
+      try {
+        // Create Supabase client
+        const supabaseUrl = Deno.env.get('SUPABASE_URL') || 'https://eaqecvrbzwhdkxnndfkw.supabase.co';
+        const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+        
+        if (supabaseKey) {
+          // Only attempt database insert if we have the service role key
+          const supabaseAdmin = createClient(supabaseUrl, supabaseKey);
+          
+          const { error } = await supabaseAdmin
+            .from('signups')
+            .insert([payload.record]);
+            
+          if (error) {
+            console.error('Error inserting data in edge function:', error);
+          } else {
+            console.log('Successfully inserted signup data from edge function');
+          }
+        }
+      } catch (dbError) {
+        console.error('Database operation failed in edge function:', dbError);
+        // Continue with email notification even if DB insert fails
+      }
+    }
+
     // Send email via Resend
     const emailResponse = await resend.emails.send({
       from: 'Doc2Me <notifications@doc2me.co>',
@@ -41,6 +68,37 @@ serve(async (req) => {
     });
   }
 });
+
+// Helper function to create a Supabase client
+const createClient = (supabaseUrl, supabaseKey) => {
+  return {
+    from: (table) => ({
+      insert: async (data) => {
+        try {
+          const res = await fetch(`${supabaseUrl}/rest/v1/${table}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': supabaseKey,
+              'Authorization': `Bearer ${supabaseKey}`,
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(data)
+          });
+          
+          if (!res.ok) {
+            const errorText = await res.text();
+            return { error: { status: res.status, message: errorText } };
+          }
+          
+          return { error: null };
+        } catch (error) {
+          return { error };
+        }
+      }
+    })
+  };
+};
 
 function formatEmailContent(type: string, record: any): string {
   if (type === 'signup') {

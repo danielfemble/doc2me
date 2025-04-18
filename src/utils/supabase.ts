@@ -35,17 +35,18 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
     console.log('Attempting to send data to Supabase...', dataWithTimestamp);
     
     try {
-      // First attempt to insert data directly into the database
+      // Insert directly into the signups table with proper column structure
       const { error } = await supabase
         .from('signups')
         .insert([{
           "Your Name": data.name,
           "Email": data.email,
-          "Clinic or Practice Name": data.clinic
+          "Clinic or Practice Name": data.clinic,
+          "created_at": new Date().toISOString()
         }]);
       
       if (error) {
-        console.log('Direct DB insert failed, trying edge function fallback...');
+        console.log('Direct DB insert failed, trying edge function fallback...', error);
         throw error; // Will trigger the fallback below
       }
       
@@ -67,7 +68,8 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
             record: {
               'Your Name': data.name,
               'Email': data.email,
-              'Clinic or Practice Name': data.clinic
+              'Clinic or Practice Name': data.clinic,
+              'created_at': new Date().toISOString()
             }
           })
         });

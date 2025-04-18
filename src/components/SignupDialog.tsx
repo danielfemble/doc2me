@@ -27,9 +27,9 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
           <iframe 
             src="https://sibforms.com/serve/MUIFAC0h2CeUUFzyN0xZiW56hsrCIv7YymfTLDnCzpUhhqh2g7eSx7vve-DzAbc0dlrPC-pV7mjuxcl7J4pPIkCgihSxJZonofqOACYMvE5JKuI4zCGh764x-Ok1OohSYC0jsj4EN4vJXl-uMkKGrPJtHMA_fcG-L8G0QNJyuBDPUmz7wYloFoUJ67hG9C_MTHOUXKKHw9LrvFrX"
             width="100%"
-            height="305px"
+            height="400px"
             frameBorder="0"
-            scrolling="no"
+            scrolling="auto"
             allowFullScreen
             style={{ display: 'block', maxWidth: '100%' }}
             className="rounded-md"
@@ -41,4 +41,3 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
 };
 
 export default SignupDialog;
-

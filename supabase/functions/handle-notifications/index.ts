@@ -1,11 +1,13 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.7.1';
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
+
+const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -17,12 +19,15 @@ serve(async (req) => {
     const payload = await req.json();
     console.log('Received notification:', payload);
 
-    // Here you can implement your preferred notification method
-    // For now, we'll just log the notification
-    console.log('New submission received:', {
-      type: payload.type,
-      data: payload.record
+    // Send email via Resend
+    const emailResponse = await resend.emails.send({
+      from: 'Doc2Me <notifications@doc2me.co>',
+      to: 'daniel@doc2me.co',
+      subject: payload.type === 'signup' ? 'New Doc2Me Signup' : 'New Doc2Me Contact Form Submission',
+      html: payload.record ? formatEmailContent(payload.type, payload.record) : 'New submission received',
     });
+
+    console.log('Email sent successfully:', emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -36,3 +41,21 @@ serve(async (req) => {
     });
   }
 });
+
+function formatEmailContent(type: string, record: any): string {
+  if (type === 'signup') {
+    return `
+      <h2>New Signup Received</h2>
+      <p><strong>Name:</strong> ${record['Your Name'] || 'N/A'}</p>
+      <p><strong>Email:</strong> ${record['Email'] || 'N/A'}</p>
+      <p><strong>Clinic:</strong> ${record['Clinic or Practice Name'] || 'N/A'}</p>
+    `;
+  } else {
+    return `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${record.name || 'N/A'}</p>
+      <p><strong>Email:</strong> ${record.email || 'N/A'}</p>
+      <p><strong>Message:</strong> ${record.message || 'N/A'}</p>
+    `;
+  }
+}

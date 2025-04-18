@@ -17,7 +17,9 @@ serve(async (req) => {
 
   try {
     const payload = await req.json();
-    console.log('Received notification:', JSON.stringify(payload));
+    console.log('Received notification payload:', JSON.stringify(payload));
+
+    let dbInsertSuccess = false;
 
     // Insert the signup data directly into the database
     if (payload.type === 'signup') {
@@ -27,7 +29,7 @@ serve(async (req) => {
         const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
         
         if (supabaseKey) {
-          console.log('Attempting database insert with record:', JSON.stringify(payload.record));
+          console.log('Attempting direct database insert with record:', JSON.stringify(payload.record));
           
           // Directly use the REST API for insertion - this is most reliable
           try {
@@ -48,14 +50,13 @@ serve(async (req) => {
               throw new Error(`REST API error: ${res.status} - ${errorText}`);
             } else {
               console.log('Successfully inserted data using REST API');
+              dbInsertSuccess = true;
             }
           } catch (restError) {
             console.error('REST API insert failed with exception:', restError);
-            throw restError; // Re-throw to be caught by outer try/catch
           }
         } else {
           console.error('No SUPABASE_SERVICE_ROLE_KEY found - cannot save to database');
-          throw new Error('Missing service role key');
         }
       } catch (dbError) {
         console.error('Database operation failed in edge function:', dbError);
@@ -64,16 +65,26 @@ serve(async (req) => {
     }
 
     // Send email via Resend
-    const emailResponse = await resend.emails.send({
-      from: 'Doc2Me <notifications@doc2me.co>',
-      to: 'daniel@doc2me.co',
-      subject: payload.type === 'signup' ? 'New Doc2Me Signup' : 'New Doc2Me Contact Form Submission',
-      html: payload.record ? formatEmailContent(payload.type, payload.record) : 'New submission received',
-    });
+    try {
+      const emailResponse = await resend.emails.send({
+        from: 'Doc2Me <notifications@doc2me.co>',
+        to: 'daniel@doc2me.co',
+        subject: payload.type === 'signup' ? 'New Doc2Me Signup' : 'New Doc2Me Contact Form Submission',
+        html: payload.record ? formatEmailContent(payload.type, payload.record) : 'New submission received',
+      });
 
-    console.log('Email sent successfully:', emailResponse);
+      console.log('Email send attempt result:', emailResponse);
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError);
+    }
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ 
+      success: true,
+      dbInsertSuccess,
+      message: dbInsertSuccess ? 
+        "Data saved to database and email notification sent" : 
+        "Email notification sent, but database insert failed"
+    }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
     });

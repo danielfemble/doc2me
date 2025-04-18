@@ -32,6 +32,7 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
     try {
       console.log('Attempting direct DB insert to signups table...');
       
+      // Format the data according to the exact column names in the signups table
       const insertData = {
         "Your Name": data.name,
         "Email": data.email, 
@@ -43,8 +44,7 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
       
       const { error, data: responseData } = await supabase
         .from('signups')
-        .insert([insertData])
-        .select();
+        .insert([insertData]);
       
       if (error) {
         console.error('Direct DB insert failed:', error);
@@ -96,7 +96,7 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
         return true;
       } catch (fallbackError) {
         console.error('Edge function fallback also failed:', fallbackError);
-        return false;
+        throw fallbackError;
       }
     }
   } catch (error) {

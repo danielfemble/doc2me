@@ -60,6 +60,8 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
+      console.log("Submitting signup form with data:", data);
+      
       // Send data to Supabase or the edge function fallback
       const success = await sendToSupabase({
         name: data.name,
@@ -75,9 +77,8 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
           onSuccess();
         }
       } else {
-        // Even if direct DB submission failed, we tried the edge function fallback
-        // If we're here, that means both failed - show a user-friendly message
-        toast.error("We had trouble saving your information, but we've noted your interest. Please try again later.");
+        // If both direct DB submission and edge function fallback failed
+        toast.error("We had trouble saving your information. Please try again later.");
       }
     } catch (error) {
       console.error("Signup submission error:", error);

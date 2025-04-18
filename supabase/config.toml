@@ -1,5 +1,8 @@
 
 project_id = "eaqecvrbzwhdkxnndfkw"
 
-[functions.handle-notifications]
-verify_jwt = false
+[api]
+# Port to start the API proxy server on. Defaults to 54321.
+port = 54321
+# Extra schemas to expose on your API (besides "public")
+schemas = ["storage"]

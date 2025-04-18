@@ -67,22 +67,6 @@ const ContactForm = () => {
         setError("Failed to submit your message. Please try again.");
         toast.error("Failed to submit your message. Please try again.");
       } else {
-        // Trigger notification
-        const { error: notificationError } = await supabase.functions.invoke('handle-notifications', {
-          body: { 
-            type: 'contact',
-            record: {
-              name: data.name,
-              email: data.email,
-              message: data.message
-            }
-          }
-        });
-
-        if (notificationError) {
-          console.error('Error sending notification:', notificationError);
-        }
-
         setSuccess(true);
         form.reset();
         toast.success("Message sent successfully! We'll get back to you soon.");

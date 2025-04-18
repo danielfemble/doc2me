@@ -6,3 +6,6 @@ project_id = "eaqecvrbzwhdkxnndfkw"
 port = 54321
 # Extra schemas to expose on your API (besides "public")
 schemas = ["storage"]
+
+[functions.save-form-submission]
+verify_jwt = false

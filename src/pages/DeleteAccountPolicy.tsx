@@ -14,7 +14,7 @@ const DeleteAccountPolicy = () => {
         </div>
 
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-          <h1 className="text-3xl font-bold mb-8 text-doc-black">Delete Account Policy</h1>
+          <h1 className="text-3xl font-bold mb-8 text-doc-black">Delete Account Policy for Femble App</h1>
           
           <div className="mb-8 space-y-8">
             <div>
@@ -33,7 +33,7 @@ const DeleteAccountPolicy = () => {
                   <a href="mailto:support@doc2me.co" className="text-doc-blue hover:underline">
                     support@doc2me.co
                   </a>{' '}
-                  and we are happy to help you.
+                  and we are happy to help you delete your Femble app account.
                 </li>
               </ul>
             </div>
@@ -41,14 +41,14 @@ const DeleteAccountPolicy = () => {
           
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
             <p className="text-yellow-700">
-              <strong>Warning:</strong> Deleting your account is permanent and cannot be undone. 
+              <strong>Warning:</strong> Deleting your Femble app account is permanent and cannot be undone. 
               All your data will be removed from our systems.
             </p>
           </div>
           
           <div className="border-t border-gray-200 pt-6 text-gray-600">
             <p>
-              If you have any questions about deleting your account, please contact us at{' '}
+              If you have any questions about deleting your Femble app account, please contact us at{' '}
               <a href="mailto:support@doc2me.co" className="text-doc-blue hover:underline">
                 support@doc2me.co
               </a>

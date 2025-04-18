@@ -12,7 +12,7 @@ const ContactForm = () => {
         className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-doc-blue text-white rounded-md hover:bg-doc-blue-dark transition-colors"
       >
         <Mail className="w-5 h-5" />
-        Email Us at contact@doc2me.co
+        Email us at contact@doc2me.co
       </a>
     </div>
   );

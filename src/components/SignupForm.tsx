@@ -40,6 +40,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     const checkConnection = async () => {
       try {
         const tableExists = await checkSignupsTable();
+        console.log("Table check result:", tableExists);
         setShowFallbackWarning(!tableExists);
         
         if (!tableExists) {
@@ -60,6 +61,7 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
     setIsSubmitting(true);
     
     try {
+      console.log("Submitting form data:", data);
       // Send data to Supabase
       const success = await sendToSupabase({
         name: data.name,
@@ -78,8 +80,8 @@ const SignupForm = ({ onSuccess }: { onSuccess?: () => void }) => {
         toast.error("Failed to save your information. Please try again.");
       }
     } catch (error) {
+      console.error("Form submission error:", error);
       toast.error("Something went wrong. Please try again.");
-      console.error(error);
     } finally {
       setIsSubmitting(false);
     }

@@ -19,10 +19,13 @@ serve(async (req) => {
     const data = await req.json();
     console.log('Received data:', data);
 
-    // Create Supabase client
+    // Create Supabase client with environment variables or fallback values
+    const supabaseUrl = Deno.env.get('SUPABASE_URL') || 'https://eaqecvrbzwhdkxnndfkw.supabase.co';
+    const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcWVjdnJiendoZGt4bm5kZmt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDE0MTUsImV4cCI6MjA1ODA3NzQxNX0.8m6A8lNVG5A-BqFCQ28nDUuu7sXhsm-cPgHgzbZCL6I';
+    
     const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') || 'https://eaqecvrbzwhdkxnndfkw.supabase.co',
-      Deno.env.get('SUPABASE_ANON_KEY') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcWVjdnJiendoZGt4bm5kZmt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDE0MTUsImV4cCI6MjA1ODA3NzQxNX0.8m6A8lNVG5A-BqFCQ28nDUuu7sXhsm-cPgHgzbZCL6I',
+      supabaseUrl,
+      supabaseKey,
       { 
         global: { 
           headers: { Authorization: req.headers.get('Authorization')! },
@@ -54,13 +57,13 @@ serve(async (req) => {
         try {
           console.log('Attempting direct REST API call...');
           const directResponse = await fetch(
-            `${Deno.env.get('SUPABASE_URL') || 'https://eaqecvrbzwhdkxnndfkw.supabase.co'}/rest/v1/signups`, 
+            `${supabaseUrl}/rest/v1/signups`, 
             {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
-                'apikey': Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || Deno.env.get('SUPABASE_ANON_KEY') || '',
-                'Authorization': `Bearer ${Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || Deno.env.get('SUPABASE_ANON_KEY') || ''}`,
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`,
                 'Prefer': 'return=minimal'
               },
               body: JSON.stringify(record)

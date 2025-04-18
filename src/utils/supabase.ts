@@ -62,23 +62,24 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
         
         console.log('Edge function payload:', payload);
         
+        // Use the full URL with correct anon key handling for browser environment
         const response = await fetch('https://eaqecvrbzwhdkxnndfkw.supabase.co/functions/v1/save-form-submission', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcWVjdnJiendoZGt4bm5kZmt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDE0MTUsImV4cCI6MjA1ODA3NzQxNX0.8m6A8lNVG5A-BqFCQ28nDUuu7sXhsm-cPgHgzbZCL6I'}`
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcWVjdnJiendoZGt4bm5kZmt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MDE0MTUsImV4cCI6MjA1ODA3NzQxNX0.8m6A8lNVG5A-BqFCQ28nDUuu7sXhsm-cPgHgzbZCL6I'
           },
           body: JSON.stringify(payload)
         });
         
-        const result = await response.json();
-        console.log('Edge function response (' + response.status + '):', result);
-        
         if (response.ok) {
+          const result = await response.json();
+          console.log('Edge function response (' + response.status + '):', result);
           console.log('Signup sent via edge function successfully');
           return true;
         } else {
-          console.error('Edge function failed:', result);
+          const errorText = await response.text();
+          console.error('Edge function failed:', errorText);
           return false;
         }
       } catch (edgeError) {

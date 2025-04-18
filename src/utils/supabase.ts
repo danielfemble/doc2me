@@ -26,38 +26,53 @@ interface SignupData {
  */
 export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
   try {
-    // Add timestamp to the data
-    const dataWithTimestamp = {
-      ...data,
-      created_at: new Date().toISOString(),
-    };
-
-    console.log('Attempting to send data to Supabase...', dataWithTimestamp);
+    console.log('Attempting to send signup data:', data);
     
+    // First attempt: Try direct insertion to the signups table
     try {
-      // Insert directly into the signups table with proper column structure
-      const { error } = await supabase
+      console.log('Attempting direct DB insert to signups table...');
+      
+      const insertData = {
+        "Your Name": data.name,
+        "Email": data.email, 
+        "Clinic or Practice Name": data.clinic,
+        "created_at": new Date().toISOString()
+      };
+      
+      console.log('Insert data structure:', insertData);
+      
+      const { error, data: responseData } = await supabase
         .from('signups')
-        .insert([{
-          "Your Name": data.name,
-          "Email": data.email,
-          "Clinic or Practice Name": data.clinic,
-          "created_at": new Date().toISOString()
-        }]);
+        .insert([insertData])
+        .select();
       
       if (error) {
-        console.log('Direct DB insert failed, trying edge function fallback...', error);
-        throw error; // Will trigger the fallback below
+        console.error('Direct DB insert failed:', error);
+        throw error;
       }
       
-      console.log('Data sent to Supabase successfully');
+      console.log('Direct DB insert succeeded:', responseData);
       return true;
     } catch (dbError) {
-      console.error('Error sending data to Supabase:', dbError);
+      console.error('Error in direct database insert, trying edge function fallback:', dbError);
       
-      // If database insertion fails, use the edge function as fallback
+      // Second attempt: Use the edge function fallback
       try {
-        console.log('Attempting to use edge function fallback...');
+        console.log('Attempting edge function fallback...');
+        
+        // Format the data according to the expected structure in the signups table
+        const record = {
+          'Your Name': data.name,
+          'Email': data.email,
+          'Clinic or Practice Name': data.clinic,
+          'created_at': new Date().toISOString()
+        };
+        
+        console.log('Edge function payload:', {
+          type: 'signup',
+          record: record
+        });
+        
         const response = await fetch('https://eaqecvrbzwhdkxnndfkw.supabase.co/functions/v1/handle-notifications', {
           method: 'POST',
           headers: {
@@ -65,25 +80,22 @@ export const sendToSupabase = async (data: SignupData): Promise<boolean> => {
           },
           body: JSON.stringify({
             type: 'signup',
-            record: {
-              'Your Name': data.name,
-              'Email': data.email,
-              'Clinic or Practice Name': data.clinic,
-              'created_at': new Date().toISOString()
-            }
+            record: record
           })
         });
         
+        const responseText = await response.text();
+        console.log(`Edge function response (${response.status}):`, responseText);
+        
         if (!response.ok) {
-          const errorText = await response.text();
-          console.error('Edge function responded with error:', response.status, errorText);
+          console.error('Edge function responded with error:', response.status, responseText);
           throw new Error(`Edge function failed with status ${response.status}`);
         }
         
-        console.log('Signup sent via edge function as fallback');
+        console.log('Signup sent via edge function successfully');
         return true;
       } catch (fallbackError) {
-        console.error('Fallback notification also failed:', fallbackError);
+        console.error('Edge function fallback also failed:', fallbackError);
         return false;
       }
     }

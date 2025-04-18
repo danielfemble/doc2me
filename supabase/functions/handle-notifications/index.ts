@@ -17,7 +17,7 @@ serve(async (req) => {
 
   try {
     const payload = await req.json();
-    console.log('Received notification:', payload);
+    console.log('Received notification:', JSON.stringify(payload));
 
     // Insert the signup data directly into the database
     if (payload.type === 'signup') {
@@ -27,47 +27,39 @@ serve(async (req) => {
         const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
         
         if (supabaseKey) {
-          // Only attempt database insert if we have the service role key
-          const supabaseAdmin = createClient(supabaseUrl, supabaseKey);
+          console.log('Attempting database insert with record:', JSON.stringify(payload.record));
           
-          const { error } = await supabaseAdmin
-            .from('signups')
-            .insert([payload.record]);
+          // Directly use the REST API for insertion - this is most reliable
+          try {
+            const res = await fetch(`${supabaseUrl}/rest/v1/signups`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`,
+                'Prefer': 'return=minimal'
+              },
+              body: JSON.stringify([payload.record])
+            });
             
-          if (error) {
-            console.error('Error inserting data in edge function:', error);
-            
-            // Try inserting with a more direct approach as a fallback
-            try {
-              const res = await fetch(`${supabaseUrl}/rest/v1/signups`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'apikey': supabaseKey,
-                  'Authorization': `Bearer ${supabaseKey}`,
-                  'Prefer': 'return=minimal'
-                },
-                body: JSON.stringify([payload.record])
-              });
-              
-              if (!res.ok) {
-                const errorText = await res.text();
-                console.error('Direct REST API insert also failed:', res.status, errorText);
-              } else {
-                console.log('Successfully inserted data using direct REST API call');
-              }
-            } catch (restError) {
-              console.error('REST API fallback also failed:', restError);
+            if (!res.ok) {
+              const errorText = await res.text();
+              console.error('REST API insert failed:', res.status, errorText);
+              throw new Error(`REST API error: ${res.status} - ${errorText}`);
+            } else {
+              console.log('Successfully inserted data using REST API');
             }
-          } else {
-            console.log('Successfully inserted signup data from edge function');
+          } catch (restError) {
+            console.error('REST API insert failed with exception:', restError);
+            throw restError; // Re-throw to be caught by outer try/catch
           }
         } else {
-          console.error('No SUPABASE_SERVICE_ROLE_KEY found');
+          console.error('No SUPABASE_SERVICE_ROLE_KEY found - cannot save to database');
+          throw new Error('Missing service role key');
         }
       } catch (dbError) {
         console.error('Database operation failed in edge function:', dbError);
-        // Continue with email notification even if DB insert fails
+        // We'll still try to send the email notification even if DB insert fails
       }
     }
 
@@ -93,37 +85,6 @@ serve(async (req) => {
     });
   }
 });
-
-// Helper function to create a Supabase client
-const createClient = (supabaseUrl, supabaseKey) => {
-  return {
-    from: (table) => ({
-      insert: async (data) => {
-        try {
-          const res = await fetch(`${supabaseUrl}/rest/v1/${table}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': supabaseKey,
-              'Authorization': `Bearer ${supabaseKey}`,
-              'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify(data)
-          });
-          
-          if (!res.ok) {
-            const errorText = await res.text();
-            return { error: { status: res.status, message: errorText } };
-          }
-          
-          return { error: null };
-        } catch (error) {
-          return { error };
-        }
-      }
-    })
-  };
-};
 
 function formatEmailContent(type: string, record: any): string {
   if (type === 'signup') {

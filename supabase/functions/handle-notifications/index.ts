@@ -36,9 +36,34 @@ serve(async (req) => {
             
           if (error) {
             console.error('Error inserting data in edge function:', error);
+            
+            // Try inserting with a more direct approach as a fallback
+            try {
+              const res = await fetch(`${supabaseUrl}/rest/v1/signups`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'apikey': supabaseKey,
+                  'Authorization': `Bearer ${supabaseKey}`,
+                  'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify([payload.record])
+              });
+              
+              if (!res.ok) {
+                const errorText = await res.text();
+                console.error('Direct REST API insert also failed:', res.status, errorText);
+              } else {
+                console.log('Successfully inserted data using direct REST API call');
+              }
+            } catch (restError) {
+              console.error('REST API fallback also failed:', restError);
+            }
           } else {
             console.log('Successfully inserted signup data from edge function');
           }
+        } else {
+          console.error('No SUPABASE_SERVICE_ROLE_KEY found');
         }
       } catch (dbError) {
         console.error('Database operation failed in edge function:', dbError);

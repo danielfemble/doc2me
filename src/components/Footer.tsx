@@ -1,4 +1,3 @@
-
 import { Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +8,6 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-200">
       <div className="container max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
-          {/* Logo and Social - spans 6 cols on md screens */}
           <div className="md:col-span-6">
             <Link to="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold text-doc-black tracking-tight">
@@ -20,16 +18,15 @@ const Footer = () => {
               A better doctor-patient relationship
             </p>
             <div className="flex items-center gap-4">
-              <a href="mailto:info@doc2me.com" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
+              <a href="mailto:contact@doc2me.co" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/company/69742285/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
+              <a href="https://www.linkedin.com/company/doc-2-me" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full text-doc-gray hover:text-doc-blue hover:bg-doc-blue-light/30 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
           
-          {/* Company and Product lists are now next to each other - each spans 3 cols on md screens */}
           <div className="md:col-span-3">
             <h3 className="font-semibold text-lg mb-4 text-doc-black">Company</h3>
             <ul className="space-y-3">

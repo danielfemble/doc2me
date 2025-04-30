@@ -7,8 +7,10 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const HowItWorks = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const sectionObserverRef = useRef<IntersectionObserver | null>(null);
   
   useEffect(() => {
+    // Observer for step cards
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -23,10 +25,60 @@ const HowItWorks = () => {
       observerRef.current?.observe(step);
     });
 
+    // Observer for section cards with stacking effect
+    sectionObserverRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Calculate the starting position (further back for each card)
+          const index = parseInt(entry.target.getAttribute('data-index') || '0');
+          
+          // Reset the card to its initial state before animating it
+          entry.target.classList.remove('translate-y-0');
+          entry.target.classList.remove('opacity-100');
+          entry.target.classList.remove('scale-100');
+          
+          // Apply a staggered delay based on index
+          setTimeout(() => {
+            entry.target.classList.remove('translate-y-24');
+            entry.target.classList.remove('opacity-0');
+            entry.target.classList.remove('scale-95');
+            entry.target.classList.add('translate-y-0');
+            entry.target.classList.add('opacity-100');
+            entry.target.classList.add('scale-100');
+          }, index * 150); // 150ms delay between each card animation
+          
+          // Only unobserve once the animation is complete
+          setTimeout(() => {
+            sectionObserverRef.current?.unobserve(entry.target);
+          }, 1000);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: "-50px" });
+
+    const sectionCards = document.querySelectorAll('.section-card');
+    sectionCards.forEach((card, index) => {
+      // Set initial position (translated down and slightly smaller)
+      card.classList.add('translate-y-24', 'opacity-0', 'scale-95');
+      // Add data-index attribute for animation sequence
+      card.setAttribute('data-index', index.toString());
+      // Add transition for smooth animation
+      (card as HTMLElement).style.transition = 'transform 0.7s ease-out, opacity 0.7s ease-out, scale 0.7s ease-out';
+      // Apply a subtle offset for 3D-like effect
+      (card as HTMLElement).style.transformStyle = 'preserve-3d';
+      // Observe the card
+      sectionObserverRef.current?.observe(card);
+    });
+
     return () => {
       if (observerRef.current) {
         steps.forEach(step => {
           observerRef.current?.unobserve(step);
+        });
+      }
+      
+      if (sectionObserverRef.current) {
+        sectionCards.forEach(card => {
+          sectionObserverRef.current?.unobserve(card);
         });
       }
     };
@@ -90,8 +142,8 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 mb-16">
-          <Card className="border-doc-blue-light/30 shadow-md overflow-hidden">
+        <div className="grid grid-cols-1 gap-8 mb-16 perspective-900">
+          <Card className="section-card border-doc-blue-light/30 shadow-md overflow-hidden">
             <div className="bg-gradient-to-r from-doc-blue-light/20 to-white p-6 border-b border-doc-blue-light/30">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-doc-blue rounded-full flex items-center justify-center text-white shadow-md">
@@ -130,7 +182,7 @@ const HowItWorks = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-doc-purple-light/30 shadow-md overflow-hidden">
+          <Card className="section-card border-doc-purple-light/30 shadow-md overflow-hidden">
             <div className="bg-gradient-to-r from-doc-purple-light/20 to-white p-6 border-b border-doc-purple-light/30">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-doc-purple rounded-full flex items-center justify-center text-white shadow-md">
@@ -169,7 +221,7 @@ const HowItWorks = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-doc-blue-light/30 shadow-md overflow-hidden">
+          <Card className="section-card border-doc-blue-light/30 shadow-md overflow-hidden">
             <div className="bg-gradient-to-r from-doc-blue-light/20 to-white p-6 border-b border-doc-blue-light/30">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-doc-blue rounded-full flex items-center justify-center text-white shadow-md">

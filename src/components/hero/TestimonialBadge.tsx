@@ -1,14 +1,12 @@
-
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { UserRound } from "lucide-react";
-
 interface TestimonialBadgeProps {
   className?: string;
 }
-
-const TestimonialBadge = ({ className = "" }: TestimonialBadgeProps) => {
-  return (
-    <div className={`flex items-center gap-4 text-sm text-doc-gray pt-4 ${className}`}>
+const TestimonialBadge = ({
+  className = ""
+}: TestimonialBadgeProps) => {
+  return <div className={`flex items-center gap-4 text-sm text-doc-gray pt-4 ${className}`}>
       <div className="flex -space-x-2">
         {/* Female doctor avatars */}
         <Avatar className="w-8 h-8 border-2 border-white shadow-sm">
@@ -23,7 +21,7 @@ const TestimonialBadge = ({ className = "" }: TestimonialBadgeProps) => {
         
         {/* Male doctors avatars */}
         <Avatar className="w-8 h-8 border-2 border-white shadow-sm">
-          <AvatarImage src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=150&h=150" alt="Male doctor" />
+          <AvatarImage alt="Male doctor" src="/lovable-uploads/9d419a94-22d3-405e-ad70-ae56d9122f8c.png" />
           <AvatarFallback><UserRound className="h-4 w-4" /></AvatarFallback>
         </Avatar>
         
@@ -33,8 +31,6 @@ const TestimonialBadge = ({ className = "" }: TestimonialBadgeProps) => {
         </Avatar>
       </div>
       <span>Trusted by <b>leading doctors</b></span>
-    </div>
-  );
+    </div>;
 };
-
 export default TestimonialBadge;

@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SignupDialog from "@/components/SignupDialog";
@@ -25,7 +24,7 @@ const HeadlineSection = ({
 
       <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
         <SignupDialog trigger={<Button className="btn-primary group gap-2 text-base h-12 px-6" size="lg">
-              Request Demo
+              Join Waitlist
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>} />
       </div>

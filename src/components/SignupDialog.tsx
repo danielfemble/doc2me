@@ -21,7 +21,7 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className="sm:max-w-[600px] h-[600px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Request a Demo</DialogTitle>
+          <DialogTitle className="text-2xl">Join Doc2Me</DialogTitle>
         </DialogHeader>
         <div className="mt-4">
           <iframe 

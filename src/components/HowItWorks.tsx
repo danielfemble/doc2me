@@ -265,7 +265,7 @@ const HowItWorks = () => {
           <SignupDialog 
             trigger={
               <Button className="btn-primary gap-2 text-base h-12" size="lg">
-                Request Demo
+                Join Waitlist
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
             }

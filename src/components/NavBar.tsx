@@ -55,7 +55,7 @@ const NavBar = () => {
             <SignupDialog 
               trigger={
                 <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                  Request Demo
+                  Join Waitlist
                 </Button>
               }
               defaultOpen={signupOpen}
@@ -90,7 +90,7 @@ const NavBar = () => {
               <SignupDialog 
                 trigger={
                   <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
-                    Request Demo
+                    Join Waitlist
                   </Button>
                 }
               />

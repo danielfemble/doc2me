@@ -22,6 +22,9 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
       <DialogContent className="sm:max-w-[600px] h-[600px]">
         <DialogHeader>
           <DialogTitle className="text-2xl">Request a Demo</DialogTitle>
+          <p className="text-sm text-muted-foreground mt-2">
+            We provide exclusive demos to a hand-picked circle of health providers
+          </p>
         </DialogHeader>
         <div className="mt-4">
           <iframe 

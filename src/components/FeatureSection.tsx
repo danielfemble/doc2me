@@ -40,10 +40,6 @@ const FeatureSection = () => {
     title: "Medically Verified",
     description: "All content is medically accurate and follows best practices in health communication."
   }];
-  return <section className="py-16 relative z-10">
-      <div className="container mx-auto px-4">
-        
-      </div>
-    </section>;
+  return;
 };
 export default FeatureSection;

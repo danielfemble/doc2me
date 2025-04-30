@@ -17,11 +17,11 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
       <div className="space-y-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
           <div className="bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent pb-1">
-            A new generation of
+            Scale Your Online Presence as a
           </div>
           <div className="relative mt-2">
             <span className="animated-gradient-text font-extrabold whitespace-nowrap">
-              patient education.
+              Healthcare Provider Without Scaling Your Workload.
             </span>
           </div>
         </h1>

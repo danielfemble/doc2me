@@ -41,13 +41,13 @@ const CtaSection = () => {
               </div>
             </div>
             
-            {/* Right side: Embedded form with increased height */}
+            {/* Right side: Embedded form with adjusted height */}
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-50 blur-sm animate-pulse-slow"></div>
               <div className="relative bg-white rounded-md p-1">
                 <iframe 
                   width="100%" 
-                  height="600" 
+                  height="550" 
                   src="https://sibforms.com/serve/MUIFAGpsJ0RSg2mumVscA7Sdr6Pfr0ZzTlZowr6iZ6uY73n032zRzrkFEj2DdjZOx2_VlCks8Af7pDmQI5-si6LJBt5hx6kbyH8q9BapzcamZNnuTPHuVsY447w4gMEcvZakIBc5ss7LtRFBlM6c7STy0AQ2cPoh_UVJQOp5l0YbzBmWfh9kY1Nmb-pReIl3qY4ekOF8SOUzGF1k" 
                   frameBorder="0" 
                   scrolling="auto" 

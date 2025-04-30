@@ -10,8 +10,8 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="feature-card opacity-0 animate-fade-in p-6 rounded-xl bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all">
-    <div className="feature-icon mb-4 text-doc-purple">
+  <div className="feature-card opacity-0 animate-fade-in p-6 rounded-xl bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border border-white/50 hover:border-doc-blue/20">
+    <div className="feature-icon mb-4 bg-gradient-to-r from-doc-blue to-doc-purple text-white rounded-full p-3 inline-flex items-center justify-center">
       {icon}
     </div>
     <h3 className="text-xl font-semibold mb-2 text-doc-black">{title}</h3>
@@ -54,10 +54,11 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section className="py-16 relative z-10">
+    <section className="py-16 relative z-10 overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/90 via-doc-blue-light/10 to-white/90"></div>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">Why Health Providers Choose Us</h2>
           <p className="text-lg text-doc-gray max-w-2xl mx-auto">
             Our platform helps you create medically accurate content that connects with patients
             and grows your practice.

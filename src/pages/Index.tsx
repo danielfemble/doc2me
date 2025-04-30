@@ -72,6 +72,25 @@ const Index = () => {
       });
     });
     
+    // Handle smooth scrolling for navigation links
+    const handleHashLinkClick = () => {
+      const { hash } = window.location;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    };
+
+    // Run once on page load
+    handleHashLinkClick();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashLinkClick);
+
     return () => {
       featureCards.forEach(card => {
         observer.unobserve(card);
@@ -79,6 +98,7 @@ const Index = () => {
       
       document.removeEventListener('mousemove', () => {});
       document.removeEventListener('mouseleave', () => {});
+      window.removeEventListener('hashchange', handleHashLinkClick);
     };
   }, []);
 
@@ -136,6 +156,7 @@ const Index = () => {
             </div>
           </div>
         </section>
+        <CtaSection />
       </main>
       <Footer />
     </div>

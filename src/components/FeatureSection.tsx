@@ -1,4 +1,5 @@
-import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide-react";
+
+import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck, MessageSquare, Globe, Star } from "lucide-react";
 const FeatureCard = ({
   icon,
   title,
@@ -40,6 +41,25 @@ const FeatureSection = () => {
     title: "Medically Verified",
     description: "All content is medically accurate and follows best practices in health communication."
   }];
+  
+  const benefitCards = [
+    {
+      icon: <MessageSquare size={24} />,
+      title: "Less Repetitive Questions",
+      description: "Provide complete information upfront so patients don't need to ask the same questions repeatedly."
+    },
+    {
+      icon: <Globe size={24} />,
+      title: "Boost Online Presence",
+      description: "Grow your digital footprint with content that attracts patients searching for health information."
+    },
+    {
+      icon: <Star size={24} />,
+      title: "Build Trust",
+      description: "Establish credibility and trust with professionally crafted, accurate health content."
+    }
+  ];
+  
   return <section className="py-16 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
@@ -50,7 +70,17 @@ const FeatureSection = () => {
           </p>
         </div>
         
-        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {benefitCards.map((card, index) => (
+            <div key={index} className="benefit-card p-6 rounded-xl bg-white/90 backdrop-blur-sm shadow-md hover:shadow-lg transition-all border border-doc-blue/10">
+              <div className="benefit-icon mb-4 text-white bg-gradient-to-r from-doc-blue to-doc-purple rounded-full p-3 inline-flex items-center justify-center">
+                {card.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-doc-black">{card.title}</h3>
+              <p className="text-doc-gray">{card.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>;
 };

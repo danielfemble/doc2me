@@ -4,13 +4,18 @@ import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide
 const FeatureCard = ({
   icon,
   title,
-  description
+  description,
+  delay = 0
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
+  delay?: number;
 }) => (
-  <div className="feature-card opacity-0 animate-fade-in p-6 rounded-xl bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all">
+  <div 
+    className={`feature-card opacity-0 p-6 rounded-xl bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+    style={{ animationDelay: `${delay}ms` }}
+  >
     <div className="feature-icon mb-4 text-doc-purple">
       {icon}
     </div>
@@ -57,6 +62,9 @@ const FeatureSection = () => {
     <section className="py-16 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-doc-purple-light/40 px-4 py-1.5 rounded-full text-doc-purple text-sm font-medium mb-4">
+            <span>Why Choose Us</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
           <p className="text-lg text-doc-gray max-w-2xl mx-auto">
             Our platform helps you create medically accurate content that connects with patients
@@ -71,6 +79,7 @@ const FeatureSection = () => {
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
+              delay={index * 100}
             />
           ))}
         </div>

@@ -1,5 +1,6 @@
 
 import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide-react";
+
 const FeatureCard = ({
   icon,
   title,

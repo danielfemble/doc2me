@@ -38,7 +38,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 relative z-10 bg-gradient-to-b from-doc-blue-light/30 to-white/90">
+    <section id="pricing" className="py-16 relative z-10 bg-gradient-to-b from-doc-blue-light/30 via-white/90 to-white/95">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">Choose Your Plan</h2>

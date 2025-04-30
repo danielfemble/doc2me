@@ -6,6 +6,7 @@ import FeatureSection from '@/components/FeatureSection';
 import HowItWorks from '@/components/HowItWorks';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
+import { MessageSquare, Globe, Star } from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
@@ -80,6 +81,24 @@ const Index = () => {
       document.removeEventListener('mouseleave', () => {});
     };
   }, []);
+
+  const benefitCards = [
+    {
+      icon: <MessageSquare size={24} />,
+      title: "Less Repetitive Questions",
+      description: "Provide complete information upfront so patients don't need to ask the same questions repeatedly."
+    },
+    {
+      icon: <Globe size={24} />,
+      title: "Boost Online Presence",
+      description: "Grow your digital footprint with content that attracts patients searching for health information."
+    },
+    {
+      icon: <Star size={24} />,
+      title: "Build Trust",
+      description: "Establish credibility and trust with professionally crafted, accurate health content."
+    }
+  ];
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0271e5]/10 to-white/90 overflow-hidden">
@@ -94,7 +113,29 @@ const Index = () => {
         <HeroSection />
         <FeatureSection />
         <HowItWorks />
-        <CtaSection />
+        <section className="py-16 relative z-10 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
+              <p className="text-lg text-doc-gray max-w-2xl mx-auto">
+                Our platform helps you create medically accurate content that connects with patients
+                and grows your practice.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              {benefitCards.map((card, index) => (
+                <div key={index} className="benefit-card p-6 rounded-xl bg-white/90 backdrop-blur-sm shadow-md hover:shadow-lg transition-all border border-doc-blue/10">
+                  <div className="benefit-icon mb-4 text-white bg-gradient-to-r from-doc-blue to-doc-purple rounded-full p-3 inline-flex items-center justify-center">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-doc-black">{card.title}</h3>
+                  <p className="text-doc-gray">{card.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

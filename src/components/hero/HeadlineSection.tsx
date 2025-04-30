@@ -15,7 +15,7 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
       </div>
       
       <div className="space-y-4">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
           <div className="bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent pb-1">
             where patient education meets
           </div>

@@ -1,10 +1,9 @@
 
 import { CheckCircle } from "lucide-react";
-import { SignupDialog } from "@/components/index";
 
 const CtaSection = () => {
   return (
-    <section className="py-16 relative z-10 bg-gradient-to-b from-white/90 via-doc-blue/5 to-doc-purple/10">
+    <section className="py-20 md:py-28 relative z-10 bg-gradient-to-b from-white/90 via-doc-blue/5 to-doc-purple/10">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-doc-blue/20 relative overflow-hidden">
           {/* Background decorations */}

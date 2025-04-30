@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
@@ -112,13 +111,17 @@ const Index = () => {
       <NavBar />
       <main className="relative z-10">
         <HeroSection />
+        <div className="py-8 md:py-12"></div> {/* Additional spacing */}
         <FeatureSection />
+        <div className="py-6 md:py-10"></div> {/* Additional spacing */}
         <HowItWorks />
+        <div className="py-8 md:py-12"></div> {/* Additional spacing */}
         <PricingSection />
-        <section className="py-16 relative z-10 bg-gradient-to-b from-white/95 via-white/90 to-gray-50/95">
+        <div className="py-6 md:py-10"></div> {/* Additional spacing */}
+        <section className="py-20 md:py-28 relative z-10 bg-gradient-to-b from-white/95 via-white/90 to-gray-50/95">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Health Providers Choose Us</h2>
               <p className="text-lg text-doc-gray max-w-2xl mx-auto">
                 Our platform helps you create medically accurate content that connects with patients
                 and grows your practice.
@@ -138,6 +141,7 @@ const Index = () => {
             </div>
           </div>
         </section>
+        <div className="py-6 md:py-10"></div> {/* Additional spacing */}
         <CtaSection />
       </main>
       <Footer />

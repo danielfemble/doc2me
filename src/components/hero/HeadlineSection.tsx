@@ -16,7 +16,7 @@ const HeadlineSection = ({
       </div>
       
       <div className="space-y-4">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
           <div className="bg-gradient-to-r from-doc-black to-doc-gray/90 bg-clip-text text-transparent pb-1">
             Be more <span className="animated-gradient-text">visible</span> for patients
           </div>

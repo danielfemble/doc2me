@@ -21,10 +21,13 @@ const HeadlineSection = ({ className = "" }: HeadlineSectionProps) => {
           </div>
           <div className="relative mt-2">
             <span className="animated-gradient-text font-extrabold whitespace-nowrap">
-              Healthcare Provider Without Scaling Your Workload.
+              Healthcare Provider
             </span>
           </div>
         </h1>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-doc-gray/90">
+          Without Scaling Your Workload.
+        </h2>
       </div>
       
       <p className="text-lg md:text-xl text-doc-gray leading-relaxed max-w-2xl mx-auto">

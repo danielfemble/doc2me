@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import SignupDialog from "@/components/SignupDialog";
+import { SignupDialog } from "@/components/index";
 import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {

@@ -1,7 +1,7 @@
 
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SignupDialog from "@/components/SignupDialog";
+import { SignupDialog } from "@/components/index";
 
 const CtaSection = () => {
   return (

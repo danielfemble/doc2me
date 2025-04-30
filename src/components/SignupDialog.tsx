@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 
 interface SignupDialogProps {
@@ -19,9 +20,9 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] relative overflow-hidden border border-white/40 shadow-neon">
+      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] relative overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_15px_rgba(2,113,229,0.4)]">
         {/* Animated background gradient */}
-        <div className="absolute inset-0 animated-gradient opacity-20 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-doc-blue/10 via-doc-purple/10 to-doc-blue-dark/10 animate-gradient-xy z-0"></div>
         
         {/* Glassmorphic overlay */}
         <div className="absolute inset-0 bg-white/80 backdrop-blur-md z-10"></div>
@@ -29,16 +30,16 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
         {/* Content */}
         <div className="relative z-20">
           <DialogHeader>
-            <DialogTitle className="text-2xl animated-gradient-text font-bold">
+            <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">
               Request a Demo
             </DialogTitle>
-            <p className="text-sm text-muted-foreground mt-2">
+            <DialogDescription className="text-base text-muted-foreground mt-2">
               We provide exclusive demos to a hand-picked circle of health providers
-            </p>
+            </DialogDescription>
           </DialogHeader>
           <div className="mt-6 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-md opacity-50 blur-sm animate-pulse-slow"></div>
-            <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-50 blur-sm animate-pulse-slow"></div>
+            <div className="relative bg-white rounded-md p-1">
               <iframe 
                 width="540" 
                 height="550" 
@@ -47,7 +48,7 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
                 scrolling="auto" 
                 allowFullScreen 
                 style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
-                className="rounded-md shadow-soft transition-all duration-300 hover:shadow-feature-hover"
+                className="rounded-md shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.01]"
               />
             </div>
           </div>

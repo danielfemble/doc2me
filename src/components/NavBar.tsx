@@ -54,7 +54,7 @@ const NavBar = () => {
           <div className="hidden md:flex items-center">
             <SignupDialog 
               trigger={
-                <Button className="bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
+                <Button variant="gradient" className="rounded-lg">
                   Request Demo
                 </Button>
               }
@@ -89,7 +89,7 @@ const NavBar = () => {
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
               <SignupDialog 
                 trigger={
-                  <Button className="w-full justify-center bg-doc-blue hover:bg-doc-blue-dark rounded-lg">
+                  <Button variant="gradient" className="w-full justify-center rounded-lg">
                     Request Demo
                   </Button>
                 }

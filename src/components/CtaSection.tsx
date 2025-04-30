@@ -48,7 +48,7 @@ const CtaSection = () => {
             <div className="flex justify-center">
               <SignupDialog 
                 trigger={
-                  <Button className="bg-white text-doc-blue hover:bg-white/90 group gap-2 h-12 px-6" size="lg">
+                  <Button variant="gradient" className="group gap-2 h-12 px-6 text-white" size="lg">
                     Request Demo
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Button>

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Video, Sparkles, Share2, ArrowRight } from "lucide-react";
@@ -145,10 +144,8 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        
-
         <div className="mt-20 text-center">
-          <SignupDialog trigger={<Button className="btn-primary gap-2 text-base h-12" size="lg">
+          <SignupDialog trigger={<Button variant="gradient" className="gap-2 text-base h-12" size="lg">
                 Request Demo
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>} />

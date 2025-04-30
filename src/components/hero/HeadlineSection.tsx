@@ -24,7 +24,7 @@ const HeadlineSection = ({
       <p className="text-lg text-doc-gray leading-relaxed max-w-2xl mx-auto">Create, personalize, and share accurate health information with your patients in minutes. Scale your presence without scaling your workload.</p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
-        <SignupDialog trigger={<Button className="btn-primary group gap-2 text-base h-12 px-6" size="lg">
+        <SignupDialog trigger={<Button variant="gradient" className="group gap-2 text-base h-12 px-6" size="lg">
               Request Demo
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>} />

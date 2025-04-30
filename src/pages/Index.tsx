@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
 import FeatureSection from '@/components/FeatureSection';
 import HowItWorks from '@/components/HowItWorks';
+import PricingSection from '@/components/PricingSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
 import { MessageSquare, Globe, Star } from "lucide-react";
@@ -113,6 +114,7 @@ const Index = () => {
         <HeroSection />
         <FeatureSection />
         <HowItWorks />
+        <PricingSection />
         <section className="py-16 relative z-10 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">

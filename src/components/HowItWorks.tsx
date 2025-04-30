@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Video, Sparkles, Share2, ArrowRight } from "lucide-react";
@@ -87,7 +88,7 @@ const HowItWorks = () => {
     };
   }, []);
 
-  return <section id="how-it-works" className="bg-gradient-to-b from-white to-doc-blue-light/20 py-20 md:py-28">
+  return <section id="how-it-works" className="bg-gradient-to-b from-doc-blue-light/10 to-doc-blue-light/30 py-20 md:py-28">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-doc-blue-light/40 px-4 py-1.5 rounded-full text-doc-blue-dark text-sm font-medium mb-4">

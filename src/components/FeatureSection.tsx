@@ -1,5 +1,6 @@
 
 import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck, MessageSquare, Globe, Star } from "lucide-react";
+
 const FeatureCard = ({
   icon,
   title,
@@ -15,6 +16,7 @@ const FeatureCard = ({
     <h3 className="text-xl font-semibold mb-2 text-doc-black">{title}</h3>
     <p className="text-doc-gray">{description}</p>
   </div>;
+
 const FeatureSection = () => {
   const features = [{
     icon: <Clock size={24} />,
@@ -62,15 +64,7 @@ const FeatureSection = () => {
   
   return <section className="py-16 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
-          <p className="text-lg text-doc-gray max-w-2xl mx-auto">
-            Our platform helps you create medically accurate content that connects with patients
-            and grows your practice.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefitCards.map((card, index) => (
             <div key={index} className="benefit-card p-6 rounded-xl bg-white/90 backdrop-blur-sm shadow-md hover:shadow-lg transition-all border border-doc-blue/10">
               <div className="benefit-icon mb-4 text-white bg-gradient-to-r from-doc-blue to-doc-purple rounded-full p-3 inline-flex items-center justify-center">
@@ -81,7 +75,16 @@ const FeatureSection = () => {
             </div>
           ))}
         </div>
+        
+        <div className="text-center mb-12 mt-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Health Providers Choose Us</h2>
+          <p className="text-lg text-doc-gray max-w-2xl mx-auto">
+            Our platform helps you create medically accurate content that connects with patients
+            and grows your practice.
+          </p>
+        </div>
       </div>
     </section>;
 };
+
 export default FeatureSection;

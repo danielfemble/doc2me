@@ -20,15 +20,9 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] relative overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_15px_rgba(2,113,229,0.4)]">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-doc-blue/10 via-doc-purple/10 to-doc-blue-dark/10 z-0"></div>
-        
-        {/* Glassmorphic overlay */}
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-md z-10"></div>
-        
-        {/* Content */}
-        <div className="relative z-20">
+      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_15px_rgba(2,113,229,0.4)] bg-white">
+        {/* Content wrapper with proper z-index */}
+        <div className="relative z-20 w-full h-full">
           <DialogHeader>
             <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">
               Request a Demo
@@ -53,6 +47,10 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
             </div>
           </div>
         </div>
+        
+        {/* Background effects - positioned beneath content */}
+        <div className="absolute inset-0 bg-gradient-to-br from-doc-blue/10 via-doc-purple/10 to-doc-blue-dark/10 z-0"></div>
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10"></div>
       </DialogContent>
     </Dialog>
   );

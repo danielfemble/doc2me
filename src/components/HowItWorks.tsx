@@ -1,11 +1,14 @@
+
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Video, Sparkles, Share2, ArrowRight } from "lucide-react";
 import SignupDialog from "@/components/SignupDialog";
 import { Card, CardContent } from "@/components/ui/card";
+
 const HowItWorks = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionObserverRef = useRef<IntersectionObserver | null>(null);
+
   useEffect(() => {
     // Observer for step cards
     observerRef.current = new IntersectionObserver(entries => {
@@ -18,6 +21,7 @@ const HowItWorks = () => {
     }, {
       threshold: 0.1
     });
+
     const steps = document.querySelectorAll('.step-card');
     steps.forEach(step => {
       observerRef.current?.observe(step);
@@ -55,6 +59,7 @@ const HowItWorks = () => {
       threshold: 0.2,
       rootMargin: "-50px"
     });
+
     const sectionCards = document.querySelectorAll('.section-card');
     sectionCards.forEach((card, index) => {
       // Set initial position (translated down and slightly smaller)
@@ -68,6 +73,7 @@ const HowItWorks = () => {
       // Observe the card
       sectionObserverRef.current?.observe(card);
     });
+
     return () => {
       if (observerRef.current) {
         steps.forEach(step => {
@@ -81,6 +87,7 @@ const HowItWorks = () => {
       }
     };
   }, []);
+
   return <section id="how-it-works" className="bg-gradient-to-b from-white to-doc-blue-light/20 py-20 md:py-28">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center max-w-4xl mx-auto mb-16">
@@ -96,7 +103,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative mb-16">
-          <div className="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-doc-blue-light/60 -z-10 transform -translate-y-1/2"></div>
+          {/* Removed the line that was here previously */}
           
           <div className="step-card opacity-0 flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-doc-blue rounded-full flex items-center justify-center text-white mb-6 shadow-lg relative z-10">
@@ -149,4 +156,5 @@ const HowItWorks = () => {
       </div>
     </section>;
 };
+
 export default HowItWorks;

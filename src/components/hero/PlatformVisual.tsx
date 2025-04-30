@@ -19,27 +19,27 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               {/* "AI Content Support" - positioned above the image */}
               <div className="absolute -top-16 right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg shadow-lg">
                     <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-medium whitespace-nowrap">AI Content Support</span>
                 </div>
               </div>
               
-              {/* "Create short-videos in seconds" - positioned lower by additional 20px */}
+              {/* "Create short-videos in seconds" */}
               <div className="absolute top-4 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg shadow-lg">
                     <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
                 </div>
               </div>
               
-              {/* AI Content Enhancements - moved 20px higher than before */}
+              {/* AI Content Enhancements */}
               <div className="absolute -bottom-4 right-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
-                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
                     <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
@@ -48,10 +48,10 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 </div>
               </div>
               
-              {/* Share with patients - moved 20px higher than before */}
+              {/* Share with patients */}
               <div className="absolute -bottom-20 left-4 neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg shadow-lg">
                     <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-medium whitespace-nowrap">Share with patients</span>
@@ -62,12 +62,13 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
-            {/* Doctor image - even taller aspect ratio on mobile */}
-            <div className="relative w-full" style={{ aspectRatio: isMobile ? "1/1.2" : "3/2" }}>
+            {/* Doctor image - with glow effect */}
+            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: isMobile ? "1/1.2" : "3/2" }}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue/30 to-doc-purple/30 blur-xl opacity-70"></div>
               <img 
                 src="/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png" 
                 alt="Doctor explaining egg freezing success rates"
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-xl relative z-20"
               />
             </div>
           </div>
@@ -75,40 +76,40 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Desktop overlays - hidden on mobile */}
           {!isMobile && (
             <>
-              {/* "Create short-videos in seconds" banner - positioned further down for desktop */}
+              {/* "Create short-videos in seconds" banner */}
               <div className="absolute top-0 left-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg shadow-lg">
                     <Scan className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <span className="font-medium whitespace-nowrap">Create short-videos in seconds</span>
                 </div>
               </div>
               
-              {/* AI Content Support - positioned further down for desktop */}
+              {/* AI Content Support */}
               <div className="absolute top-4 right-[20%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delayed">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-[#0271e5] to-[#0258B6] text-white p-2 rounded-lg shadow-lg">
                     <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-medium whitespace-nowrap">AI Content Support</span>
                 </div>
               </div>
               
-              {/* Share with patients - positioned for desktop */}
+              {/* Share with patients */}
               <div className="absolute top-1/2 -translate-y-1/2 left-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-200">
                 <div className="flex items-center gap-3 text-xs sm:text-sm">
-                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-doc-purple-light to-doc-purple text-white p-2 rounded-lg shadow-lg">
                     <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <span className="font-medium whitespace-nowrap">Share with patients</span>
                 </div>
               </div>
               
-              {/* AI Content Enhancements - positioned for desktop */}
+              {/* AI Content Enhancements */}
               <div className="absolute top-1/2 -translate-y-1/2 right-[12%] neo-glass p-3 rounded-xl shadow-neon border border-white/30 z-20 animate-float-delay-300">
                 <div className="flex items-start gap-3">
-                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
                     <BrainCircuit className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>

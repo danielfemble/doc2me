@@ -1,4 +1,3 @@
-
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { UserRound, Stethoscope } from "lucide-react";
 interface TestimonialBadgeProps {
@@ -32,7 +31,7 @@ const TestimonialBadge = ({
         </Avatar>
       </div>
       <span className="flex items-center gap-2">
-        <Stethoscope className="h-4 w-4 text-doc-blue" /> 
+         
         Trusted by <b>leading doctors</b>
       </span>
     </div>;

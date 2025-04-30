@@ -9,7 +9,7 @@ const ExplanationSection = () => {
           <div className="w-14 h-14 rounded-full bg-gradient-to-r from-doc-blue to-doc-purple flex items-center justify-center text-white">
             <Stethoscope className="w-6 h-6" />
           </div>
-          <h4 className="font-semibold text-doc-black">Physician-Led Content</h4>
+          <h4 className="font-semibold text-doc-black">Doctor-Led Content</h4>
           <p className="text-doc-gray">Create short, informative videos explaining conditions and treatments in your own words and style. Get guidance by our AI.</p>
         </div>
         

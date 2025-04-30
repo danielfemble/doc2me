@@ -1,5 +1,7 @@
+
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { UserRound, Stethoscope } from "lucide-react";
+import { UserRound, Flag } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 interface TestimonialBadgeProps {
   className?: string;
 }
@@ -31,8 +33,23 @@ const TestimonialBadge = ({
         </Avatar>
       </div>
       <span className="flex items-center gap-2">
-         
         Trusted by <b>leading doctors</b>
+        <div className="flex space-x-1 ml-1">
+          {/* US Flag */}
+          <Badge variant="outline" className="px-1.5 py-0 border-none">
+            <img src="https://flagcdn.com/w20/us.png" width="16" height="12" alt="US flag" className="inline-block" />
+          </Badge>
+          
+          {/* Swiss Flag */}
+          <Badge variant="outline" className="px-1.5 py-0 border-none">
+            <img src="https://flagcdn.com/w20/ch.png" width="16" height="12" alt="Swiss flag" className="inline-block" />
+          </Badge>
+          
+          {/* Austrian Flag */}
+          <Badge variant="outline" className="px-1.5 py-0 border-none">
+            <img src="https://flagcdn.com/w20/at.png" width="16" height="12" alt="Austrian flag" className="inline-block" />
+          </Badge>
+        </div>
       </span>
     </div>;
 };

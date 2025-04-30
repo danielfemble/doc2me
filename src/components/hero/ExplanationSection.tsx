@@ -10,7 +10,7 @@ const ExplanationSection = () => {
             <Stethoscope className="w-6 h-6" />
           </div>
           <h4 className="font-semibold text-doc-black">Physician-Led Content</h4>
-          <p className="text-doc-gray">Create short, informative videos explaining conditions and treatments in their own words and style. Get guidance by our AI.</p>
+          <p className="text-doc-gray">Create short, informative videos explaining conditions and treatments in your own words and style. Get guidance by our AI.</p>
         </div>
         
         <div className="flex flex-col items-center text-center space-y-3">

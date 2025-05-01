@@ -45,13 +45,13 @@ const CtaSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-50 blur-sm animate-pulse-slow"></div>
               <div className="relative bg-white rounded-md p-1">
                 <iframe 
-                  width="100%" 
-                  height="580" 
-                  src="https://sibforms.com/serve/MUIFAGpsJ0RSg2mumVscA7Sdr6Pfr0ZzTlZowr6iZ6uY73n032zRzrkFEj2DdjZOx2_VlCks8Af7pDmQI5-si6LJBt5hx6kbyH8q9BapzcamZNnuTPHuVsY447w4gMEcvZakIBc5ss7LtRFBlM6c7STy0AQ2cPoh_UVJQOp5l0YbzBmWfh9kY1Nmb-pReIl3qY4ekOF8SOUzGF1k" 
+                  width="540" 
+                  height="305" 
+                  src="https://sibforms.com/serve/MUIFALphWNuzT13Q_GfS7GYo0_AJQ2S_64P9K7fRNYNSd9U_LVMQ_O-Gje5URQdOkmhbc3YNNdepU_I_jrhqUxQdg9T98sL9RNh-r3BGWoN0remP5-WTx8kwrF5zt1K1hbI15tzFCUDR_uZC9zL7dhZn9MZ5OkWD7EQ9d11AEHYWIiyf64un4-5xR17xYU8X2bA7bA7CSBcgZHBG" 
                   frameBorder="0" 
                   scrolling="auto" 
                   allowFullScreen 
-                  style={{ display: 'block', maxWidth: '100%' }}
+                  style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
                   className="rounded-md shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.01]"
                 />
               </div>

@@ -1,6 +1,4 @@
-
 import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide-react";
-
 const FeatureCard = ({
   icon,
   title,
@@ -16,7 +14,6 @@ const FeatureCard = ({
     <h3 className="text-xl font-semibold mb-2 text-doc-black">{title}</h3>
     <p className="text-doc-gray">{description}</p>
   </div>;
-
 const FeatureSection = () => {
   const features = [{
     icon: <Clock size={24} />,
@@ -43,29 +40,6 @@ const FeatureSection = () => {
     title: "Medically Verified",
     description: "All content is medically accurate and follows best practices in health communication."
   }];
-  
-  return (
-    <section className="py-20 md:py-28 relative z-10">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Features for Healthcare Providers</h2>
-          <p className="text-lg text-doc-gray max-w-2xl mx-auto">
-            Our AI-powered platform helps you create engaging patient education content that stands out.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return;
 };
-
 export default FeatureSection;

@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
+import AsSeenIn from '@/components/AsSeenIn';
 import FeatureSection from '@/components/FeatureSection';
 import HowItWorks from '@/components/HowItWorks';
 import PricingSection from '@/components/PricingSection';
 import CtaSection from '@/components/CtaSection';
 import Footer from '@/components/Footer';
 import { MessageSquare, Globe, Star } from "lucide-react";
+
 const Index = () => {
   useEffect(() => {
     // Initialize animation observers for feature cards
@@ -103,6 +105,7 @@ const Index = () => {
       <NavBar />
       <main className="relative z-10">
         <HeroSection />
+        <AsSeenIn />
         <div className="py-8 md:py-12"></div> {/* Additional spacing */}
         <FeatureSection />
          {/* Additional spacing */}
@@ -137,4 +140,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;

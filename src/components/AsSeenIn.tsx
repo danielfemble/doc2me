@@ -1,7 +1,8 @@
+
 const AsSeenIn = () => {
   const publications = [{
     name: "The New York Times",
-    logo: "/lovable-uploads/d1537b2b-b30a-4f2d-930e-07f9b3fe4e28.png",
+    logo: "/lovable-uploads/92f357f4-712d-4db0-84a3-5f4706fdca0e.png",
     width: "500",
     height: "125"
   }, {

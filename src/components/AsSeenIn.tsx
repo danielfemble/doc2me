@@ -4,8 +4,8 @@ const AsSeenIn = () => {
     {
       name: "The New York Times",
       logo: "/lovable-uploads/d1537b2b-b30a-4f2d-930e-07f9b3fe4e28.png",
-      width: "400",
-      height: "100"
+      width: "500",
+      height: "125"
     },
     {
       name: "Brutkasten",

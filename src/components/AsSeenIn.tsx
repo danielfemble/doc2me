@@ -1,4 +1,5 @@
 
+
 const AsSeenIn = () => {
   const publications = [{
     name: "The New York Times",
@@ -26,7 +27,7 @@ const AsSeenIn = () => {
   const duplicatedPublications = [...publications, ...publications];
   return <section className="py-8 bg-transparent relative z-10 overflow-hidden">
       <div className="relative">
-        <div className="flex animate-scroll whitespace-nowrap">
+        <div className="flex animate-[scroll_10s_linear_infinite] whitespace-nowrap">
           {duplicatedPublications.map((publication, index) => <div key={index} className="flex items-center justify-center mx-16 flex-shrink-0">
               <img src={publication.logo} alt={publication.name} width={publication.width} height={publication.height} className="max-h-40 w-auto object-contain filter brightness-0 opacity-60 hover:opacity-80 transition-opacity duration-300" />
             </div>)}
@@ -35,3 +36,4 @@ const AsSeenIn = () => {
     </section>;
 };
 export default AsSeenIn;
+

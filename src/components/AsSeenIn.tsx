@@ -3,25 +3,25 @@ const AsSeenIn = () => {
   const publications = [
     {
       name: "The New York Times",
-      logo: "/placeholder.svg", // Replace with actual logo path
+      logo: "/lovable-uploads/d1537b2b-b30a-4f2d-930e-07f9b3fe4e28.png",
       width: "160",
       height: "40"
     },
     {
       name: "Brutkasten",
-      logo: "/placeholder.svg", // Replace with actual logo path
+      logo: "/lovable-uploads/7a8be68d-e501-4da2-a9e1-abd755357380.png",
       width: "140",
       height: "35"
     },
     {
       name: "Trend.",
-      logo: "/placeholder.svg", // Replace with actual logo path
+      logo: "/lovable-uploads/bb63ec52-b820-4a03-83ea-87530c7f8724.png",
       width: "120",
       height: "35"
     },
     {
       name: "Startup Valley News",
-      logo: "/placeholder.svg", // Replace with actual logo path
+      logo: "/lovable-uploads/98c1f120-7d15-455d-8340-6d05f99eb443.png",
       width: "150",
       height: "40"
     }

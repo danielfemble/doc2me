@@ -132,6 +132,10 @@ export default {
         },
         'shine': {
           to: { backgroundPosition: '200% center' }
+        },
+        'scroll': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
         }
       },
       animation: {
@@ -147,6 +151,7 @@ export default {
         'slide-from-right': 'slide-from-right 0.5s ease-out forwards',
         'slide-from-bottom': 'slide-from-bottom 0.5s ease-out forwards',
         'shine': 'shine 3s linear infinite',
+        'scroll': 'scroll 20s linear infinite',
       },
       boxShadow: {
         'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',

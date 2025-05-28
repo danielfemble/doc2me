@@ -4,50 +4,47 @@ const AsSeenIn = () => {
     {
       name: "The New York Times",
       logo: "/lovable-uploads/d1537b2b-b30a-4f2d-930e-07f9b3fe4e28.png",
-      width: "160",
-      height: "40"
+      width: "200",
+      height: "50"
     },
     {
       name: "Brutkasten",
       logo: "/lovable-uploads/7a8be68d-e501-4da2-a9e1-abd755357380.png",
-      width: "140",
-      height: "35"
+      width: "180",
+      height: "45"
     },
     {
       name: "Trend.",
       logo: "/lovable-uploads/bb63ec52-b820-4a03-83ea-87530c7f8724.png",
-      width: "120",
-      height: "35"
+      width: "160",
+      height: "45"
     },
     {
       name: "Startup Valley News",
       logo: "/lovable-uploads/98c1f120-7d15-455d-8340-6d05f99eb443.png",
-      width: "150",
-      height: "40"
+      width: "190",
+      height: "50"
     }
   ];
 
+  // Duplicate the publications array for seamless scrolling
+  const duplicatedPublications = [...publications, ...publications];
+
   return (
-    <section className="py-12 md:py-16 bg-gray-50/50 relative z-10">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <p className="text-sm font-medium text-doc-gray/70 uppercase tracking-wide mb-6">
-            As Seen In
-          </p>
-        </div>
-        
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60 hover:opacity-100 transition-opacity duration-300">
-          {publications.map((publication, index) => (
+    <section className="py-8 bg-transparent relative z-10 overflow-hidden">
+      <div className="relative">
+        <div className="flex animate-scroll whitespace-nowrap">
+          {duplicatedPublications.map((publication, index) => (
             <div
               key={index}
-              className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+              className="flex items-center justify-center mx-8 flex-shrink-0"
             >
               <img
                 src={publication.logo}
                 alt={publication.name}
                 width={publication.width}
                 height={publication.height}
-                className="max-h-8 md:max-h-10 w-auto object-contain filter brightness-0 opacity-70"
+                className="max-h-12 w-auto object-contain filter brightness-0 opacity-60 hover:opacity-80 transition-opacity duration-300"
               />
             </div>
           ))}

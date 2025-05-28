@@ -3,6 +3,7 @@ import HeadlineSection from "./hero/HeadlineSection";
 import TestimonialBadge from "./hero/TestimonialBadge";
 import PlatformVisual from "./hero/PlatformVisual";
 import ExplanationSection from "./hero/ExplanationSection";
+import AsSeenIn from "./AsSeenIn";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
@@ -15,6 +16,8 @@ const HeroSection = () => {
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
           <HeadlineSection className="px-4" />
           <TestimonialBadge className="justify-center mt-8" />
+          {/* Add AsSeenIn banner right after testimonial badge */}
+          <AsSeenIn />
         </div>
         
         {/* Larger full-width visual with increased vertical space */}

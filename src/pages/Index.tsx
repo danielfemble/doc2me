@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import HeroSection from '@/components/HeroSection';
-import AsSeenIn from '@/components/AsSeenIn';
 import FeatureSection from '@/components/FeatureSection';
 import HowItWorks from '@/components/HowItWorks';
 import PricingSection from '@/components/PricingSection';
@@ -105,7 +104,6 @@ const Index = () => {
       <NavBar />
       <main className="relative z-10">
         <HeroSection />
-        <AsSeenIn />
         <div className="py-8 md:py-12"></div> {/* Additional spacing */}
         <FeatureSection />
          {/* Additional spacing */}

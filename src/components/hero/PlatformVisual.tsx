@@ -74,7 +74,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 <img 
                   src="https://raw.githubusercontent.com/danielfemble/Assets/main/Heading1-ezgif.com-cut.webp"
                   alt="Doc2Me animated video management dashboard showing diabetes content creation"
-                  className="w-full h-full object-contain rounded-xl"
+                  className="w-full h-full object-contain rounded-2xl"
                   style={{ imageRendering: 'auto' }}
                   loading="eager"
                 />

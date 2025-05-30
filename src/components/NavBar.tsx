@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SignupDialog } from "@/components/index";
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,6 +13,7 @@ const NavBar = () => {
   const [signupOpen, setSignupOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,17 +49,18 @@ const NavBar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {getNavLink("features", "Features")}
-            {getNavLink("how-it-works", "How it works")}
-            {getNavLink("pricing", "Pricing")}
-            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</Link>
+            {getNavLink("features", t('nav.features'))}
+            {getNavLink("how-it-works", t('nav.howItWorks'))}
+            {getNavLink("pricing", t('nav.pricing'))}
+            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">{t('nav.contact')}</Link>
           </div>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <SignupDialog 
               trigger={
                 <Button variant="gradient" className="rounded-lg">
-                  Request Demo
+                  {t('nav.requestDemo')}
                 </Button>
               }
               defaultOpen={signupOpen}
@@ -77,23 +81,26 @@ const NavBar = () => {
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-lg py-4 px-4 flex flex-col gap-4 border-t border-gray-100 animate-fade-in">
             {isHomePage ? (
               <>
-                <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
-                <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</a>
-                <a href="#pricing" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Pricing</a>
+                <a href="#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.features')}</a>
+                <a href="#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.howItWorks')}</a>
+                <a href="#pricing" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.pricing')}</a>
               </>
             ) : (
               <>
-                <Link to="/#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Features</Link>
-                <Link to="/#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>How it works</Link>
-                <Link to="/#pricing" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+                <Link to="/#features" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.features')}</Link>
+                <Link to="/#how-it-works" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.howItWorks')}</Link>
+                <Link to="/#pricing" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.pricing')}</Link>
               </>
             )}
-            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
+              <div className="flex justify-center mb-2">
+                <LanguageSwitcher />
+              </div>
               <SignupDialog 
                 trigger={
                   <Button variant="gradient" className="w-full justify-center rounded-lg">
-                    Request Demo
+                    {t('nav.requestDemo')}
                   </Button>
                 }
               />

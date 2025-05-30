@@ -8,10 +8,11 @@ import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
 import Imprint from "@/pages/Imprint";
 import RebrandingBanner from "@/components/RebrandingBanner";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Toaster position="top-right" richColors />
       <RebrandingBanner />
       <Router>
@@ -25,7 +26,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-    </>
+    </LanguageProvider>
   );
 }
 

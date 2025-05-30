@@ -1,7 +1,10 @@
 
 import { CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CtaSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 md:py-28 relative z-10 bg-gradient-to-b from-white/90 via-doc-blue/5 to-doc-purple/10">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -14,28 +17,28 @@ const CtaSection = () => {
             {/* Left side: Text content */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">
-                Request Demo Today
+                {t('cta.title')}
               </h2>
               <p className="text-lg text-doc-gray mb-8">
-                Experience how our platform can transform your patient education and practice growth. Our team will walk you through our solution designed specifically for healthcare professionals.
+                {t('cta.description')}
               </p>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-2">
                   <CheckCircle className="text-doc-purple shrink-0 mt-1" size={20} />
-                  <p className="text-doc-gray">Personalized demonstration tailored to your practice needs</p>
+                  <p className="text-doc-gray">{t('cta.point1')}</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="text-doc-purple shrink-0 mt-1" size={20} />
-                  <p className="text-doc-gray">Learn how to create medical content that connects with patients</p>
+                  <p className="text-doc-gray">{t('cta.point2')}</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="text-doc-purple shrink-0 mt-1" size={20} />
-                  <p className="text-doc-gray">Discover tools to boost your online presence and patient trust</p>
+                  <p className="text-doc-gray">{t('cta.point3')}</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="text-doc-purple shrink-0 mt-1" size={20} />
-                  <p className="text-doc-gray">No commitment required - see the value before you decide</p>
+                  <p className="text-doc-gray">{t('cta.point4')}</p>
                 </div>
               </div>
             </div>

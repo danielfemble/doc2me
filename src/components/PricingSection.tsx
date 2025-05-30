@@ -4,15 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import SignupDialog from "./SignupDialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PricingSection = () => {
   const [selectedTier, setSelectedTier] = useState<'single' | 'organization'>('single');
+  const { t } = useLanguage();
 
   const pricingOptions = [
     {
       id: 'single',
-      title: 'Single Doctor',
-      description: 'Perfect for independent practitioners who want to enhance their online presence',
+      title: t('pricing.single.title'),
+      description: t('pricing.single.description'),
       benefits: [
         'AI guidance in content creation',
         'AI enhancement of health information',
@@ -24,8 +26,8 @@ const PricingSection = () => {
     },
     {
       id: 'organization',
-      title: 'Organization',
-      description: 'Ideal for clinics, hospitals, and healthcare organizations with multiple practitioners',
+      title: t('pricing.organization.title'),
+      description: t('pricing.organization.description'),
       benefits: [
         'Everything in Single Doctor plan',
         'Multi-user accounts',
@@ -41,9 +43,9 @@ const PricingSection = () => {
     <section id="pricing" className="py-16 relative z-10 bg-gradient-to-b from-doc-blue-light/30 via-white/90 to-white/95">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">Choose Your Plan</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">{t('pricing.title')}</h2>
           <p className="text-lg text-doc-gray max-w-2xl mx-auto">
-            Select the option that best fits your practice needs
+            {t('pricing.subtitle')}
           </p>
         </div>
         
@@ -59,7 +61,7 @@ const PricingSection = () => {
                 <CardDescription className="text-base">{option.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="font-bold text-lg text-doc-black">Contact us for pricing</p>
+                <p className="font-bold text-lg text-doc-black">{t('pricing.contactPricing')}</p>
                 <ul className="space-y-2">
                   {option.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-2">
@@ -73,7 +75,7 @@ const PricingSection = () => {
                 <SignupDialog 
                   trigger={
                     <Button variant="gradient" className="w-full" size="lg">
-                      Request Demo
+                      {t('nav.requestDemo')}
                     </Button>
                   }
                 />

@@ -1,5 +1,6 @@
 
 import { Clock, Zap, Medal, HeartPulse, BrainCircuit, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FeatureCard = ({
   icon,
@@ -20,39 +21,48 @@ const FeatureCard = ({
 );
 
 const FeatureSection = () => {
-  const features = [{
-    icon: <Clock size={24} />,
-    title: "Save Time",
-    description: "Create accurate patient education materials in minutes instead of hours."
-  }, {
-    icon: <Zap size={24} />,
-    title: "Boost Online Presence",
-    description: "Increase your visibility with personalized health content that ranks on search engines."
-  }, {
-    icon: <Medal size={24} />,
-    title: "Build Authority",
-    description: "Establish yourself as a trusted expert in your field with high-quality health information."
-  }, {
-    icon: <HeartPulse size={24} />,
-    title: "Better Patient Outcomes",
-    description: "Improve adherence and results with easy-to-understand health education materials."
-  }, {
-    icon: <BrainCircuit size={24} />,
-    title: "AI-Powered Content",
-    description: "Leverage advanced AI to create medically accurate and personalized patient materials."
-  }, {
-    icon: <ShieldCheck size={24} />,
-    title: "Medically Verified",
-    description: "All content is medically accurate and follows best practices in health communication."
-  }];
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: <Clock size={24} />,
+      title: t('features.saveTime.title'),
+      description: t('features.saveTime.description')
+    },
+    {
+      icon: <Zap size={24} />,
+      title: t('features.boostPresence.title'),
+      description: t('features.boostPresence.description')
+    },
+    {
+      icon: <Medal size={24} />,
+      title: t('features.buildAuthority.title'),
+      description: t('features.buildAuthority.description')
+    },
+    {
+      icon: <HeartPulse size={24} />,
+      title: t('features.betterOutcomes.title'),
+      description: t('features.betterOutcomes.description')
+    },
+    {
+      icon: <BrainCircuit size={24} />,
+      title: t('features.aiPowered.title'),
+      description: t('features.aiPowered.description')
+    },
+    {
+      icon: <ShieldCheck size={24} />,
+      title: t('features.medicallyVerified.title'),
+      description: t('features.medicallyVerified.description')
+    }
+  ];
   
   return (
     <section className="py-16 md:py-24 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Doc2Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('features.title')}</h2>
           <p className="text-lg text-doc-gray max-w-2xl mx-auto">
-            Our platform helps medical professionals create personalized patient education materials in minutes.
+            {t('features.subtitle')}
           </p>
         </div>
         

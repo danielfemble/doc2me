@@ -1,4 +1,3 @@
-
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -72,7 +71,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 />
               ) : (
                 <img 
-                  src="/lovable-uploads/57c28230-bca7-4714-be3f-07895b91d0e4.png"
+                  src="/lovable-uploads/6ec1a717-684a-4738-b234-d852dd7ec82e.png"
                   alt="Doc2Me video management dashboard showing diabetes content creation"
                   className="w-full h-full object-contain rounded-2xl"
                   style={{ imageRendering: 'auto' }}

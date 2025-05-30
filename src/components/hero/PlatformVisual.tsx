@@ -64,11 +64,21 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           <div className="relative z-10 mx-auto">
             {/* Conditional image rendering based on device type */}
             <div className="relative w-full h-[80vh]">
-              <img 
-                src={isMobile ? "/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png" : "/lovable-uploads/8d69376c-5a81-41f8-a24a-05bdb2c5ccb2.png"}
-                alt={isMobile ? "Doc2Me platform interface showing diabetes content management" : "Doc2Me animated video management dashboard showing diabetes content creation"}
-                className="w-full h-full object-contain rounded-xl"
-              />
+              {isMobile ? (
+                <img 
+                  src="/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png"
+                  alt="Doc2Me platform interface showing diabetes content management"
+                  className="w-full h-full object-contain rounded-xl"
+                />
+              ) : (
+                <img 
+                  src="/lovable-uploads/8d69376c-5a81-41f8-a24a-05bdb2c5ccb2.png"
+                  alt="Doc2Me animated video management dashboard showing diabetes content creation"
+                  className="w-full h-full object-contain rounded-xl"
+                  style={{ imageRendering: 'auto' }}
+                  loading="eager"
+                />
+              )}
             </div>
           </div>
           

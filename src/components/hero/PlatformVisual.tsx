@@ -1,4 +1,5 @@
 
+
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -63,7 +64,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
             {/* Conditional image rendering based on device type */}
-            <div className={`relative w-full ${isMobile ? 'h-[90vh]' : 'h-[80vh]'} rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm`}>
+            <div className={`relative w-full ${isMobile ? 'h-[110vh]' : 'h-[80vh]'} rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm`}>
               <img 
                 src="https://github.com/danielfemble/Assets/blob/main/Green%20Minimalist%20Digital%20Product%20Mockups%20Instagram%20Post%20(1).gif?raw=true"
                 alt="Doc2Me animated digital product mockup"
@@ -132,3 +133,4 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
 };
 
 export default PlatformVisual;
+

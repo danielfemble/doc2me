@@ -67,7 +67,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
               <img 
                 src={isMobile ? "/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png" : "/lovable-uploads/04f8c675-7d3c-457a-8a0a-e8c366e898ac.png"}
                 alt={isMobile ? "Doc2Me platform interface showing diabetes content management" : "Doc2Me video management dashboard showing diabetes content"}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-contain rounded-xl"
               />
             </div>
           </div>

@@ -72,7 +72,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 />
               ) : (
                 <img 
-                  src="https://github.com/danielfemble/Assets/blob/main/Green%20Minimalist%20Digital%20Product%20Mockups%20Instagram%20Post.gif?raw=true"
+                  src="https://github.com/danielfemble/Assets/blob/main/Green%20Minimalist%20Digital%20Product%20Mockups%20Instagram%20Post%20(1).gif?raw=true"
                   alt="Doc2Me animated digital product mockup"
                   className="w-full h-full object-contain p-2"
                   style={{ imageRendering: 'auto' }}

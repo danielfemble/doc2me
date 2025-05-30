@@ -65,8 +65,8 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             {/* Conditional image rendering based on device type */}
             <div className="relative w-full h-[80vh]">
               <img 
-                src={isMobile ? "/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png" : "/lovable-uploads/04f8c675-7d3c-457a-8a0a-e8c366e898ac.png"}
-                alt={isMobile ? "Doc2Me platform interface showing diabetes content management" : "Doc2Me video management dashboard showing diabetes content"}
+                src={isMobile ? "/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png" : "/lovable-uploads/8d69376c-5a81-41f8-a24a-05bdb2c5ccb2.png"}
+                alt={isMobile ? "Doc2Me platform interface showing diabetes content management" : "Doc2Me animated video management dashboard showing diabetes content creation"}
                 className="w-full h-full object-contain rounded-xl"
               />
             </div>

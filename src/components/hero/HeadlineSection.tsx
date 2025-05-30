@@ -20,7 +20,7 @@ const HeadlineSection = ({
         </h1>
       </div>
       
-      <p className="text-lg text-doc-gray leading-relaxed max-w-2xl mx-auto">Where Patient Education meets Healthcare Marketing. Scale your presence without scaling your workload. Create and share information wherever your existing and potentially new Patients are.</p>
+      <p className="text-lg text-doc-gray leading-relaxed max-w-2xl mx-auto">Where Patient Education meets Healthcare Marketing. Scale your presence without scaling your workload. Create and share information wherever your existing and future Patients are.</p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center">
         <SignupDialog trigger={<Button variant="default" className="bg-doc-blue hover:bg-doc-blue-dark group gap-2 text-base h-12 px-6 text-white" size="lg">

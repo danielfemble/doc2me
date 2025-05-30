@@ -62,11 +62,11 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
-            {/* Doctor image - even taller aspect ratio on mobile */}
+            {/* Conditional image rendering based on device type */}
             <div className="relative w-full" style={{ aspectRatio: isMobile ? "1/1.2" : "3/2" }}>
               <img 
-                src="/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png" 
-                alt="Doctor explaining egg freezing success rates"
+                src={isMobile ? "/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png" : "/lovable-uploads/d0f874de-04b5-460a-99be-6dddaf353eef.png"}
+                alt={isMobile ? "Doc2Me platform interface showing diabetes content management" : "Doctor explaining egg freezing success rates"}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>

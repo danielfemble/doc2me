@@ -63,18 +63,18 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           {/* Main content display */}
           <div className="relative z-10 mx-auto">
             {/* Conditional image rendering based on device type */}
-            <div className="relative w-full h-[80vh]">
+            <div className="relative w-full h-[80vh] rounded-2xl overflow-hidden">
               {isMobile ? (
                 <img 
                   src="/lovable-uploads/e697d643-4b78-4893-800f-ec2ca98514c5.png"
                   alt="Doc2Me platform interface showing diabetes content management"
-                  className="w-full h-full object-contain rounded-xl"
+                  className="w-full h-full object-contain"
                 />
               ) : (
                 <img 
                   src="https://raw.githubusercontent.com/danielfemble/Assets/main/Heading1-ezgif.com-cut.webp"
                   alt="Doc2Me animated video management dashboard showing diabetes content creation"
-                  className="w-full h-full object-contain rounded-2xl"
+                  className="w-full h-full object-contain"
                   style={{ imageRendering: 'auto' }}
                   loading="eager"
                 />

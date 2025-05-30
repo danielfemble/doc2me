@@ -72,7 +72,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
                 />
               ) : (
                 <img 
-                  src="/lovable-uploads/7b9af378-c2ef-4c01-a91c-1bb3cbfe72a4.png"
+                  src="https://raw.githubusercontent.com/danielfemble/Assets/main/Heading1-ezgif.com-cut.webp"
                   alt="Doc2Me animated video management dashboard showing diabetes content creation"
                   className="w-full h-full object-contain rounded-xl"
                   style={{ imageRendering: 'auto' }}

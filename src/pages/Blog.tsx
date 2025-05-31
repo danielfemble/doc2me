@@ -1,43 +1,32 @@
 
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-// Sample blog posts - you can replace these with actual content
-const blogPosts = [
-  {
-    id: "healthcare-digitalization-2024",
-    title: "The Future of Healthcare Digitalization in 2024",
-    excerpt: "Explore how digital transformation is revolutionizing patient care and medical documentation processes in modern healthcare facilities.",
-    date: "2024-01-15",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f",
-    tags: ["Healthcare", "Digital Transformation", "Technology"]
-  },
-  {
-    id: "ai-medical-documentation",
-    title: "How AI is Transforming Medical Documentation",
-    excerpt: "Discover the impact of artificial intelligence on streamlining documentation workflows and improving accuracy in healthcare settings.",
-    date: "2024-01-10",
-    readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
-    tags: ["AI", "Medical Documentation", "Efficiency"]
-  },
-  {
-    id: "patient-data-security",
-    title: "Ensuring Patient Data Security in Digital Healthcare",
-    excerpt: "Learn about best practices for maintaining HIPAA compliance and protecting sensitive patient information in digital systems.",
-    date: "2024-01-05",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3",
-    tags: ["Security", "HIPAA", "Patient Privacy"]
-  }
-];
+import { fetchPublishedPosts, formatDate, type BlogPost } from "@/utils/blogUtils";
 
 const Blog = () => {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const posts = await fetchPublishedPosts();
+        setBlogPosts(posts);
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -63,65 +52,84 @@ const Blog = () => {
               </p>
             </div>
 
-            {/* Blog Posts Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {blogPosts.map((post) => (
-                <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-doc-gray mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{new Date(post.date).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}</span>
+            {loading ? (
+              <div className="text-center py-12">
+                <div className="text-lg text-doc-gray">Loading blog posts...</div>
+              </div>
+            ) : (
+              <>
+                {/* Blog Posts Grid */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {blogPosts.map((post) => (
+                    <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                      {post.featured_image && (
+                        <div className="aspect-video overflow-hidden">
+                          <img 
+                            src={post.featured_image} 
+                            alt={post.title}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      )}
+                      
+                      <div className="p-6">
+                        <div className="flex items-center gap-4 text-sm text-doc-gray mb-3">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{formatDate(post.created_at)}</span>
+                          </div>
+                          {post.read_time && (
+                            <div className="flex items-center gap-1">
+                              <Clock className="w-4 h-4" />
+                              <span>{post.read_time}</span>
+                            </div>
+                          )}
+                        </div>
+                        
+                        <h2 className="text-xl font-semibold mb-3 text-doc-black hover:text-doc-blue transition-colors">
+                          <Link to={`/blog/${post.slug}`}>
+                            {post.title}
+                          </Link>
+                        </h2>
+                        
+                        {post.excerpt && (
+                          <p className="text-doc-gray mb-4 line-clamp-3">
+                            {post.excerpt}
+                          </p>
+                        )}
+                        
+                        {post.tags && post.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {post.tags.map((tag) => (
+                              <span 
+                                key={tag}
+                                className="px-2 py-1 bg-doc-blue/10 text-doc-blue text-xs rounded-full"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        <Link to={`/blog/${post.slug}`}>
+                          <Button variant="ghost" className="p-0 h-auto text-doc-blue hover:text-doc-blue-dark">
+                            Read More 
+                            <ArrowRight className="ml-1 w-4 h-4" />
+                          </Button>
+                        </Link>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                    
-                    <h2 className="text-xl font-semibold mb-3 text-doc-black hover:text-doc-blue transition-colors">
-                      <Link to={`/blog/${post.id}`}>
-                        {post.title}
-                      </Link>
-                    </h2>
-                    
-                    <p className="text-doc-gray mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag) => (
-                        <span 
-                          key={tag}
-                          className="px-2 py-1 bg-doc-blue/10 text-doc-blue text-xs rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <Link to={`/blog/${post.id}`}>
-                      <Button variant="ghost" className="p-0 h-auto text-doc-blue hover:text-doc-blue-dark">
-                        Read More 
-                        <ArrowRight className="ml-1 w-4 h-4" />
-                      </Button>
-                    </Link>
+                    </article>
+                  ))}
+                </div>
+
+                {blogPosts.length === 0 && (
+                  <div className="text-center py-12">
+                    <div className="text-lg text-doc-gray mb-4">No blog posts published yet.</div>
+                    <p className="text-doc-gray">Check back soon for our latest insights!</p>
                   </div>
-                </article>
-              ))}
-            </div>
+                )}
+              </>
+            )}
 
             {/* Call to Action */}
             <div className="text-center">

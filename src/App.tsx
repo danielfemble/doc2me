@@ -9,6 +9,7 @@ import Contact from "@/pages/Contact";
 import Imprint from "@/pages/Imprint";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import BlogAdmin from "@/pages/BlogAdmin";
 import RebrandingBanner from "@/components/RebrandingBanner";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/imprint" element={<Imprint />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/admin/blog" element={<BlogAdmin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

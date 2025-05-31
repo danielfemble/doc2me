@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
@@ -31,7 +30,7 @@ const Blog = () => {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Doc2Me Blog",
-    "description": "Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities.",
+    "description": "Stay informed with the latest trends in healthcare digitalization, AI-powered patient education and how to be build an online presence as a health provider.",
     "url": "https://doc2me.co/blog",
     "publisher": {
       "@type": "Organization",
@@ -60,8 +59,8 @@ const Blog = () => {
     <>
       <Helmet>
         <title>Healthcare Blog | Doc2Me - Digital Transformation Insights</title>
-        <meta name="description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
-        <meta name="keywords" content="healthcare blog, medical documentation, digital transformation, AI healthcare, patient care technology, healthcare digitalization, medical AI, healthcare innovation" />
+        <meta name="description" content="Stay informed with the latest trends in healthcare digitalization, AI-powered patient education and how to be build an online presence as a health provider." />
+        <meta name="keywords" content="healthcare blog, patient education, AI healthcare, healthcare digitalization, health provider online presence, medical AI, healthcare marketing, patient engagement" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         <link rel="canonical" href="https://doc2me.co/blog" />
@@ -69,7 +68,7 @@ const Blog = () => {
         {/* Open Graph tags */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Healthcare Blog | Doc2Me - Digital Transformation Insights" />
-        <meta property="og:description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
+        <meta property="og:description" content="Stay informed with the latest trends in healthcare digitalization, AI-powered patient education and how to be build an online presence as a health provider." />
         <meta property="og:url" content="https://doc2me.co/blog" />
         <meta property="og:site_name" content="Doc2Me" />
         <meta property="og:image" content="https://doc2me.co/doc2me-logo.png" />
@@ -79,7 +78,7 @@ const Blog = () => {
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Healthcare Blog | Doc2Me - Digital Transformation Insights" />
-        <meta name="twitter:description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
+        <meta name="twitter:description" content="Stay informed with the latest trends in healthcare digitalization, AI-powered patient education and how to be build an online presence as a health provider." />
         <meta name="twitter:image" content="https://doc2me.co/doc2me-logo.png" />
         <meta name="twitter:image:alt" content="Doc2Me Healthcare Blog" />
         
@@ -117,7 +116,7 @@ const Blog = () => {
               </h1>
               <p className="text-lg text-doc-gray mb-8">
                 Stay informed with the latest trends in healthcare digitalization, 
-                AI-powered documentation, and best practices for modern medical facilities.
+                AI-powered patient education and how to be build an online presence as a health provider.
               </p>
             </div>
 

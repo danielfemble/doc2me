@@ -7,6 +7,8 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
 import Imprint from "@/pages/Imprint";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import RebrandingBanner from "@/components/RebrandingBanner";
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path="/delete-account-policy" element={<DeleteAccountPolicy />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/imprint" element={<Imprint />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

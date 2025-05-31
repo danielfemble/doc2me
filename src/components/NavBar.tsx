@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -49,9 +48,11 @@ const NavBar = () => {
             {getNavLink("features", "Features")}
             {getNavLink("how-it-works", "How it works")}
             {getNavLink("pricing", "Pricing")}
+            <Link to="/blog" className="text-doc-black/80 hover:text-doc-blue transition-colors">Blog</Link>
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue transition-colors">Contact</Link>
           </div>
 
+          {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
             <SignupDialog 
               trigger={
@@ -88,6 +89,7 @@ const NavBar = () => {
                 <Link to="/#pricing" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
               </>
             )}
+            <Link to="/blog" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
               <SignupDialog 

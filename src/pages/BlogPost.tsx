@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -167,18 +166,18 @@ const BlogPost = () => {
             </header>
 
             {/* Article Content */}
-            <article className="prose prose-lg prose-gray max-w-none prose-headings:text-doc-black prose-p:text-doc-gray prose-p:leading-relaxed prose-li:text-doc-gray prose-strong:text-doc-black prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-blockquote:border-l-doc-blue prose-blockquote:bg-gray-50 prose-blockquote:pl-6 prose-blockquote:py-4 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white">
+            <article className="prose prose-lg prose-gray max-w-none prose-headings:text-doc-black prose-p:text-doc-black prose-p:leading-relaxed prose-li:text-doc-black prose-strong:text-doc-black prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-blockquote:border-l-doc-blue prose-blockquote:bg-gray-50 prose-blockquote:pl-6 prose-blockquote:py-4 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-white">
               <ReactMarkdown
                 components={{
-                  p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
+                  p: ({ children }) => <p className="mb-4 leading-relaxed text-doc-black">{children}</p>,
                   h1: ({ children }) => <h1 className="text-3xl font-bold mt-8 mb-4 text-doc-black">{children}</h1>,
                   h2: ({ children }) => <h2 className="text-2xl font-semibold mt-6 mb-3 text-doc-black">{children}</h2>,
                   h3: ({ children }) => <h3 className="text-xl font-semibold mt-4 mb-2 text-doc-black">{children}</h3>,
-                  ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
-                  ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
-                  li: ({ children }) => <li className="text-doc-gray">{children}</li>,
+                  ul: ({ children }) => <ul className="list-disc list-outside ml-6 mb-4 space-y-1">{children}</ul>,
+                  ol: ({ children }) => <ol className="list-decimal list-outside ml-6 mb-4 space-y-1">{children}</ol>,
+                  li: ({ children }) => <li className="text-doc-black leading-relaxed">{children}</li>,
                   blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-doc-blue bg-gray-50 pl-6 py-4 my-6 italic">
+                    <blockquote className="border-l-4 border-doc-blue bg-gray-50 pl-6 py-4 my-6 italic text-doc-black">
                       {children}
                     </blockquote>
                   ),

@@ -63,55 +63,65 @@ const Blog = () => {
                 {/* Blog Posts Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                   {blogPosts.map((post) => (
-                    <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                      {post.featured_image && (
-                        <div className="aspect-video overflow-hidden">
-                          <img 
-                            src={post.featured_image} 
-                            alt={post.title}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
-                      
-                      <div className="p-6">
-                        <div className="flex items-center gap-4 text-sm text-doc-gray mb-3">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            <span>{formatDate(post.created_at)}</span>
+                    <Link 
+                      key={post.id} 
+                      to={`/blog/${post.slug}`}
+                      className="group block"
+                    >
+                      <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-[1.02]">
+                        {post.featured_image && (
+                          <div className="aspect-video overflow-hidden">
+                            <img 
+                              src={post.featured_image} 
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
                           </div>
-                          {post.read_time && (
+                        )}
+                        
+                        <div className="p-6">
+                          <div className="flex items-center gap-4 text-sm text-doc-gray mb-3">
                             <div className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{post.read_time}</span>
+                              <Calendar className="w-4 h-4" />
+                              <span>{formatDate(post.created_at)}</span>
+                            </div>
+                            {post.read_time && (
+                              <div className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                <span>{post.read_time}</span>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <h2 className="text-xl font-semibold mb-3 text-doc-black group-hover:text-doc-blue transition-colors">
+                            {post.title}
+                          </h2>
+                          
+                          {post.excerpt && (
+                            <p className="text-doc-gray mb-4 line-clamp-3">
+                              {post.excerpt}
+                            </p>
+                          )}
+                          
+                          {post.tags && post.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {post.tags.map((tag) => (
+                                <span 
+                                  key={tag}
+                                  className="px-2 py-1 bg-doc-blue/10 text-doc-blue text-xs rounded-full"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
                             </div>
                           )}
-                        </div>
-                        
-                        <h2 className="text-xl font-semibold mb-3 text-doc-black">
-                          {post.title}
-                        </h2>
-                        
-                        {post.excerpt && (
-                          <p className="text-doc-gray mb-4 line-clamp-3">
-                            {post.excerpt}
-                          </p>
-                        )}
-                        
-                        {post.tags && post.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.map((tag) => (
-                              <span 
-                                key={tag}
-                                className="px-2 py-1 bg-doc-blue/10 text-doc-blue text-xs rounded-full"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                          
+                          <div className="flex items-center text-doc-blue font-medium text-sm">
+                            Read more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                           </div>
-                        )}
-                      </div>
-                    </article>
+                        </div>
+                      </article>
+                    </Link>
                   ))}
                 </div>
 

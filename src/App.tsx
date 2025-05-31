@@ -10,6 +10,7 @@ import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
 import Imprint from "@/pages/Imprint";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import BlogAdmin from "@/pages/BlogAdmin";
 import Login from "@/pages/Login";
 import RebrandingBanner from "@/components/RebrandingBanner";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/imprint" element={<Imprint />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route 
             path="/admin/blog" 
             element={

@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fetchPostBySlug, formatDate, type BlogPost } from "@/utils/blogUtils";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -182,11 +184,31 @@ const BlogPostPage = () => {
               </div>
             </header>
 
-            {/* Article content */}
-            <div 
-              className="prose prose-lg max-w-none prose-headings:text-doc-black prose-p:text-doc-gray prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-ul:text-doc-gray prose-ol:text-doc-gray"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            {/* Article content with markdown rendering */}
+            <div className="prose prose-lg max-w-none prose-headings:text-doc-black prose-p:text-doc-gray prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-ul:text-doc-gray prose-ol:text-doc-gray prose-strong:text-doc-black prose-em:text-doc-gray prose-blockquote:border-l-doc-blue prose-blockquote:text-doc-gray prose-code:bg-gray-100 prose-code:text-doc-black prose-pre:bg-gray-100">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({children}) => <h1 className="text-3xl font-bold mb-4 text-doc-black">{children}</h1>,
+                  h2: ({children}) => <h2 className="text-2xl font-semibold mb-3 text-doc-black">{children}</h2>,
+                  h3: ({children}) => <h3 className="text-xl font-semibold mb-3 text-doc-black">{children}</h3>,
+                  h4: ({children}) => <h4 className="text-lg font-semibold mb-2 text-doc-black">{children}</h4>,
+                  p: ({children}) => <p className="mb-4 text-doc-gray leading-relaxed">{children}</p>,
+                  ul: ({children}) => <ul className="mb-4 pl-6 space-y-2">{children}</ul>,
+                  ol: ({children}) => <ol className="mb-4 pl-6 space-y-2">{children}</ol>,
+                  li: ({children}) => <li className="text-doc-gray">{children}</li>,
+                  strong: ({children}) => <strong className="font-semibold text-doc-black">{children}</strong>,
+                  em: ({children}) => <em className="italic text-doc-gray">{children}</em>,
+                  a: ({href, children}) => <a href={href} className="text-doc-blue hover:text-doc-blue-dark underline">{children}</a>,
+                  blockquote: ({children}) => <blockquote className="border-l-4 border-doc-blue pl-4 italic text-doc-gray my-4">{children}</blockquote>,
+                  code: ({children}) => <code className="bg-gray-100 px-2 py-1 rounded text-sm text-doc-black">{children}</code>,
+                  pre: ({children}) => <pre className="bg-gray-100 p-4 rounded overflow-x-auto mb-4">{children}</pre>,
+                  img: ({src, alt}) => <img src={src} alt={alt} className="rounded-lg my-4 w-full" />
+                }}
+              >
+                {post.content}
+              </ReactMarkdown>
+            </div>
 
             {/* Call to action */}
             <div className="mt-12 p-6 bg-gradient-to-r from-doc-blue/5 to-doc-purple/5 rounded-lg text-center">

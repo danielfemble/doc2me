@@ -6,11 +6,13 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import { Plus, Edit, Trash2, Eye, Save, X } from "lucide-react";
 import { toast } from "sonner";
+import MDEditor from '@uiw/react-md-editor';
+import '@uiw/react-md-editor/markdown-editor.css';
 
 interface BlogPost {
   id: string;
@@ -330,7 +332,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         <NavBar />
         
         <main className="flex-grow pt-28 pb-16">
-          <div className="container max-w-4xl mx-auto px-4 md:px-8">
+          <div className="container max-w-6xl mx-auto px-4 md:px-8">
             <div className="flex justify-between items-center mb-8">
               <h1 className="text-3xl font-bold text-doc-black">
                 {post?.id ? 'Edit Post' : 'New Post'}
@@ -369,25 +371,26 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
 
               <div>
                 <label className="block text-sm font-medium mb-2">Excerpt</label>
-                <Textarea
+                <Input
                   value={formData.excerpt}
                   onChange={(e) => setFormData(prev => ({ ...prev, excerpt: e.target.value }))}
                   placeholder="Brief description of the post"
-                  rows={3}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Content *</label>
-                <Textarea
-                  value={formData.content}
-                  onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-                  placeholder="Write your blog post content here... You can use HTML tags for formatting."
-                  rows={15}
-                  className="font-mono"
-                />
-                <p className="text-sm text-gray-500 mt-1">
-                  You can use HTML tags for formatting (h2, h3, p, ul, li, strong, em, etc.)
+                <div className="border rounded-md overflow-hidden">
+                  <MDEditor
+                    value={formData.content}
+                    onChange={(value) => setFormData(prev => ({ ...prev, content: value || '' }))}
+                    preview="edit"
+                    height={400}
+                    data-color-mode="light"
+                  />
+                </div>
+                <p className="text-sm text-gray-500 mt-2">
+                  Use markdown for formatting: **bold**, *italic*, ## headings, - bullet points, [links](url), ![images](url)
                 </p>
               </div>
 

@@ -1,11 +1,16 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
 const Imprint = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Imprint - Doc2Me</title>
+      </Helmet>
       <NavBar />
       <main className="flex-grow pt-32 pb-16">
         <div className="container max-w-4xl mx-auto px-4 md:px-8">

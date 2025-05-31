@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import SignupDialog from "@/components/SignupDialog";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fetchPublishedPosts, formatDate, type BlogPost } from "@/utils/blogUtils";
@@ -86,10 +87,8 @@ const Blog = () => {
                           )}
                         </div>
                         
-                        <h2 className="text-xl font-semibold mb-3 text-doc-black hover:text-doc-blue transition-colors">
-                          <Link to={`/blog/${post.slug}`}>
-                            {post.title}
-                          </Link>
+                        <h2 className="text-xl font-semibold mb-3 text-doc-black">
+                          {post.title}
                         </h2>
                         
                         {post.excerpt && (
@@ -110,13 +109,6 @@ const Blog = () => {
                             ))}
                           </div>
                         )}
-                        
-                        <Link to={`/blog/${post.slug}`}>
-                          <Button variant="ghost" className="p-0 h-auto text-doc-blue hover:text-doc-blue-dark">
-                            Read More 
-                            <ArrowRight className="ml-1 w-4 h-4" />
-                          </Button>
-                        </Link>
                       </div>
                     </article>
                   ))}
@@ -131,16 +123,18 @@ const Blog = () => {
               </>
             )}
 
-            {/* Call to Action */}
+            {/* Call to Action with SignupDialog */}
             <div className="text-center">
               <p className="text-doc-gray mb-4">
                 Want to stay updated with our latest insights?
               </p>
-              <Link to="/contact">
-                <Button variant="gradient" size="lg">
-                  Subscribe to Updates
-                </Button>
-              </Link>
+              <SignupDialog 
+                trigger={
+                  <Button variant="gradient" size="lg">
+                    Request Demo
+                  </Button>
+                }
+              />
             </div>
           </div>
         </main>

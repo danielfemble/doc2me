@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -176,13 +175,6 @@ const BlogAdmin = () => {
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          onClick={() => navigate(`/blog/${post.slug}`)}
-                        >
-                          <Eye className="w-4 h-4" />
-                        </Button>
                         <Button 
                           size="sm" 
                           variant="outline"

@@ -251,6 +251,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
   });
   const [saving, setSaving] = useState(false);
   const [showImageUpload, setShowImageUpload] = useState(false);
+  const [showFeaturedImageUpload, setShowFeaturedImageUpload] = useState(false);
 
   const generateSlug = (title: string) => {
     return title
@@ -275,6 +276,15 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
     }));
     setShowImageUpload(false);
     toast.success('Image inserted into content');
+  };
+
+  const handleFeaturedImageInsert = (imageUrl: string, altText?: string) => {
+    setFormData(prev => ({
+      ...prev,
+      featured_image: imageUrl
+    }));
+    setShowFeaturedImageUpload(false);
+    toast.success('Featured image updated');
   };
 
   const handleSave = async () => {
@@ -424,12 +434,40 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Featured Image URL</label>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-sm font-medium">Featured Image</label>
+                    <Dialog open={showFeaturedImageUpload} onOpenChange={setShowFeaturedImageUpload}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="sm">
+                          <ImageIcon className="w-4 h-4 mr-2" />
+                          Upload Featured Image
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-md">
+                        <DialogHeader>
+                          <DialogTitle>Upload Featured Image</DialogTitle>
+                        </DialogHeader>
+                        <ImageUpload onImageInsert={handleFeaturedImageInsert} />
+                      </DialogContent>
+                    </Dialog>
+                  </div>
                   <Input
                     value={formData.featured_image}
                     onChange={(e) => setFormData(prev => ({ ...prev, featured_image: e.target.value }))}
-                    placeholder="https://images.unsplash.com/..."
+                    placeholder="https://images.unsplash.com/... or upload above"
                   />
+                  {formData.featured_image && (
+                    <div className="mt-2">
+                      <img 
+                        src={formData.featured_image} 
+                        alt="Featured image preview" 
+                        className="w-full max-w-xs rounded-md"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Read Time</label>

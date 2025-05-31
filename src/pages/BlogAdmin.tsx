@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -77,6 +78,7 @@ const BlogAdmin = () => {
   };
 
   const handleEditPost = (post: BlogPost) => {
+    console.log('Editing post:', post); // Debug log
     setEditingPost(post);
     setShowEditor(true);
   };
@@ -253,6 +255,9 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
   const [showImageUpload, setShowImageUpload] = useState(false);
   const [showFeaturedImageUpload, setShowFeaturedImageUpload] = useState(false);
 
+  console.log('BlogEditor received post:', post); // Debug log
+  console.log('Form data initialized:', formData); // Debug log
+
   const generateSlug = (title: string) => {
     return title
       .toLowerCase()
@@ -310,6 +315,9 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         read_time: formData.read_time || null,
         published: formData.published
       };
+
+      console.log('Saving post data:', postData); // Debug log
+      console.log('Post ID:', post?.id); // Debug log
 
       if (post?.id) {
         // Update existing post

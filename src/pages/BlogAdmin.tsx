@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -147,7 +148,7 @@ const BlogAdmin = () => {
   return (
     <>
       <Helmet>
-        <title>Blog Admin | Doc2Me</title>
+        <title>Doc2Me Admin Panel | Doc2Me</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
       </Helmet>
@@ -158,7 +159,7 @@ const BlogAdmin = () => {
         <main className="flex-grow pt-28 pb-16">
           <div className="container max-w-7xl mx-auto px-4 md:px-8">
             <div className="flex justify-between items-center mb-8">
-              <h1 className="text-3xl font-bold text-doc-black">Blog Administration</h1>
+              <h1 className="text-3xl font-bold text-doc-black">Doc2Me Admin Panel</h1>
               <div className="flex gap-2">
                 <Button onClick={handleNewPost} variant="gradient">
                   <Plus className="w-4 h-4 mr-2" />

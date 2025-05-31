@@ -13,8 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
-  const { signIn, signUp } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,22 +24,22 @@ const Login = () => {
       return;
     }
 
+    // Check if the email is the authorized admin email
+    if (email !== 'daniel@doc2me.co') {
+      toast.error('Access denied. Only authorized users can access the admin panel.');
+      return;
+    }
+
     setLoading(true);
     
     try {
-      const { error } = isSignUp 
-        ? await signUp(email, password)
-        : await signIn(email, password);
+      const { error } = await signIn(email, password);
 
       if (error) {
         toast.error(error.message);
       } else {
-        if (isSignUp) {
-          toast.success('Account created successfully! Please check your email to verify your account.');
-        } else {
-          toast.success('Signed in successfully!');
-          navigate('/');
-        }
+        toast.success('Signed in successfully!');
+        navigate('/admin/blog');
       }
     } catch (error) {
       toast.error('An unexpected error occurred');
@@ -52,7 +51,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>{isSignUp ? 'Sign Up' : 'Login'} | Doc2Me</title>
+        <title>Admin Login | Doc2Me Admin Panel</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       
@@ -65,8 +64,11 @@ const Login = () => {
               </span>
             </Link>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              {isSignUp ? 'Create your account' : 'Sign in to your account'}
+              Admin Panel Access
             </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Sign in to access the Doc2Me Admin Panel
+            </p>
           </div>
           
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -96,7 +98,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type={showPassword ? "text" : "password"}
-                    autoComplete={isSignUp ? "new-password" : "current-password"}
+                    autoComplete="current-password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -124,21 +126,8 @@ const Login = () => {
                 className="w-full"
                 variant="gradient"
               >
-                {loading ? 'Please wait...' : (isSignUp ? 'Sign up' : 'Sign in')}
+                {loading ? 'Signing in...' : 'Sign in to Admin Panel'}
               </Button>
-            </div>
-
-            <div className="text-center">
-              <button
-                type="button"
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="text-doc-blue hover:text-doc-blue/80 text-sm"
-              >
-                {isSignUp 
-                  ? 'Already have an account? Sign in' 
-                  : "Don't have an account? Sign up"
-                }
-              </button>
             </div>
           </form>
         </div>

@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import SignupDialog from "@/components/SignupDialog";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fetchPublishedPosts, formatDate, type BlogPost } from "@/utils/blogUtils";
@@ -122,20 +121,6 @@ const Blog = () => {
                 )}
               </>
             )}
-
-            {/* Call to Action with SignupDialog */}
-            <div className="text-center">
-              <p className="text-doc-gray mb-4">
-                Want to stay updated with our latest insights?
-              </p>
-              <SignupDialog 
-                trigger={
-                  <Button variant="gradient" size="lg">
-                    Request Demo
-                  </Button>
-                }
-              />
-            </div>
           </div>
         </main>
         

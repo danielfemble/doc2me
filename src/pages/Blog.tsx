@@ -1,10 +1,10 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Clock } from "lucide-react";
 import { fetchPublishedPosts, formatDate, type BlogPost } from "@/utils/blogUtils";
 
 const Blog = () => {
@@ -129,11 +129,7 @@ const Blog = () => {
                 {/* Blog Posts Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                   {blogPosts.map((post) => (
-                    <Link 
-                      key={post.id} 
-                      to={`/blog/${post.slug}`}
-                      className="group block"
-                    >
+                    <div key={post.id} className="group block">
                       <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-[1.02]">
                         {post.featured_image && (
                           <div className="aspect-video overflow-hidden">
@@ -160,7 +156,7 @@ const Blog = () => {
                             )}
                           </div>
                           
-                          <h2 className="text-xl font-semibold mb-3 text-doc-black group-hover:text-doc-blue transition-colors">
+                          <h2 className="text-xl font-semibold mb-3 text-doc-black">
                             {post.title}
                           </h2>
                           
@@ -182,13 +178,9 @@ const Blog = () => {
                               ))}
                             </div>
                           )}
-                          
-                          <div className="flex items-center text-doc-blue font-medium text-sm">
-                            Read more <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                          </div>
                         </div>
                       </article>
-                    </Link>
+                    </div>
                   ))}
                 </div>
 

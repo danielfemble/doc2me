@@ -27,21 +27,88 @@ const Blog = () => {
     loadPosts();
   }, []);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Doc2Me Blog",
+    "description": "Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities.",
+    "url": "https://doc2me.co/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Doc2Me",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://doc2me.co/doc2me-logo.png"
+      }
+    },
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt || `Read ${post.title} on the Doc2Me blog.`,
+      "url": `https://doc2me.co/blog/${post.slug}`,
+      "datePublished": post.created_at,
+      "dateModified": post.updated_at,
+      "author": {
+        "@type": "Organization",
+        "name": post.author || "Doc2Me Team"
+      },
+      "image": post.featured_image ? [post.featured_image] : []
+    }))
+  };
+
   return (
     <>
       <Helmet>
         <title>Healthcare Blog | Doc2Me - Digital Transformation Insights</title>
         <meta name="description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
-        <meta name="keywords" content="healthcare blog, medical documentation, digital transformation, AI healthcare, patient care technology" />
+        <meta name="keywords" content="healthcare blog, medical documentation, digital transformation, AI healthcare, patient care technology, healthcare digitalization, medical AI, healthcare innovation" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
         <link rel="canonical" href="https://doc2me.co/blog" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Healthcare Blog | Doc2Me - Digital Transformation Insights" />
+        <meta property="og:description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
+        <meta property="og:url" content="https://doc2me.co/blog" />
+        <meta property="og:site_name" content="Doc2Me" />
+        <meta property="og:image" content="https://doc2me.co/doc2me-logo.png" />
+        <meta property="og:image:alt" content="Doc2Me Healthcare Blog" />
+        <meta property="og:locale" content="en_US" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Healthcare Blog | Doc2Me - Digital Transformation Insights" />
+        <meta name="twitter:description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
+        <meta name="twitter:image" content="https://doc2me.co/doc2me-logo.png" />
+        <meta name="twitter:image:alt" content="Doc2Me Healthcare Blog" />
+        
+        {/* Additional SEO tags */}
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="application-name" content="Doc2Me Blog" />
+        
+        {/* JSON-LD structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
       </Helmet>
       
       <div className="min-h-screen flex flex-col">
         <NavBar />
         
-        <main className="flex-grow pt-28 pb-16">
+        {/* Breadcrumb Navigation */}
+        <nav className="pt-28 pb-4" aria-label="Breadcrumb">
+          <div className="container max-w-7xl mx-auto px-4 md:px-8">
+            <ol className="flex items-center space-x-2 text-sm text-doc-gray">
+              <li><Link to="/" className="hover:text-doc-blue">Home</Link></li>
+              <li><span>/</span></li>
+              <li className="text-doc-black font-medium">Blog</li>
+            </ol>
+          </div>
+        </nav>
+        
+        <main className="flex-grow pb-16">
           <div className="container max-w-7xl mx-auto px-4 md:px-8">
             {/* Hero Section */}
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -75,6 +142,7 @@ const Blog = () => {
                               src={post.featured_image} 
                               alt={post.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
                             />
                           </div>
                         )}
@@ -83,7 +151,7 @@ const Blog = () => {
                           <div className="flex items-center gap-4 text-sm text-doc-gray mb-3">
                             <div className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
-                              <span>{formatDate(post.created_at)}</span>
+                              <time dateTime={post.created_at}>{formatDate(post.created_at)}</time>
                             </div>
                             {post.read_time && (
                               <div className="flex items-center gap-1">

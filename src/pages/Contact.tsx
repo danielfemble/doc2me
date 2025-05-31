@@ -9,6 +9,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
         <title>Contact Us | Doc2Me</title>
         <meta name="description" content="Get in touch with the Doc2Me team. We're here to answer your questions and help you get started." />
       </Helmet>

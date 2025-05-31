@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -278,6 +277,8 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
 
     setUploading(true);
     try {
+      // For now, we'll use a placeholder URL
+      // In a real implementation, you'd upload to Supabase Storage
       const reader = new FileReader();
       reader.onload = (e) => {
         const imageUrl = e.target?.result as string;
@@ -452,7 +453,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
                     <Textarea
                       value={formData.content}
                       onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-                      placeholder={`Write your blog post content in Markdown...
+                      placeholder="Write your blog post content in Markdown...
 
 ## Example heading
 - Bullet point 1
@@ -460,7 +461,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
 
 **Bold text** and *italic text*
 
-[Link text](https://example.com)`}
+[Link text](https://example.com)"
                       rows={20}
                       className="font-mono"
                     />

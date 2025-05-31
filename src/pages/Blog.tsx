@@ -33,6 +33,8 @@ const Blog = () => {
         <title>Healthcare Blog | Doc2Me - Digital Transformation Insights</title>
         <meta name="description" content="Stay updated with the latest insights on healthcare digitalization, AI in medical documentation, and best practices for modern healthcare facilities." />
         <meta name="keywords" content="healthcare blog, medical documentation, digital transformation, AI healthcare, patient care technology" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
         <link rel="canonical" href="https://doc2me.co/blog" />
       </Helmet>
       

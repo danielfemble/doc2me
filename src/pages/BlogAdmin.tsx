@@ -9,8 +9,9 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
-import { Plus, Edit, Trash2, Eye, Save, X, Image as ImageIcon } from "lucide-react";
+import { Plus, Edit, Trash2, Eye, Save, X, Image as ImageIcon, LogOut } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 import MDEditor from '@uiw/react-md-editor';
 import ImageUpload from '@/components/ImageUpload';
 import '@uiw/react-md-editor/markdown-editor.css';
@@ -35,6 +36,7 @@ const BlogAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [showEditor, setShowEditor] = useState(false);
+  const { user, isAdmin, signOut } = useAuth();
   const navigate = useNavigate();
 
   const fetchPosts = async () => {
@@ -55,8 +57,15 @@ const BlogAdmin = () => {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    if (isAdmin) {
+      fetchPosts();
+    }
+  }, [isAdmin]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   const handleNewPost = () => {
     setEditingPost({
@@ -77,7 +86,7 @@ const BlogAdmin = () => {
   };
 
   const handleEditPost = (post: BlogPost) => {
-    console.log('Editing post:', post); // Debug log
+    console.log('Editing post:', post);
     setEditingPost(post);
     setShowEditor(true);
   };
@@ -140,6 +149,7 @@ const BlogAdmin = () => {
       <Helmet>
         <title>Blog Admin | Doc2Me</title>
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
       </Helmet>
       
       <div className="min-h-screen flex flex-col">
@@ -149,10 +159,16 @@ const BlogAdmin = () => {
           <div className="container max-w-7xl mx-auto px-4 md:px-8">
             <div className="flex justify-between items-center mb-8">
               <h1 className="text-3xl font-bold text-doc-black">Blog Administration</h1>
-              <Button onClick={handleNewPost} variant="gradient">
-                <Plus className="w-4 h-4 mr-2" />
-                New Post
-              </Button>
+              <div className="flex gap-2">
+                <Button onClick={handleNewPost} variant="gradient">
+                  <Plus className="w-4 h-4 mr-2" />
+                  New Post
+                </Button>
+                <Button onClick={handleSignOut} variant="outline">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              </div>
             </div>
 
             {loading ? (
@@ -247,8 +263,8 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
   const [showImageUpload, setShowImageUpload] = useState(false);
   const [showFeaturedImageUpload, setShowFeaturedImageUpload] = useState(false);
 
-  console.log('BlogEditor received post:', post); // Debug log
-  console.log('Form data initialized:', formData); // Debug log
+  console.log('BlogEditor received post:', post);
+  console.log('Form data initialized:', formData);
 
   const generateSlug = (title: string) => {
     return title
@@ -308,11 +324,10 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         published: formData.published
       };
 
-      console.log('Saving post data:', postData); // Debug log
-      console.log('Post ID:', post?.id); // Debug log
+      console.log('Saving post data:', postData);
+      console.log('Post ID:', post?.id);
 
       if (post?.id) {
-        // Update existing post
         const { error } = await supabase
           .from('blog_posts')
           .update(postData)
@@ -321,7 +336,6 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         if (error) throw error;
         toast.success('Post updated successfully');
       } else {
-        // Create new post
         const { error } = await supabase
           .from('blog_posts')
           .insert([postData]);
@@ -348,6 +362,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
       <Helmet>
         <title>{post?.id ? 'Edit Post' : 'New Post'} | Blog Admin | Doc2Me</title>
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
       </Helmet>
       
       <div className="min-h-screen flex flex-col">

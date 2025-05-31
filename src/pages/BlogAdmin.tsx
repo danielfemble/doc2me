@@ -448,7 +448,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <label className="block text-sm font-medium">Featured Image</label>
@@ -485,6 +485,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
                     </div>
                   )}
                 </div>
+                
                 <div>
                   <label className="block text-sm font-medium mb-2">Read Time</label>
                   <Input

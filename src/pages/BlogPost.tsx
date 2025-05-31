@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -6,8 +7,6 @@ import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fetchPostBySlug, formatDate, type BlogPost } from "@/utils/blogUtils";
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -50,6 +49,7 @@ const BlogPostPage = () => {
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
+      // You could add a toast notification here
     }
   };
 
@@ -96,12 +96,14 @@ const BlogPostPage = () => {
         <meta name="keywords" content={post.tags?.join(', ') || ''} />
         <link rel="canonical" href={`https://doc2me.co/blog/${slug}`} />
         
+        {/* Open Graph meta tags for social sharing */}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt || ''} />
         <meta property="og:image" content={post.featured_image || ''} />
         <meta property="og:url" content={`https://doc2me.co/blog/${slug}`} />
         <meta property="og:type" content="article" />
         
+        {/* Twitter Card meta tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt || ''} />
@@ -113,6 +115,7 @@ const BlogPostPage = () => {
         
         <main className="flex-grow pt-28 pb-16">
           <article className="container max-w-4xl mx-auto px-4 md:px-8">
+            {/* Back button */}
             <div className="mb-8">
               <Link to="/blog">
                 <Button variant="ghost" className="text-doc-blue hover:text-doc-blue-dark">
@@ -122,6 +125,7 @@ const BlogPostPage = () => {
               </Link>
             </div>
 
+            {/* Hero image */}
             {post.featured_image && (
               <div className="aspect-video mb-8 rounded-lg overflow-hidden">
                 <img 
@@ -132,6 +136,7 @@ const BlogPostPage = () => {
               </div>
             )}
 
+            {/* Article header */}
             <header className="mb-8">
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -177,12 +182,13 @@ const BlogPostPage = () => {
               </div>
             </header>
 
-            <div className="prose prose-lg max-w-none prose-headings:text-doc-black prose-p:text-doc-gray prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-ul:text-doc-gray prose-ol:text-doc-gray prose-strong:text-doc-black prose-code:text-doc-blue prose-pre:bg-gray-50">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {post.content}
-              </ReactMarkdown>
-            </div>
+            {/* Article content */}
+            <div 
+              className="prose prose-lg max-w-none prose-headings:text-doc-black prose-p:text-doc-gray prose-a:text-doc-blue hover:prose-a:text-doc-blue-dark prose-ul:text-doc-gray prose-ol:text-doc-gray"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
 
+            {/* Call to action */}
             <div className="mt-12 p-6 bg-gradient-to-r from-doc-blue/5 to-doc-purple/5 rounded-lg text-center">
               <h3 className="text-xl font-semibold mb-2 text-doc-black">
                 Ready to Transform Your Healthcare Documentation?

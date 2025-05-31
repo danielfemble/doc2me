@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,12 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
-import { Plus, Edit, Trash2, Eye, Save, X, Upload, Image } from "lucide-react";
+import { Plus, Edit, Trash2, Eye, Save, X } from "lucide-react";
 import { toast } from "sonner";
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 interface BlogPost {
   id: string;
@@ -249,7 +247,6 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
     published: post?.published || false
   });
   const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState(false);
 
   const generateSlug = (title: string) => {
     return title
@@ -264,34 +261,6 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
       title,
       slug: prev.slug || generateSlug(title)
     }));
-  };
-
-  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      toast.error('Please select an image file');
-      return;
-    }
-
-    setUploading(true);
-    try {
-      // For now, we'll use a placeholder URL
-      // In a real implementation, you'd upload to Supabase Storage
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const imageUrl = e.target?.result as string;
-        setFormData(prev => ({ ...prev, featured_image: imageUrl }));
-        toast.success('Image uploaded successfully');
-      };
-      reader.readAsDataURL(file);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      toast.error('Failed to upload image');
-    } finally {
-      setUploading(false);
-    }
   };
 
   const handleSave = async () => {
@@ -319,6 +288,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
       };
 
       if (post?.id) {
+        // Update existing post
         const { error } = await supabase
           .from('blog_posts')
           .update(postData)
@@ -327,6 +297,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         if (error) throw error;
         toast.success('Post updated successfully');
       } else {
+        // Create new post
         const { error } = await supabase
           .from('blog_posts')
           .insert([postData]);
@@ -359,7 +330,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
         <NavBar />
         
         <main className="flex-grow pt-28 pb-16">
-          <div className="container max-w-6xl mx-auto px-4 md:px-8">
+          <div className="container max-w-4xl mx-auto px-4 md:px-8">
             <div className="flex justify-between items-center mb-8">
               <h1 className="text-3xl font-bold text-doc-black">
                 {post?.id ? 'Edit Post' : 'New Post'}
@@ -407,85 +378,45 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Featured Image</label>
-                <div className="space-y-2">
-                  <div className="flex gap-2">
-                    <Input
-                      value={formData.featured_image}
-                      onChange={(e) => setFormData(prev => ({ ...prev, featured_image: e.target.value }))}
-                      placeholder="Image URL or upload an image"
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      disabled={uploading}
-                      onClick={() => document.getElementById('image-upload')?.click()}
-                    >
-                      {uploading ? <Upload className="w-4 h-4 animate-spin" /> : <Image className="w-4 h-4" />}
-                      Upload
-                    </Button>
-                    <input
-                      id="image-upload"
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      className="hidden"
-                    />
-                  </div>
-                  {formData.featured_image && (
-                    <img 
-                      src={formData.featured_image} 
-                      alt="Featured" 
-                      className="w-32 h-20 object-cover rounded border"
-                    />
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Content * (Markdown)</label>
-                <Tabs defaultValue="edit" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="edit">Edit</TabsTrigger>
-                    <TabsTrigger value="preview">Preview</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="edit" className="mt-4">
-                    <Textarea
-                      value={formData.content}
-                      onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-                      placeholder="Write your blog post content in Markdown...
-
-## Example heading
-- Bullet point 1
-- Bullet point 2
-
-**Bold text** and *italic text*
-
-[Link text](https://example.com)"
-                      rows={20}
-                      className="font-mono"
-                    />
-                    <p className="text-sm text-gray-500 mt-2">
-                      Use Markdown formatting: # for headings, ** for bold, * for italic, - for bullet points, [text](url) for links
-                    </p>
-                  </TabsContent>
-                  <TabsContent value="preview" className="mt-4">
-                    <div className="border rounded-md p-4 min-h-[500px] prose prose-lg max-w-none">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {formData.content || '*No content to preview*'}
-                      </ReactMarkdown>
-                    </div>
-                  </TabsContent>
-                </Tabs>
+                <label className="block text-sm font-medium mb-2">Content *</label>
+                <Textarea
+                  value={formData.content}
+                  onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
+                  placeholder="Write your blog post content here... You can use HTML tags for formatting."
+                  rows={15}
+                  className="font-mono"
+                />
+                <p className="text-sm text-gray-500 mt-1">
+                  You can use HTML tags for formatting (h2, h3, p, ul, li, strong, em, etc.)
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Featured Image URL</label>
+                  <Input
+                    value={formData.featured_image}
+                    onChange={(e) => setFormData(prev => ({ ...prev, featured_image: e.target.value }))}
+                    placeholder="https://images.unsplash.com/..."
+                  />
+                </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Read Time</label>
                   <Input
                     value={formData.read_time}
                     onChange={(e) => setFormData(prev => ({ ...prev, read_time: e.target.value }))}
                     placeholder="5 min read"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Tags</label>
+                  <Input
+                    value={formData.tags}
+                    onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value }))}
+                    placeholder="Healthcare, AI, Technology (comma separated)"
                   />
                 </div>
                 <div>
@@ -496,15 +427,6 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
                     placeholder="Author name"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Tags</label>
-                <Input
-                  value={formData.tags}
-                  onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value }))}
-                  placeholder="Healthcare, AI, Technology (comma separated)"
-                />
               </div>
 
               <div className="flex items-center gap-2">

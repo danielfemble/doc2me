@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SignupDialog from "@/components/SignupDialog";
@@ -9,7 +10,7 @@ const HeadlineSection = ({
 }: HeadlineSectionProps) => {
   return <div className={`space-y-6 ${className}`}>
       <div className="inline-flex items-center neo-glass backdrop-blur-sm rounded-full py-1.5 px-4 shadow-neon mx-auto">
-        <span className="text-sm text-doc-black font-medium">AI for Patient Education</span>
+        <span className="text-sm text-doc-black font-medium">Patient Education meets Online Marketing</span>
       </div>
       
       <div className="space-y-4">

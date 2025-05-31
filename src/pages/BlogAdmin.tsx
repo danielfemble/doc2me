@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
-import { Plus, Edit, Trash2, Eye, Save, X } from "lucide-react";
+import { Plus, Edit, Trash2, Eye, Save, X, Image as ImageIcon } from "lucide-react";
 import { toast } from "sonner";
 import MDEditor from '@uiw/react-md-editor';
+import ImageUpload from '@/components/ImageUpload';
 import '@uiw/react-md-editor/markdown-editor.css';
 
 interface BlogPost {
@@ -249,6 +250,7 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
     published: post?.published || false
   });
   const [saving, setSaving] = useState(false);
+  const [showImageUpload, setShowImageUpload] = useState(false);
 
   const generateSlug = (title: string) => {
     return title
@@ -263,6 +265,16 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
       title,
       slug: prev.slug || generateSlug(title)
     }));
+  };
+
+  const handleImageInsert = (imageUrl: string, altText?: string) => {
+    const imageMarkdown = `![${altText || 'Image'}](${imageUrl})`;
+    setFormData(prev => ({
+      ...prev,
+      content: prev.content + '\n\n' + imageMarkdown
+    }));
+    setShowImageUpload(false);
+    toast.success('Image inserted into content');
   };
 
   const handleSave = async () => {
@@ -379,7 +391,23 @@ const BlogEditor = ({ post, onSave, onCancel }: BlogEditorProps) => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Content *</label>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="block text-sm font-medium">Content *</label>
+                  <Dialog open={showImageUpload} onOpenChange={setShowImageUpload}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="sm">
+                        <ImageIcon className="w-4 h-4 mr-2" />
+                        Upload Image
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-md">
+                      <DialogHeader>
+                        <DialogTitle>Upload Image</DialogTitle>
+                      </DialogHeader>
+                      <ImageUpload onImageInsert={handleImageInsert} />
+                    </DialogContent>
+                  </Dialog>
+                </div>
                 <div className="border rounded-md overflow-hidden">
                   <MDEditor
                     value={formData.content}

@@ -16,19 +16,39 @@ export interface BlogPost {
   updated_at: string;
 }
 
-export const fetchPublishedPosts = async (): Promise<BlogPost[]> => {
-  const { data, error } = await supabase
+export interface PaginatedResponse {
+  data: BlogPost[];
+  count: number;
+  hasMore: boolean;
+}
+
+export const fetchPublishedPosts = async (
+  page: number = 1, 
+  pageSize: number = 9
+): Promise<PaginatedResponse> => {
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  const { data, error, count } = await supabase
     .from('blog_posts')
-    .select('*')
+    .select('*', { count: 'exact' })
     .eq('published', true)
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: false })
+    .range(from, to);
   
   if (error) {
     console.error('Error fetching posts:', error);
-    return [];
+    return { data: [], count: 0, hasMore: false };
   }
   
-  return data || [];
+  const totalCount = count || 0;
+  const hasMore = to < totalCount - 1;
+  
+  return { 
+    data: data || [], 
+    count: totalCount, 
+    hasMore 
+  };
 };
 
 export const fetchPostBySlug = async (slug: string): Promise<BlogPost | null> => {

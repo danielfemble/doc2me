@@ -4,27 +4,57 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import BlogPostSkeleton from "@/components/BlogPostSkeleton";
 import { Calendar, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { fetchPublishedPosts, formatDate, type BlogPost } from "@/utils/blogUtils";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const pageSize = 9;
+
+  const loadPosts = async (page: number = 1, append: boolean = false) => {
+    try {
+      if (page === 1) {
+        setLoading(true);
+      } else {
+        setLoadingMore(true);
+      }
+
+      const response = await fetchPublishedPosts(page, pageSize);
+      
+      if (append) {
+        setBlogPosts(prev => [...prev, ...response.data]);
+      } else {
+        setBlogPosts(response.data);
+      }
+      
+      setHasMore(response.hasMore);
+      setTotalCount(response.count);
+      setCurrentPage(page);
+    } catch (error) {
+      console.error('Error loading blog posts:', error);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  };
 
   useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const posts = await fetchPublishedPosts();
-        setBlogPosts(posts);
-      } catch (error) {
-        console.error('Error loading blog posts:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadPosts();
+    loadPosts(1);
   }, []);
+
+  const handleLoadMore = () => {
+    if (!loadingMore && hasMore) {
+      loadPosts(currentPage + 1, true);
+    }
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -121,8 +151,10 @@ const Blog = () => {
             </div>
 
             {loading ? (
-              <div className="text-center py-12">
-                <div className="text-lg text-doc-gray">Loading blog posts...</div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {Array.from({ length: pageSize }).map((_, index) => (
+                  <BlogPostSkeleton key={index} />
+                ))}
               </div>
             ) : (
               <>
@@ -184,7 +216,28 @@ const Blog = () => {
                   ))}
                 </div>
 
-                {blogPosts.length === 0 && (
+                {/* Load More Button */}
+                {hasMore && (
+                  <div className="text-center mb-8">
+                    <Button 
+                      onClick={handleLoadMore}
+                      disabled={loadingMore}
+                      variant="outline"
+                      size="lg"
+                    >
+                      {loadingMore ? "Loading more..." : "Load More Posts"}
+                    </Button>
+                  </div>
+                )}
+
+                {/* Results Info */}
+                {totalCount > 0 && (
+                  <div className="text-center text-sm text-doc-gray mb-8">
+                    Showing {blogPosts.length} of {totalCount} posts
+                  </div>
+                )}
+
+                {blogPosts.length === 0 && !loading && (
                   <div className="text-center py-12">
                     <div className="text-lg text-doc-gray mb-4">No blog posts published yet.</div>
                     <p className="text-doc-gray">Check back soon for our latest insights!</p>

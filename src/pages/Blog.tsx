@@ -161,7 +161,7 @@ const Blog = () => {
                 {/* Blog Posts Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                   {blogPosts.map((post) => (
-                    <div key={post.id} className="group block">
+                    <Link key={post.id} to={`/blog/${post.slug}`} className="group block">
                       <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:transform group-hover:scale-[1.02]">
                         {post.featured_image && (
                           <div className="aspect-video overflow-hidden">
@@ -212,7 +212,7 @@ const Blog = () => {
                           )}
                         </div>
                       </article>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 

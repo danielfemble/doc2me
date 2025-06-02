@@ -2,12 +2,15 @@
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Video, Sparkles, Share2, ArrowRight } from "lucide-react";
-import SignupDialog from "@/components/SignupDialog";
 import { Card, CardContent } from "@/components/ui/card";
 
 const HowItWorks = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionObserverRef = useRef<IntersectionObserver | null>(null);
+
+  const handleGetStarted = () => {
+    window.open('https://studio.doc2me.co/auth/login', '_blank');
+  };
 
   useEffect(() => {
     // Observer for step cards
@@ -146,10 +149,15 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <SignupDialog trigger={<Button variant="gradient" className="gap-2 text-base h-12" size="lg">
-                Request Demo
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>} />
+          <Button 
+            variant="gradient" 
+            className="gap-2 text-base h-12" 
+            size="lg"
+            onClick={handleGetStarted}
+          >
+            Get Started
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
       </div>
     </section>;

@@ -25,7 +25,7 @@ const CtaSection = () => {
                 Transform your patient education and practice growth. Join our platform designed specifically for healthcare professionals and start creating content that connects with patients.
               </p>
               
-              <div className="space-y-4 mb-8 text-left">
+              <div className="space-y-4 mb-8 flex flex-col items-center">
                 <div className="flex items-start gap-2">
                   <CheckCircle className="text-doc-purple shrink-0 mt-1" size={20} />
                   <p className="text-doc-gray">Access AI-powered content creation tools</p>

@@ -20,7 +20,7 @@ const NavBar = () => {
   }, []);
 
   const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/login', '_blank');
+    window.open('https://studio.doc2me.co/auth/signup', '_blank');
     setIsMenuOpen(false); // Close mobile menu if open
   };
 

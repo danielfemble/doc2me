@@ -1,13 +1,12 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { SignupDialog } from "@/components/index";
 import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [signupOpen, setSignupOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -20,8 +19,8 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openSignup = () => {
-    setSignupOpen(true);
+  const handleGetStarted = () => {
+    window.open('https://studio.doc2me.co/auth/login', '_blank');
     setIsMenuOpen(false); // Close mobile menu if open
   };
 
@@ -54,14 +53,13 @@ const NavBar = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
-            <SignupDialog 
-              trigger={
-                <Button variant="gradient" className="rounded-lg">
-                  Request Demo
-                </Button>
-              }
-              defaultOpen={signupOpen}
-            />
+            <Button 
+              variant="gradient" 
+              className="rounded-lg"
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,13 +90,13 @@ const NavBar = () => {
             <Link to="/blog" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
-              <SignupDialog 
-                trigger={
-                  <Button variant="gradient" className="w-full justify-center rounded-lg">
-                    Request Demo
-                  </Button>
-                }
-              />
+              <Button 
+                variant="gradient" 
+                className="w-full justify-center rounded-lg"
+                onClick={handleGetStarted}
+              >
+                Get Started
+              </Button>
             </div>
           </div>
         )}

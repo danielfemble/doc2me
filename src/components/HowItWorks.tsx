@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Video, Sparkles, Share2, ArrowRight } from "lucide-react";
@@ -9,7 +8,7 @@ const HowItWorks = () => {
   const sectionObserverRef = useRef<IntersectionObserver | null>(null);
 
   const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/login', '_blank');
+    window.open('https://studio.doc2me.co/auth/signup', '_blank');
   };
 
   useEffect(() => {
@@ -106,7 +105,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative mb-16">
-          {/* Removed the line that was here previously */}
+          {/* Line removed by user */}
           
           <div className="step-card opacity-0 flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-doc-blue rounded-full flex items-center justify-center text-white mb-6 shadow-lg relative z-10">

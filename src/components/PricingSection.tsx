@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +7,7 @@ const PricingSection = () => {
   const [selectedTier, setSelectedTier] = useState<'single' | 'organization'>('single');
 
   const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/login', '_blank');
+    window.open('https://studio.doc2me.co/auth/signup', '_blank');
   };
 
   const pricingOptions = [

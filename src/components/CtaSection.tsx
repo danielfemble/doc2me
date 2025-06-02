@@ -1,10 +1,9 @@
-
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CtaSection = () => {
   const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/login', '_blank');
+    window.open('https://studio.doc2me.co/auth/signup', '_blank');
   };
 
   return (

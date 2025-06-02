@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -10,7 +9,7 @@ const HeadlineSection = ({
   className = ""
 }: HeadlineSectionProps) => {
   const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/login', '_blank');
+    window.open('https://studio.doc2me.co/auth/signup', '_blank');
   };
 
   return <div className={`space-y-6 ${className}`}>

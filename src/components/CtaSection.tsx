@@ -17,8 +17,7 @@ const CtaSection = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark bg-clip-text text-transparent">
                 Get Started Today
               </h2>
-              <p className="text-lg text-doc-gray mb-8">Transform your patient education and practice growth.  
-Discover the power of Doc2Me where Patient Education meets Online Marketing. </p>
+              <p className="text-lg text-doc-gray mb-8">Transform your patient education and practice growth. Discover the power of Doc2Me where Patient Education meets Online Marketing. </p>
               
               
 

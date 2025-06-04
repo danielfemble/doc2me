@@ -1,0 +1,9 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://doc2me.co/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin/

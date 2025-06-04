@@ -13,7 +13,6 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import BlogAdmin from "@/pages/BlogAdmin";
 import Login from "@/pages/Login";
-import Sitemap from "@/pages/Sitemap";
 import RebrandingBanner from "@/components/RebrandingBanner";
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
           <Route path="/imprint" element={<Imprint />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/sitemap.xml" element={<Sitemap />} />
           <Route 
             path="/admin/blog" 
             element={

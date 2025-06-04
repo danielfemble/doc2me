@@ -1,4 +1,3 @@
-
 import { supabase } from "@/integrations/supabase/client";
 
 export interface BlogPost {
@@ -49,6 +48,20 @@ export const fetchPublishedPosts = async (
     count: totalCount, 
     hasMore 
   };
+};
+
+export const fetchAllPosts = async (): Promise<BlogPost[]> => {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .order('created_at', { ascending: false });
+  
+  if (error) {
+    console.error('Error fetching all posts:', error);
+    return [];
+  }
+  
+  return data || [];
 };
 
 export const fetchPostBySlug = async (slug: string): Promise<BlogPost | null> => {

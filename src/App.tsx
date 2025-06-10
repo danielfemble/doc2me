@@ -4,6 +4,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import NotFound from "@/pages/NotFound";
 import Index from "@/pages/Index";
+import Privacy from "@/pages/Privacy";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import DeleteAccountPolicy from "@/pages/DeleteAccountPolicy";
 import Contact from "@/pages/Contact";
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/utility-pages/privacy" element={<PrivacyPolicy />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Keep old route for backward compatibility */}
         <Route path="/delete-account-policy" element={<DeleteAccountPolicy />} />

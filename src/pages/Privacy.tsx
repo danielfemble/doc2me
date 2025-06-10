@@ -4,26 +4,46 @@ import { Helmet } from 'react-helmet';
 
 const Privacy = () => {
   useEffect(() => {
-    // Redirect to Iubenda privacy policy
-    window.location.href = 'https://www.iubenda.com/privacy-policy/92059710';
+    // Load Iubenda script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      (function (w,d) {
+        var loader = function () {
+          var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; 
+          s.src="https://cdn.iubenda.com/iubenda.js"; 
+          tag.parentNode.insertBefore(s,tag);
+        }; 
+        if(w.addEventListener){
+          w.addEventListener("load", loader, false);
+        } else if(w.attachEvent){
+          w.attachEvent("onload", loader);
+        } else {
+          w.onload = loader;
+        }
+      })(window, document);
+    `;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.head.removeChild(script);
+    };
   }, []);
 
   return (
     <>
       <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-        <title>Privacy Policy | Doc2Me</title>
+        <title>Datenschutzerklärung | Doc2Me</title>
       </Helmet>
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <h1 className="text-2xl font-semibold mb-4">Redirecting to Privacy Policy...</h1>
-          <p className="text-gray-600">
-            If you are not redirected automatically, 
-            <a href="https://www.iubenda.com/privacy-policy/92059710" className="text-doc-blue hover:underline ml-1">
-              click here
-            </a>
-          </p>
-        </div>
+      <div className="container max-w-4xl mx-auto px-4 py-8">
+        <a 
+          href="https://www.iubenda.com/privacy-policy/92059710" 
+          className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
+          title="Datenschutzerklärung"
+        >
+          Datenschutzerklärung
+        </a>
       </div>
     </>
   );

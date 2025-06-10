@@ -1,3 +1,4 @@
+
 import { Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -47,7 +48,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-doc-gray text-sm">&copy; {currentYear} Doc2Me. All rights reserved.</p>
           <div className="flex flex-wrap gap-6 text-sm">
-            <Link to="/utility-pages/privacy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</Link>
+            <a href="https://doc2me.co/privacy" className="text-doc-gray hover:text-doc-blue transition-colors">Privacy Policy</a>
             <Link to="/delete-account-policy" className="text-doc-gray hover:text-doc-blue transition-colors">Delete Account Policy</Link>
             <Link to="/imprint" className="text-doc-gray hover:text-doc-blue transition-colors">Imprint</Link>
           </div>

@@ -1,4 +1,4 @@
-
+ 
 import { Mail, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 

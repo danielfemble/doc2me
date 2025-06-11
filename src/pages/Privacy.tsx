@@ -19,51 +19,39 @@ const Privacy = () => {
   const [contentKey, setContentKey] = useState(0);
 
   useEffect(() => {
-    // Remove any existing Iubenda scripts
+    // Remove any existing Iubenda scripts and content
     const existingScripts = document.querySelectorAll('script[src*="iubenda.js"]');
     existingScripts.forEach(script => script.remove());
+    
+    // Clear any existing Iubenda content
+    const existingIubenda = document.querySelectorAll('.iubenda-embed');
+    existingIubenda.forEach(el => {
+      const parent = el.parentElement;
+      if (parent && parent.innerHTML.includes('iubenda')) {
+        parent.innerHTML = '';
+      }
+    });
 
-    // Load Iubenda script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.innerHTML = `
-      (function (w,d) {
-        var loader = function () {
-          var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; 
-          s.src="https://cdn.iubenda.com/iubenda.js"; 
-          tag.parentNode.insertBefore(s,tag);
-        }; 
-        if(w.addEventListener){
-          w.addEventListener("load", loader, false);
-        } else if(w.attachEvent){
-          w.attachEvent("onload", loader);
-        } else {
-          w.onload = loader;
-        }
-      })(window, document);
-    `;
-    document.head.appendChild(script);
+    // Small delay to ensure cleanup is complete
+    const timer = setTimeout(() => {
+      // Load Iubenda script
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://cdn.iubenda.com/iubenda.js';
+      script.onload = () => {
+        console.log('Iubenda script loaded for language:', language);
+      };
+      document.head.appendChild(script);
+    }, 100);
 
     return () => {
-      // Cleanup script on unmount
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
+      clearTimeout(timer);
     };
-  }, [contentKey]);
+  }, [contentKey, language]);
 
   // Force re-render when language changes
   useEffect(() => {
     setContentKey(prev => prev + 1);
-    
-    // Small delay to ensure proper re-initialization
-    const timer = setTimeout(() => {
-      if (window._iub && window._iub.csConfiguration) {
-        window._iub.csConfiguration.reloadOnConsentChange = true;
-      }
-    }, 200);
-
-    return () => clearTimeout(timer);
   }, [language]);
 
   return (
@@ -93,14 +81,14 @@ const Privacy = () => {
           </div>
         </div>
 
-        <div key={contentKey}>
+        <div key={contentKey} id="iubenda-content">
           {language === 'de' ? (
             <div dangerouslySetInnerHTML={{
-              __html: `<a href="https://www.iubenda.com/privacy-policy/92059710" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Datenschutzerklärung">Datenschutzerklärung</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
+              __html: `<a href="https://www.iubenda.com/privacy-policy/92059710" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Datenschutzerklärung">Datenschutzerklärung</a>`
             }} />
           ) : (
             <div dangerouslySetInnerHTML={{
-              __html: `<a href="https://www.iubenda.com/privacy-policy/39385510" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
+              __html: `<a href="https://www.iubenda.com/privacy-policy/39385510" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Privacy Policy">Privacy Policy</a>`
             }} />
           )}
         </div>

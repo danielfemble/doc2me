@@ -16,8 +16,13 @@ declare global {
 
 const Privacy = () => {
   const [language, setLanguage] = useState<'de' | 'en'>('de');
+  const [contentKey, setContentKey] = useState(0);
 
   useEffect(() => {
+    // Remove any existing Iubenda scripts
+    const existingScripts = document.querySelectorAll('script[src*="iubenda.js"]');
+    existingScripts.forEach(script => script.remove());
+
     // Load Iubenda script
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -45,16 +50,18 @@ const Privacy = () => {
         document.head.removeChild(script);
       }
     };
-  }, []);
+  }, [contentKey]);
 
-  // Trigger re-embedding when language changes
+  // Force re-render when language changes
   useEffect(() => {
-    // Small delay to ensure Iubenda script processes the new content
+    setContentKey(prev => prev + 1);
+    
+    // Small delay to ensure proper re-initialization
     const timer = setTimeout(() => {
       if (window._iub && window._iub.csConfiguration) {
         window._iub.csConfiguration.reloadOnConsentChange = true;
       }
-    }, 100);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [language]);
@@ -86,15 +93,17 @@ const Privacy = () => {
           </div>
         </div>
 
-        {language === 'de' ? (
-          <div dangerouslySetInnerHTML={{
-            __html: `<a href="https://www.iubenda.com/privacy-policy/92059710" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Datenschutzerklärung">Datenschutzerklärung</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
-          }} />
-        ) : (
-          <div dangerouslySetInnerHTML={{
-            __html: `<a href="https://www.iubenda.com/privacy-policy/39385510" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
-          }} />
-        )}
+        <div key={contentKey}>
+          {language === 'de' ? (
+            <div dangerouslySetInnerHTML={{
+              __html: `<a href="https://www.iubenda.com/privacy-policy/92059710" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Datenschutzerklärung">Datenschutzerklärung</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
+            }} />
+          ) : (
+            <div dangerouslySetInnerHTML={{
+              __html: `<a href="https://www.iubenda.com/privacy-policy/39385510" class="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>`
+            }} />
+          )}
+        </div>
       </div>
     </>
   );

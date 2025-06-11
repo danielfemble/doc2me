@@ -6,11 +6,7 @@ import { Button } from '@/components/ui/button';
 // Declare Iubenda types for TypeScript
 declare global {
   interface Window {
-    _iub?: {
-      csConfiguration?: {
-        reloadOnConsentChange?: boolean;
-      };
-    };
+    _iub?: any;
   }
 }
 
@@ -19,30 +15,30 @@ const Privacy = () => {
   const [contentKey, setContentKey] = useState(0);
 
   useEffect(() => {
-    // Remove any existing Iubenda scripts and content
+    // Clean up any existing Iubenda scripts and reset the _iub object
     const existingScripts = document.querySelectorAll('script[src*="iubenda.js"]');
     existingScripts.forEach(script => script.remove());
     
-    // Clear any existing Iubenda content
-    const existingIubenda = document.querySelectorAll('.iubenda-embed');
-    existingIubenda.forEach(el => {
-      const parent = el.parentElement;
-      if (parent && parent.innerHTML.includes('iubenda')) {
-        parent.innerHTML = '';
-      }
-    });
+    // Reset Iubenda global object
+    if (window._iub) {
+      delete window._iub;
+    }
 
     // Small delay to ensure cleanup is complete
     const timer = setTimeout(() => {
-      // Load Iubenda script
+      // Load fresh Iubenda script
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://cdn.iubenda.com/iubenda.js';
       script.onload = () => {
-        console.log('Iubenda script loaded for language:', language);
+        console.log('Iubenda script loaded and processing embeds for language:', language);
+        // Force Iubenda to process the embeds after script loads
+        if (window._iub && window._iub.init) {
+          window._iub.init();
+        }
       };
       document.head.appendChild(script);
-    }, 100);
+    }, 200);
 
     return () => {
       clearTimeout(timer);

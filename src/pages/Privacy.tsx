@@ -3,6 +3,17 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 
+// Declare Iubenda types for TypeScript
+declare global {
+  interface Window {
+    _iub?: {
+      csConfiguration?: {
+        reloadOnConsentChange?: boolean;
+      };
+    };
+  }
+}
+
 const Privacy = () => {
   const [language, setLanguage] = useState<'de' | 'en'>('de');
 

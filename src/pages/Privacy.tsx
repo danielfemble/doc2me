@@ -38,27 +38,25 @@ const Privacy = () => {
     };
     
     document.head.appendChild(script);
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
-  // Initialize embeds when script loads or language changes
+  // Reinitialize embeds when language changes and script is loaded
   useEffect(() => {
     if (!scriptLoaded) return;
 
     const timer = setTimeout(() => {
-      // Clear any existing embedded content
-      const existingEmbeds = document.querySelectorAll('.iub-container, .iub-body-embed');
-      existingEmbeds.forEach(embed => {
-        if (embed.parentNode) {
-          embed.parentNode.removeChild(embed);
-        }
-      });
-      
       // Force Iubenda to re-scan for embeds
       if (window.iubenda && window.iubenda.embed) {
-        console.log('Initializing Iubenda embeds for language:', language);
+        console.log('Re-initializing Iubenda embeds for language:', language);
         window.iubenda.embed();
       }
-    }, 300);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [language, scriptLoaded]);
@@ -90,29 +88,27 @@ const Privacy = () => {
           </div>
         </div>
 
-        <div key={language}>
-          {language === 'de' ? (
-            <div>
-              <a 
-                href="https://www.iubenda.com/privacy-policy/92059710" 
-                className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
-                title="Datenschutzerklärung"
-              >
-                Datenschutzerklärung
-              </a>
-            </div>
-          ) : (
-            <div>
-              <a 
-                href="https://www.iubenda.com/privacy-policy/39385510" 
-                className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
-                title="Privacy Policy"
-              >
-                Privacy Policy
-              </a>
-            </div>
-          )}
-        </div>
+        {language === 'de' ? (
+          <div>
+            <a 
+              href="https://www.iubenda.com/privacy-policy/92059710" 
+              className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
+              title="Datenschutzerklärung"
+            >
+              Datenschutzerklärung
+            </a>
+          </div>
+        ) : (
+          <div>
+            <a 
+              href="https://www.iubenda.com/privacy-policy/39385510" 
+              className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
+              title="Privacy Policy"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        )}
       </div>
     </>
   );

@@ -22,27 +22,8 @@ const Privacy = () => {
   const [language, setLanguage] = useState<'de' | 'en'>('de');
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  // Function to remove existing Iubenda script and content
-  const cleanupIubenda = () => {
-    // Remove existing script
-    const existingScript = document.querySelector('script[src="https://cdn.iubenda.com/iubenda.js"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
-    
-    // Clear existing embeds
-    const existingEmbeds = document.querySelectorAll('.iub-container, .iub-body-embed');
-    existingEmbeds.forEach(embed => embed.remove());
-    
-    // Clear Iubenda from window
-    delete window.iubenda;
-    delete window._iub;
-    
-    setScriptLoaded(false);
-  };
-
-  // Load Iubenda script
-  const loadIubendaScript = () => {
+  // Load Iubenda script once
+  useEffect(() => {
     if (scriptLoaded) return;
 
     const script = document.createElement('script');
@@ -50,39 +31,37 @@ const Privacy = () => {
     script.src = 'https://cdn.iubenda.com/iubenda.js';
     script.onload = () => {
       setScriptLoaded(true);
-      console.log('Iubenda script loaded for language:', language);
-      
-      // Initialize embeds after script loads
-      setTimeout(() => {
-        if (window.iubenda && window.iubenda.embed) {
-          window.iubenda.embed();
-        }
-      }, 100);
+      console.log('Iubenda script loaded');
     };
     script.onerror = () => {
       console.error('Failed to load Iubenda script');
     };
     
     document.head.appendChild(script);
-  };
-
-  // Initial load
-  useEffect(() => {
-    loadIubendaScript();
   }, []);
 
-  // Handle language changes
+  // Initialize embeds when script loads or language changes
   useEffect(() => {
     if (!scriptLoaded) return;
-    
-    // Clean up and reload script for language change
-    cleanupIubenda();
-    
-    // Small delay to ensure cleanup is complete
-    setTimeout(() => {
-      loadIubendaScript();
-    }, 100);
-  }, [language]);
+
+    const timer = setTimeout(() => {
+      // Clear any existing embedded content
+      const existingEmbeds = document.querySelectorAll('.iub-container, .iub-body-embed');
+      existingEmbeds.forEach(embed => {
+        if (embed.parentNode) {
+          embed.parentNode.removeChild(embed);
+        }
+      });
+      
+      // Force Iubenda to re-scan for embeds
+      if (window.iubenda && window.iubenda.embed) {
+        console.log('Initializing Iubenda embeds for language:', language);
+        window.iubenda.embed();
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [language, scriptLoaded]);
 
   return (
     <>
@@ -111,7 +90,7 @@ const Privacy = () => {
           </div>
         </div>
 
-        <div key={`${language}-${scriptLoaded}`}>
+        <div key={language}>
           {language === 'de' ? (
             <div>
               <a 

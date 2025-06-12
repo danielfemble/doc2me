@@ -51,12 +51,16 @@ const Privacy = () => {
     if (!scriptLoaded) return;
 
     const timer = setTimeout(() => {
+      // Clear any existing embedded content
+      const existingEmbeds = document.querySelectorAll('.iub-container');
+      existingEmbeds.forEach(embed => embed.remove());
+      
       // Force Iubenda to re-scan for embeds
       if (window.iubenda && window.iubenda.embed) {
         console.log('Re-initializing Iubenda embeds for language:', language);
         window.iubenda.embed();
       }
-    }, 100);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, [language, scriptLoaded]);
@@ -88,27 +92,29 @@ const Privacy = () => {
           </div>
         </div>
 
-        {language === 'de' ? (
-          <div>
-            <a 
-              href="https://www.iubenda.com/privacy-policy/92059710" 
-              className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
-              title="Datenschutzerklärung"
-            >
-              Datenschutzerklärung
-            </a>
-          </div>
-        ) : (
-          <div>
-            <a 
-              href="https://www.iubenda.com/privacy-policy/39385510" 
-              className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
-              title="Privacy Policy"
-            >
-              Privacy Policy
-            </a>
-          </div>
-        )}
+        <div key={language}>
+          {language === 'de' ? (
+            <div>
+              <a 
+                href="https://www.iubenda.com/privacy-policy/92059710" 
+                className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
+                title="Datenschutzerklärung"
+              >
+                Datenschutzerklärung
+              </a>
+            </div>
+          ) : (
+            <div>
+              <a 
+                href="https://www.iubenda.com/privacy-policy/39385510" 
+                className="iubenda-white no-brand iubenda-noiframe iubenda-embed iubenda-noiframe iub-body-embed" 
+                title="Privacy Policy"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

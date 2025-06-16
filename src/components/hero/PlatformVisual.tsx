@@ -1,4 +1,5 @@
 
+
 import { MessageCircle, ThumbsUp, Scan, BrainCircuit, Bot } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -12,7 +13,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   return (
     <div className={`relative w-full ${className}`}>
       <div className="platform-visual-wrapper perspective-900 mx-auto">
-        <div className="relative mx-auto max-w-none w-full">
+        <div className="relative mx-auto max-w-6xl">
           {/* Mobile: Four overlays positioned around the image */}
           {isMobile && (
             <>
@@ -60,13 +61,14 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
             </>
           )}
           
-          {/* Main content display - Full width image without background */}
-          <div className="relative z-10 w-full">
-            <div className="relative w-full max-w-none">
+          {/* Main content display */}
+          <div className="relative z-10 mx-auto">
+            {/* Conditional image rendering based on device type */}
+            <div className={`relative w-full ${isMobile ? 'h-[110vh]' : 'h-[80vh]'} rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm`}>
               <img 
-                src="/lovable-uploads/aa3771d4-10b8-466f-9a63-14de48ceab7c.png"
-                alt="Doc2Me video management dashboard"
-                className="w-full h-auto object-contain max-w-none"
+                src="https://github.com/danielfemble/Assets/blob/main/Green%20Minimalist%20Digital%20Product%20Mockups%20Instagram%20Post%20(1).gif?raw=true"
+                alt="Doc2Me animated digital product mockup"
+                className="w-full h-full object-contain p-2"
                 style={{ imageRendering: 'auto' }}
                 loading="eager"
               />
@@ -131,3 +133,4 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
 };
 
 export default PlatformVisual;
+

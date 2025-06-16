@@ -12,7 +12,7 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
   return (
     <div className={`relative w-full ${className}`}>
       <div className="platform-visual-wrapper perspective-900 mx-auto">
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-none w-full">
           {/* Mobile: Four overlays positioned around the image */}
           {isMobile && (
             <>
@@ -61,12 +61,12 @@ const PlatformVisual = ({ className = "" }: PlatformVisualProps) => {
           )}
           
           {/* Main content display - Full width image without background */}
-          <div className="relative z-10 mx-auto">
-            <div className="relative w-full">
+          <div className="relative z-10 w-full">
+            <div className="relative w-full max-w-none">
               <img 
                 src="/lovable-uploads/aa3771d4-10b8-466f-9a63-14de48ceab7c.png"
                 alt="Doc2Me video management dashboard"
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain max-w-none"
                 style={{ imageRendering: 'auto' }}
                 loading="eager"
               />

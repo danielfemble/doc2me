@@ -24,7 +24,7 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_15px_rgba(2,113,229,0.4)] bg-white">
+      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_30px_rgba(2,113,229,0.6)] bg-white">
         {/* Content wrapper with proper z-index */}
         <div className="relative z-20 w-full h-full">
           <DialogHeader>
@@ -36,29 +36,36 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
             </DialogDescription>
           </DialogHeader>
           <div className="mt-6 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-50 blur-sm animate-pulse-slow"></div>
-            <div className="relative bg-white rounded-md p-1">
+            {/* Enhanced gradient border with animation */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-75 blur-md animate-pulse-slow"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-doc-blue via-doc-purple to-doc-blue-dark rounded-lg opacity-50 blur-sm animate-gradient-xy"></div>
+            <div className="relative bg-white rounded-md p-2 shadow-2xl">
               <iframe 
                 width="540" 
-                height={isMobile ? "560" : "550"} 
-                src="https://sibforms.com/serve/MUIFALphWNuzT13Q_GfS7GYo0_AJQ2S_64P9K7fRNYNSd9U_LVMQ_O-Gje5URQdOkmhbc3YNNdepU_I_jrhqUxQdg9T98sL9RNh-r3BGWoN0remP5-WTx8kwrF5zt1K1hbI15tzFCUDR_uZC9zL7dhZn9MZ5OkWD7EQ9d11AEHYWIiyf64un4-5xR17xYU8X2bA7bA7CSBcgZHBG" 
+                height={isMobile ? "305" : "305"} 
+                src="https://d1503a6e.sibforms.com/serve/MUIFALVtMPoPFV5xx5kq8TehzKdFoSTi4MaB-M-ae5WfhgkRQcr8e--01IHRCkz7fiDljb7jMdFuA08UXNqFIw_DsDBop2a7yLhR2kggDinQkiqAQbCLCrjg0ChVY7WG-YWQW9eJHDvpZVAUWQNl2D-RCTr60obTtt-Rrf93wccwrv24wmBgGVeaDFzI2HWFxaC0mzO2tj8XmFZv" 
                 frameBorder="0" 
                 scrolling="auto" 
                 allowFullScreen 
                 style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
-                className="rounded-md shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.01]"
+                className="rounded-md shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] border border-doc-blue/20"
               />
             </div>
           </div>
         </div>
         
-        {/* Background effects - positioned beneath content */}
-        <div className="absolute inset-0 bg-gradient-to-br from-doc-blue/10 via-doc-purple/10 to-doc-blue-dark/10 z-0"></div>
-        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10"></div>
+        {/* Enhanced background effects with multiple layers */}
+        <div className="absolute inset-0 bg-gradient-to-br from-doc-blue/15 via-doc-purple/15 to-doc-blue-dark/15 z-0 animate-gradient-xy"></div>
+        <div className="absolute inset-0 bg-white/85 backdrop-blur-sm z-10"></div>
         
-        {/* Custom X button */}
-        <DialogClose className="absolute right-4 top-4 rounded-full w-8 h-8 flex items-center justify-center bg-white/90 hover:bg-white shadow-md z-30 transition-all duration-200 hover:scale-105 border-2 border-doc-blue/20">
-          <X className="h-5 w-5 text-doc-blue" />
+        {/* Additional floating particles effect */}
+        <div className="absolute top-10 left-10 w-2 h-2 bg-doc-blue/30 rounded-full animate-float z-5"></div>
+        <div className="absolute top-20 right-16 w-1 h-1 bg-doc-purple/40 rounded-full animate-pulse z-5" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-16 left-20 w-1.5 h-1.5 bg-doc-blue-dark/30 rounded-full animate-float z-5" style={{animationDelay: '2s'}}></div>
+        
+        {/* Enhanced custom X button with glow effect */}
+        <DialogClose className="absolute right-4 top-4 rounded-full w-10 h-10 flex items-center justify-center bg-white/95 hover:bg-white shadow-lg hover:shadow-xl z-30 transition-all duration-300 hover:scale-110 border-2 border-doc-blue/30 hover:border-doc-blue/50 group">
+          <X className="h-5 w-5 text-doc-blue group-hover:text-doc-blue-dark transition-colors duration-200" />
           <span className="sr-only">Close</span>
         </DialogClose>
       </DialogContent>

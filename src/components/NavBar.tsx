@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from 'react-router-dom';
+import SignupDialog from "@/components/SignupDialog";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,11 +19,6 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/signup', '_blank');
-    setIsMenuOpen(false); // Close mobile menu if open
-  };
 
   const getNavLink = (section: string, label: string) => {
     if (isHomePage) {
@@ -53,13 +49,16 @@ const NavBar = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center">
-            <Button 
-              variant="gradient" 
-              className="rounded-lg"
-              onClick={handleGetStarted}
-            >
-              Get Started
-            </Button>
+            <SignupDialog 
+              trigger={
+                <Button 
+                  variant="gradient" 
+                  className="rounded-lg"
+                >
+                  Get Demo
+                </Button>
+              }
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,13 +89,16 @@ const NavBar = () => {
             <Link to="/blog" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Blog</Link>
             <Link to="/contact" className="text-doc-black/80 hover:text-doc-blue py-2 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             <div className="flex flex-col gap-2 pt-2 border-t border-gray-100">
-              <Button 
-                variant="gradient" 
-                className="w-full justify-center rounded-lg"
-                onClick={handleGetStarted}
-              >
-                Get Started
-              </Button>
+              <SignupDialog 
+                trigger={
+                  <Button 
+                    variant="gradient" 
+                    className="w-full justify-center rounded-lg"
+                  >
+                    Get Demo
+                  </Button>
+                }
+              />
             </div>
           </div>
         )}

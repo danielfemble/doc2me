@@ -1,14 +1,12 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import SignupDialog from "@/components/SignupDialog";
 
 const PricingSection = () => {
   const [selectedTier, setSelectedTier] = useState<'single' | 'organization'>('single');
-
-  const handleGetStarted = () => {
-    window.open('https://studio.doc2me.co/auth/signup', '_blank');
-  };
 
   const pricingOptions = [
     {
@@ -72,14 +70,17 @@ const PricingSection = () => {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button 
-                  variant="gradient" 
-                  className="w-full" 
-                  size="lg"
-                  onClick={handleGetStarted}
-                >
-                  Get Started
-                </Button>
+                <SignupDialog 
+                  trigger={
+                    <Button 
+                      variant="gradient" 
+                      className="w-full" 
+                      size="lg"
+                    >
+                      Get Demo
+                    </Button>
+                  }
+                />
               </CardFooter>
             </Card>
           ))}

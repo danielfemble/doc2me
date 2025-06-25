@@ -24,7 +24,7 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="sm:max-w-[600px] h-auto max-h-[90vh] overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_30px_rgba(2,113,229,0.6)] bg-white">
+      <DialogContent className="sm:max-w-[600px] h-auto max-h-[95vh] overflow-hidden border-2 border-doc-blue/40 shadow-[0_0_30px_rgba(2,113,229,0.6)] bg-white">
         {/* Content wrapper with proper z-index */}
         <div className="relative z-20 w-full h-full">
           <DialogHeader>
@@ -42,7 +42,7 @@ const SignupDialog = ({ trigger, defaultOpen = false }: SignupDialogProps) => {
             <div className="relative bg-white rounded-md p-2 shadow-2xl">
               <iframe 
                 width="540" 
-                height={isMobile ? "305" : "305"} 
+                height={isMobile ? "500" : "600"} 
                 src="https://d1503a6e.sibforms.com/serve/MUIFALVtMPoPFV5xx5kq8TehzKdFoSTi4MaB-M-ae5WfhgkRQcr8e--01IHRCkz7fiDljb7jMdFuA08UXNqFIw_DsDBop2a7yLhR2kggDinQkiqAQbCLCrjg0ChVY7WG-YWQW9eJHDvpZVAUWQNl2D-RCTr60obTtt-Rrf93wccwrv24wmBgGVeaDFzI2HWFxaC0mzO2tj8XmFZv" 
                 frameBorder="0" 
                 scrolling="auto" 
